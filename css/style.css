@@ -1,0 +1,30 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+a,
+a:active,
+a:hover,
+a:visited {
+  color: black;
+  font-weight: bold;
+}
+
+.title {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.card {
+  border: none;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

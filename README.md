@@ -1,4 +1,4 @@
-# Joshua Cerdenia Music
-Temporary website while I build something better. Nothing but HTML, with help from Bootstrap CSS.
+# Joshua's Dev Page
+Nothing but plain HTML, with assistance from Bootstrap.
 
-Served at [music.cerdenia.com](http://music.cerdenia.com).
+Served at [dev.cerdenia.com](http://dev.cerdenia.com).

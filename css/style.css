@@ -18,9 +18,9 @@ a:hover {
   color: slategray;
 }
 
-.title {
+.header {
   padding-top: 24px;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
 }
 
 .card {

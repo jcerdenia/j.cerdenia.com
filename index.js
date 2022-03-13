@@ -41,7 +41,7 @@ function main() {
     );
 
     // Save entry as HTML list item.
-    entriesEl.push(`<li><a href="./notes/${slug}">${data.title}</a></li>`);
+    entriesEl.push(`<li><a href="./${slug}">${data.title}</a></li>`);
   });
 
   const listEl = entriesEl.join("\n");

@@ -24,8 +24,8 @@ function main() {
     });
 
   // Convert markdown files to HTML pages.
-  fs.readdirSync("./markdown").forEach((fn) => {
-    const markdown = fs.readFileSync(`./markdown/${fn}`, "utf-8");
+  fs.readdirSync("./entries").forEach((fn) => {
+    const markdown = fs.readFileSync(`./entries/${fn}`, "utf-8");
     const { data, content } = matter(markdown);
     const html = md.render(content);
     const slug = fn.replace(".md", "");

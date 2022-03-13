@@ -19,9 +19,7 @@
   "homepage": "https://github.com/joshuacerdenia/joshuacerdenia.github.io#readme",
   "devDependencies": {
     "gray-matter": "^4.0.3",
+    "html-minifier": "^4.0.0",
     "markdown-it": "^12.3.2"
-  },
-  "dependencies": {
-    "html-minifier": "^4.0.0"
   }
 }

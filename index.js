@@ -2,7 +2,11 @@ function main() {
   const fs = require("fs");
   const matter = require("gray-matter");
   const md = require("markdown-it")({ html: true });
-  const noteTemplate = fs.readFileSync("template-note.html", "utf-8");
+  const noteTemplate = fs.readFileSync(
+    "./templates/template-note.html",
+    "utf-8"
+  );
+
   const entriesEl = [];
 
   fs.readdirSync("./markdown").forEach((fn) => {
@@ -22,8 +26,11 @@ function main() {
     entriesEl.push(`<li><a href="./notes/${slug}">${data.title}</a></li>`);
   });
 
-  const indexTemplate = fs.readFileSync("template-index.html", "utf-8");
   const listEl = entriesEl.join("\n");
+  const indexTemplate = fs.readFileSync(
+    "./templates/template-index.html",
+    "utf-8"
+  );
 
   fs.writeFileSync(
     "./index.html",

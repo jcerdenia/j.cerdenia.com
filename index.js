@@ -35,7 +35,7 @@ function main() {
       minify(
         entryTemplate
           .replace(/KEY_TITLE/g, data.title)
-          .replace("KEY_BODY", html),
+          .replace("KEY_CONTENT", html),
         minifyOptions
       )
     );

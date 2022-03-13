@@ -1,40 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Oxygen", sans-serif;
+  font-family: "PT Serif", serif;
 }
 
-a:link,
-a:visited,
-a:hover,
-a:active {
-  color: black;
-  font-weight: bold;
+a {
   text-decoration: none;
 }
 
-a:hover {
-  color: slategray;
-}
-
-.header {
-  padding-top: 24px;
-  padding-bottom: 12px;
-}
-
-.card {
-  border: none;
-}
-
-.card-title {
-  text-align: center;
-}
-
-.centered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.content {
+  font-size: 1.25rem;
 }

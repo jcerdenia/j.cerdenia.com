@@ -2,6 +2,17 @@ function main() {
   const fs = require("fs");
   const matter = require("gray-matter");
   const md = require("markdown-it")({ html: true });
+  const { minify } = require("html-minifier");
+
+  const minifyOptions = {
+    collapseWhitespace: true,
+    removeComments: true,
+    collapseBooleanAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+  };
+
   const noteTemplate = fs.readFileSync(
     "./templates/template-note.html",
     "utf-8"
@@ -21,10 +32,12 @@ function main() {
 
     fs.writeFileSync(
       `./notes/${slug}.html`,
-      noteTemplate
-        .replace("🔑__TITLE__🔑", data.title)
-        .replace("🔑__MARKDOWN__🔑", html),
-      "utf-8"
+      minify(
+        noteTemplate
+          .replace("🔑__TITLE__🔑", data.title)
+          .replace("🔑__MARKDOWN__🔑", html),
+        minifyOptions
+      )
     );
 
     entriesEl.push(`<li><a href="./notes/${slug}">${data.title}</a></li>`);
@@ -38,7 +51,7 @@ function main() {
 
   fs.writeFileSync(
     "./index.html",
-    indexTemplate.replace("🔑__ENTRIES__🔑", listEl)
+    minify(indexTemplate.replace("🔑__ENTRIES__🔑", listEl), minifyOptions)
   );
 }
 

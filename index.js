@@ -9,6 +9,10 @@ function main() {
 
   const entriesEl = [];
 
+  fs.readdirSync("./notes").forEach((fn) => {
+    fs.unlinkSync(`./notes/${fn}`);
+  });
+
   fs.readdirSync("./markdown").forEach((fn) => {
     const markdown = fs.readFileSync(`./markdown/${fn}`, "utf-8");
     const { data, content } = matter(markdown);

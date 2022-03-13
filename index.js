@@ -13,17 +13,17 @@ function main() {
     removeOptionalTags: true,
   };
 
-  const noteTemplate = fs.readFileSync(
-    "./templates/template-note.html",
-    "utf-8"
-  );
-
+  const entryTemplate = fs.readFileSync("./templates/entry.html", "utf-8");
   const entriesEl = [];
 
-  fs.readdirSync("./notes").forEach((fn) => {
-    fs.unlinkSync(`./notes/${fn}`);
-  });
+  // Clear existing HTML files.
+  fs.readdirSync("./docs")
+    .filter((fn) => fn.endsWith(".html"))
+    .forEach((fn) => {
+      fs.unlinkSync(`./docs/${fn}`);
+    });
 
+  // Convert markdown files to HTML pages.
   fs.readdirSync("./markdown").forEach((fn) => {
     const markdown = fs.readFileSync(`./markdown/${fn}`, "utf-8");
     const { data, content } = matter(markdown);
@@ -31,27 +31,25 @@ function main() {
     const slug = fn.replace(".md", "");
 
     fs.writeFileSync(
-      `./notes/${slug}.html`,
+      `./docs/${slug}.html`,
       minify(
-        noteTemplate
-          .replace("🔑__TITLE__🔑", data.title)
-          .replace("🔑__MARKDOWN__🔑", html),
+        entryTemplate
+          .replace(/KEY_TITLE/g, data.title)
+          .replace("KEY_BODY", html),
         minifyOptions
       )
     );
 
+    // Save entry as HTML list item.
     entriesEl.push(`<li><a href="./notes/${slug}">${data.title}</a></li>`);
   });
 
   const listEl = entriesEl.join("\n");
-  const indexTemplate = fs.readFileSync(
-    "./templates/template-index.html",
-    "utf-8"
-  );
+  const indexTemplate = fs.readFileSync("./templates/index.html", "utf-8");
 
   fs.writeFileSync(
-    "./index.html",
-    minify(indexTemplate.replace("🔑__ENTRIES__🔑", listEl), minifyOptions)
+    "./docs/index.html",
+    minify(indexTemplate.replace("KEY_ENTRIES", listEl), minifyOptions)
   );
 }
 

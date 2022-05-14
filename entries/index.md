@@ -2,7 +2,7 @@
 title: "Index"
 ---
 
-![](/marsh.jpeg)
+![](/public/marsh.jpeg)
 
 Hi, I'm Joshua. I lead a double life as a software developer and composer of concert music. At the moment, I live in the Philippines.
 

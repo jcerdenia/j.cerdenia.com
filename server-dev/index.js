@@ -13,18 +13,16 @@ app.get("/", (_req, res) => {
   });
 });
 
-app.get("/:name", (req, res) => {
-  const name = req.params.name;
+app.get("/:path", (req, res) => {
+  res.sendFile(`${req.params.path}.html`, {
+    root: path.join("docs"),
+  });
+});
 
-  if (name.includes(".")) {
-    res.sendFile(name, {
-      root: path.join("docs", "public"),
-    });
-  } else {
-    res.sendFile(`${name}.html`, {
-      root: path.join("docs"),
-    });
-  }
+app.get("/public/:path", (req, res) => {
+  res.sendFile(req.params.path, {
+    root: path.join("docs", "public"),
+  });
 });
 
 app.get("/css/style.css", (req, res) => {

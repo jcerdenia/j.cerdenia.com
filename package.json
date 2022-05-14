@@ -4,7 +4,8 @@
   "description": "Nothing but plain HTML, with assistance from Bootstrap.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "build": "node server-dev/build.js",
+    "dev": "nodemon server-dev/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,8 +19,16 @@
   },
   "homepage": "https://github.com/joshuacerdenia/joshuacerdenia.github.io#readme",
   "devDependencies": {
+    "express": "^4.18.1",
     "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
-    "markdown-it": "^12.3.2"
+    "markdown-it": "^12.3.2",
+    "nodemon": "^2.0.16"
+  },
+  "nodemonConfig": {
+    "ext": "js,json,md,html,css",
+    "ignore": [
+      "docs/*"
+    ]
   }
 }

@@ -1,6 +1,7 @@
-# J. C.'s Public Notebook
-A bare-bones site with HTML pages generated from markdown by a simple script.
+# Joshua Cerdenia's Home Page
 
-With assistance from Bootstrap.
+A bare-bones site with HTML pages generated from markdown by a simple script; with CSS assistance from Bootstrap.
 
-Served at [notes.cerdenia.com](http://notes.cerdenia.com).
+Now with a simple development server.
+
+Served at [cerdenia.com](https://cerdenia.com).

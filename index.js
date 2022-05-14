@@ -18,7 +18,7 @@ function main() {
 
   // Clear existing HTML files.
   fs.readdirSync("./docs")
-    .filter((fn) => fn.endsWith(".html"))
+    .filter((fn) => fn.endsWith(".html") && fn !== "coding.html")
     .forEach((fn) => {
       fs.unlinkSync(`./docs/${fn}`);
     });

@@ -1,7 +1,12 @@
 # Joshua Cerdenia's Home Page
 
-A bare-bones site with HTML pages generated from markdown by a simple script; with CSS assistance from Bootstrap.
+A bare-bones static site generated from markdown; with CSS assistance from Bootstrap.
 
-Now with a simple development server.
+Served at [cerdenia.com](https://cerdenia.com) (deployed with Vercel).
 
-Served at [cerdenia.com](https://cerdenia.com).
+To run locally, after cloning, install dependencies and run the development server:
+
+```
+npm i
+npm run dev
+```

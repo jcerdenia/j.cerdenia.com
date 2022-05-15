@@ -15,16 +15,16 @@ const minifyOptions = {
 };
 
 const buildIndex = () => {
-  const markdown = fs.readFileSync("./entries/index.md", "utf-8");
+  const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
-  // Create HTML list of entries.
-  const entriesHtml = fs
-    .readdirSync("./entries")
+  // Create HTML list of pages.
+  const pagesHtml = fs
+    .readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
-      const markdown = fs.readFileSync(`./entries/${fn}`);
+      const markdown = fs.readFileSync(`./markdown/${fn}`);
       const { data } = matter(markdown);
       const slug = fn.replace(".md", "");
       return `<li><a href="./${slug}">${data.title}</a></li>`;
@@ -37,13 +37,13 @@ const buildIndex = () => {
       .replace("$KEY_TITLE_BODY", data.title)
       .replace("$KEY_SLUG", "/")
       .replace("$KEY_CONTENT", contentHtml)
-      .replace("$KEY_OTHER", `<ul class="my-4">${entriesHtml}</ul>`),
+      .replace("$KEY_OTHER", `<ul class="my-4">${pagesHtml}</ul>`),
     minifyOptions
   );
 };
 
 const buildPage = (slug) => {
-  const markdown = fs.readFileSync(`./entries/${slug}.md`, "utf-8");
+  const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
@@ -62,15 +62,13 @@ const build = () => {
   // Clear existing HTML files.
   fs.readdirSync("./public")
     .filter((fn) => fn.endsWith(".html"))
-    .forEach((fn) => {
-      fs.unlinkSync(`./public/${fn}`);
-    });
+    .forEach((fn) => fs.unlinkSync(`./public/${fn}`));
 
   // Write index page.
   fs.writeFileSync("./public/index.html", buildIndex());
 
   // Write HTML pages from markdown files.
-  fs.readdirSync("./entries")
+  fs.readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");

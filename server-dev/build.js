@@ -61,10 +61,13 @@ const buildPage = (slug) => {
 const build = () => {
   // Clear existing HTML files.
   fs.readdirSync("./docs")
-    .filter((fn) => fn.endsWith(".html") && fn !== "coding.html")
+    .filter((fn) => fn.endsWith(".html"))
     .forEach((fn) => {
       fs.unlinkSync(`./docs/${fn}`);
     });
+
+  // Write index page.
+  fs.writeFileSync("./docs/index.html", buildIndex());
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./entries")
@@ -74,8 +77,16 @@ const build = () => {
       fs.writeFileSync(`./docs/${slug}.html`, buildPage(slug));
     });
 
-  // Write index page.
-  fs.writeFileSync("./docs/index.html", buildIndex());
+  // Create redirects.
+  const rd = require("../redirects.json");
+  const rdTemplate = fs.readFileSync("./templates/redirect.html", "utf-8");
+
+  Object.keys(rd).forEach((key) => {
+    fs.writeFileSync(
+      `./docs/${key}.html`,
+      minify(rdTemplate.replace("$KEY_URL", rd[key]), minifyOptions)
+    );
+  });
 };
 
 module.exports = {

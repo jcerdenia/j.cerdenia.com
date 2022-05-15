@@ -2,8 +2,10 @@
 title: "Index"
 ---
 
-![](/public/marsh.jpeg)
+![](/images/marsh.jpeg)
 
-Hi, I'm Joshua. I lead a double life as a software developer and composer of concert music. At the moment, I live in the Philippines.
+<figcaption>My current whereabouts</figcaption>
 
-Check out my [music](https://music.cerdenia.com) or hobby [coding projects](https://dev.cerdenia.com).
+Hi, I'm Joshua. I lead a double life as a software developer and concert music composer.
+
+Check out [my music](https://music.cerdenia.com) or [coding projects](https://dev.cerdenia.com).

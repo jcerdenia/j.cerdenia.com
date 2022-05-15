@@ -13,21 +13,15 @@ app.get("/", (_req, res) => {
   });
 });
 
-app.get("/:path", (req, res) => {
-  res.sendFile(`${req.params.path}.html`, {
+app.get("/:page", (req, res) => {
+  res.sendFile(`${req.params.page}.html`, {
     root: path.join("docs"),
   });
 });
 
-app.get("/public/:path", (req, res) => {
-  res.sendFile(req.params.path, {
-    root: path.join("docs", "public"),
-  });
-});
-
-app.get("/css/style.css", (req, res) => {
-  res.sendFile("style.css", {
-    root: path.join("docs", "css"),
+app.get("/:dir/:file", (req, res) => {
+  res.sendFile(req.params.file, {
+    root: path.join("docs", req.params.dir),
   });
 });
 

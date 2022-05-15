@@ -13,7 +13,7 @@ function build() {
     removeOptionalTags: true,
   };
 
-  const entryTemplate = fs.readFileSync("./templates/entry.html", "utf-8");
+  const entryTemplate = fs.readFileSync("./templates/page.html", "utf-8");
   const entriesEl = [];
 
   // Clear existing HTML files.
@@ -36,9 +36,11 @@ function build() {
         `./docs/${slug}.html`,
         minify(
           entryTemplate
-            .replace(/KEY_TITLE/g, data.title)
-            .replace("KEY_SLUG", slug)
-            .replace("KEY_CONTENT", html),
+            .replace("$KEY_TITLE_HEAD", data.title + " - Joshua Cerdenia")
+            .replace("$KEY_TITLE_BODY", data.title)
+            .replace("$KEY_SLUG", slug)
+            .replace("$KEY_CONTENT", html)
+            .replace("$KEY_OTHER", `← <a href="../">Go back</a>`),
           minifyOptions
         )
       );
@@ -49,19 +51,21 @@ function build() {
 
   // Parse markdown content for index page.
   const markdown = fs.readFileSync("./entries/index.md", "utf-8");
-  const { content } = matter(markdown);
+  const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
   // Create HTML list of entries.
   const listEl = entriesEl.join("\n");
-  const indexTemplate = fs.readFileSync("./templates/index.html", "utf-8");
+  const indexTemplate = fs.readFileSync("./templates/page.html", "utf-8");
 
   fs.writeFileSync(
     "./docs/index.html",
     minify(
       indexTemplate
-        .replace("KEY_INDEX_CONTENT", contentHtml)
-        .replace("KEY_ENTRIES", listEl),
+        .replace("$KEY_TITLE_HEAD", data.title)
+        .replace("$KEY_TITLE_BODY", data.title)
+        .replace("$KEY_CONTENT", contentHtml)
+        .replace("$KEY_OTHER", `<ul class="my-4">${listEl}</ul>`),
       minifyOptions
     )
   );

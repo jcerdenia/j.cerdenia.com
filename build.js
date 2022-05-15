@@ -78,7 +78,7 @@ const build = () => {
     });
 
   // Create redirects.
-  const rd = require("../redirects.json");
+  const rd = require("./redirects.json");
   const rdTemplate = fs.readFileSync("./templates/redirect.html", "utf-8");
 
   Object.keys(rd).forEach((key) => {

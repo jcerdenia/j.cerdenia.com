@@ -4,8 +4,8 @@
   "description": "Nothing but plain HTML, with assistance from Bootstrap.",
   "main": "index.js",
   "scripts": {
-    "build": "node -e 'require(\"./server-dev/build.js\").build()'",
-    "dev": "nodemon server-dev/index.js",
+    "build": "node -e 'require(\"./build.js\").build()'",
+    "dev": "nodemon dev-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

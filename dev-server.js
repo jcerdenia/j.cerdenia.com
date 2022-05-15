@@ -15,7 +15,7 @@ app.get("/:page", (req, res) => {
 
 app.get("/:dir/:file", (req, res) => {
   res.sendFile(req.params.file, {
-    root: path.join("docs", req.params.dir),
+    root: path.join("public", req.params.dir),
   });
 });
 

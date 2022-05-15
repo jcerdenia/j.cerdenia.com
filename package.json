@@ -28,7 +28,7 @@
   "nodemonConfig": {
     "ext": "js,json,md,html,css",
     "ignore": [
-      "docs/*"
+      "public/*"
     ]
   }
 }

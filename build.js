@@ -60,21 +60,21 @@ const buildPage = (slug) => {
 
 const build = () => {
   // Clear existing HTML files.
-  fs.readdirSync("./docs")
+  fs.readdirSync("./public")
     .filter((fn) => fn.endsWith(".html"))
     .forEach((fn) => {
-      fs.unlinkSync(`./docs/${fn}`);
+      fs.unlinkSync(`./public/${fn}`);
     });
 
   // Write index page.
-  fs.writeFileSync("./docs/index.html", buildIndex());
+  fs.writeFileSync("./public/index.html", buildIndex());
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./entries")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");
-      fs.writeFileSync(`./docs/${slug}.html`, buildPage(slug));
+      fs.writeFileSync(`./public/${slug}.html`, buildPage(slug));
     });
 
   // Create redirects.
@@ -83,7 +83,7 @@ const build = () => {
 
   Object.keys(rd).forEach((key) => {
     fs.writeFileSync(
-      `./docs/${key}.html`,
+      `./public/${key}.html`,
       minify(rdTemplate.replace("$KEY_URL", rd[key]), minifyOptions)
     );
   });

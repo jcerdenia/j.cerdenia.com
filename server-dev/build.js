@@ -14,14 +14,6 @@ const minifyOptions = {
   removeOptionalTags: true,
 };
 
-const clearDocs = () => {
-  fs.readdirSync("./docs")
-    .filter((fn) => fn.endsWith(".html") && fn !== "coding.html")
-    .forEach((fn) => {
-      fs.unlinkSync(`./docs/${fn}`);
-    });
-};
-
 const buildIndex = () => {
   const markdown = fs.readFileSync("./entries/index.md", "utf-8");
   const { data, content } = matter(markdown);
@@ -67,7 +59,12 @@ const buildPage = (slug) => {
 };
 
 const build = () => {
-  clearDocs(); // Clear existing HTML files.
+  // Clear existing HTML files.
+  fs.readdirSync("./docs")
+    .filter((fn) => fn.endsWith(".html") && fn !== "coding.html")
+    .forEach((fn) => {
+      fs.unlinkSync(`./docs/${fn}`);
+    });
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./entries")
@@ -81,4 +78,8 @@ const build = () => {
   fs.writeFileSync("./docs/index.html", buildIndex());
 };
 
-module.exports = build;
+module.exports = {
+  buildIndex,
+  buildPage,
+  build,
+};

@@ -1,22 +1,16 @@
 const express = require("express");
 const path = require("path");
-const build = require("./build.js");
+const { buildIndex, buildPage } = require("./build.js");
 
 const app = express();
 const PORT = 3000;
 
-build();
-
 app.get("/", (_req, res) => {
-  res.sendFile("index.html", {
-    root: path.join("docs"),
-  });
+  res.send(buildIndex());
 });
 
 app.get("/:page", (req, res) => {
-  res.sendFile(`${req.params.page}.html`, {
-    root: path.join("docs"),
-  });
+  res.send(buildPage(req.params.page));
 });
 
 app.get("/:dir/:file", (req, res) => {

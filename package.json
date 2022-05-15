@@ -4,7 +4,7 @@
   "description": "Nothing but plain HTML, with assistance from Bootstrap.",
   "main": "index.js",
   "scripts": {
-    "build": "node server-dev/build.js",
+    "build": "node -e 'require(\"./server-dev/build.js\").build()'",
     "dev": "nodemon server-dev/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

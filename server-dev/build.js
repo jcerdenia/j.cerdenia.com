@@ -1,74 +1,84 @@
-function build() {
-  const fs = require("fs");
-  const matter = require("gray-matter");
-  const md = require("markdown-it")({ html: true });
-  const { minify } = require("html-minifier");
+const fs = require("fs");
+const matter = require("gray-matter");
+const md = require("markdown-it")({ html: true });
+const { minify } = require("html-minifier");
 
-  const minifyOptions = {
-    collapseWhitespace: true,
-    removeComments: true,
-    collapseBooleanAttributes: true,
-    useShortDoctype: true,
-    removeEmptyAttributes: true,
-    removeOptionalTags: true,
-  };
+const template = fs.readFileSync("./templates/page.html", "utf-8");
 
-  const entryTemplate = fs.readFileSync("./templates/page.html", "utf-8");
-  const entriesEl = [];
+const minifyOptions = {
+  collapseWhitespace: true,
+  removeComments: true,
+  collapseBooleanAttributes: true,
+  useShortDoctype: true,
+  removeEmptyAttributes: true,
+  removeOptionalTags: true,
+};
 
-  // Clear existing HTML files.
+const clearDocs = () => {
   fs.readdirSync("./docs")
     .filter((fn) => fn.endsWith(".html") && fn !== "coding.html")
     .forEach((fn) => {
       fs.unlinkSync(`./docs/${fn}`);
     });
+};
 
-  // Convert markdown files to HTML pages.
-  fs.readdirSync("./entries")
-    .filter((fn) => fn !== "index.md")
-    .forEach((fn) => {
-      const markdown = fs.readFileSync(`./entries/${fn}`, "utf-8");
-      const { data, content } = matter(markdown);
-      const html = md.render(content);
-      const slug = fn.replace(".md", "");
-
-      fs.writeFileSync(
-        `./docs/${slug}.html`,
-        minify(
-          entryTemplate
-            .replace("$KEY_TITLE_HEAD", data.title + " - Joshua Cerdenia")
-            .replace("$KEY_TITLE_BODY", data.title)
-            .replace("$KEY_SLUG", slug)
-            .replace("$KEY_CONTENT", html)
-            .replace("$KEY_OTHER", `← <a href="../">Go back</a>`),
-          minifyOptions
-        )
-      );
-
-      // Save entry as HTML list item.
-      entriesEl.push(`<li><a href="./${slug}">${data.title}</a></li>`);
-    });
-
-  // Parse markdown content for index page.
+const buildIndex = () => {
   const markdown = fs.readFileSync("./entries/index.md", "utf-8");
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
   // Create HTML list of entries.
-  const listEl = entriesEl.join("\n");
-  const indexTemplate = fs.readFileSync("./templates/page.html", "utf-8");
+  const entriesHtml = fs
+    .readdirSync("./entries")
+    .filter((fn) => fn !== "index.md")
+    .map((fn) => {
+      const markdown = fs.readFileSync(`./entries/${fn}`);
+      const { data } = matter(markdown);
+      const slug = fn.replace(".md", "");
+      return `<li><a href="./${slug}">${data.title}</a></li>`;
+    })
+    .join("\n");
 
-  fs.writeFileSync(
-    "./docs/index.html",
-    minify(
-      indexTemplate
-        .replace("$KEY_TITLE_HEAD", data.title)
-        .replace("$KEY_TITLE_BODY", data.title)
-        .replace("$KEY_CONTENT", contentHtml)
-        .replace("$KEY_OTHER", `<ul class="my-4">${listEl}</ul>`),
-      minifyOptions
-    )
+  return minify(
+    template
+      .replace("$KEY_TITLE_HEAD", data.title)
+      .replace("$KEY_TITLE_BODY", data.title)
+      .replace("$KEY_SLUG", "/")
+      .replace("$KEY_CONTENT", contentHtml)
+      .replace("$KEY_OTHER", `<ul class="my-4">${entriesHtml}</ul>`),
+    minifyOptions
   );
-}
+};
+
+const buildPage = (slug) => {
+  const markdown = fs.readFileSync(`./entries/${slug}.md`, "utf-8");
+  const { data, content } = matter(markdown);
+  const contentHtml = md.render(content);
+
+  return minify(
+    template
+      .replace("$KEY_TITLE_HEAD", `${data.title} - Joshua Cerdenia`)
+      .replace("$KEY_TITLE_BODY", data.title)
+      .replace("$KEY_SLUG", slug)
+      .replace("$KEY_CONTENT", contentHtml)
+      .replace("$KEY_OTHER", `← <a href="../">Go back</a>`),
+    minifyOptions
+  );
+};
+
+const build = () => {
+  clearDocs(); // Clear existing HTML files.
+
+  // Write HTML pages from markdown files.
+  fs.readdirSync("./entries")
+    .filter((fn) => fn !== "index.md")
+    .forEach((fn) => {
+      const slug = fn.replace(".md", "");
+      fs.writeFileSync(`./docs/${slug}.html`, buildPage(slug));
+    });
+
+  // Write index page.
+  fs.writeFileSync("./docs/index.html", buildIndex());
+};
 
 module.exports = build;

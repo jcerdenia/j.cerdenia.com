@@ -26,13 +26,12 @@ footer {
   color: grey;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 2rem;
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
   margin-bottom: 1rem;
 }
 
@@ -40,11 +39,22 @@ img {
   width: 100%;
 }
 
-.content {
-  max-width: 1000px !important;
+.main {
+  min-height: calc(100vh - 120px);
+}
+
+.title {
+  margin-bottom: 1rem;
 }
 
 .title a {
   text-decoration: none;
   color: unset;
+}
+
+/* Limit max container width in wide view */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 960px !important;
+  }
 }

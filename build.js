@@ -26,9 +26,11 @@ const buildIndex = () => {
     .map((fn) => {
       const markdown = fs.readFileSync(`./markdown/${fn}`);
       const { data } = matter(markdown);
-      const slug = fn.replace(".md", "");
-      return `<li><a href="./${slug}">${data.title}</a></li>`;
+      data.slug = fn.replace(".md", "");
+      return data;
     })
+    .sort((a, b) => (a.title > b.title ? 1 : a.title < b.title ? -1 : 0))
+    .map((data) => `<li><a href="./${data.slug}">${data.title}</a></li>`)
     .join("\n");
 
   return minify(

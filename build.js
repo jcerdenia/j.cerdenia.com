@@ -3,7 +3,7 @@ const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
 const { minify } = require("html-minifier");
 
-const template = fs.readFileSync("./templates/page.html", "utf-8");
+const defaultDescription = "The online home of Joshua Cerdenia";
 
 const minifyOptions = {
   collapseWhitespace: true,
@@ -15,7 +15,9 @@ const minifyOptions = {
 };
 
 const buildIndex = () => {
+  const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
+
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
@@ -35,27 +37,33 @@ const buildIndex = () => {
 
   return minify(
     template
+      .replace("$KEY_META_TYPE", "website")
       .replace("$KEY_TITLE_HEAD", data.title)
-      .replace("$KEY_TITLE_BODY", data.title)
+      .replace(/\$KEY_TITLE_BODY/g, data.title)
+      .replace("$KEY_DESCRIPTION", data.description || defaultDescription)
       .replace("$KEY_SLUG", "/")
       .replace("$KEY_CONTENT", contentHtml)
-      .replace("$KEY_OTHER", `<ul class="my-4">${pagesHtml}</ul>`),
+      .replace("$KEY_BELOW_CONTENT", `<ul class="my-4">${pagesHtml}</ul>`),
     minifyOptions
   );
 };
 
 const buildPage = (slug) => {
+  const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
+
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
   return minify(
     template
+      .replace("$KEY_META_TYPE", "article")
       .replace("$KEY_TITLE_HEAD", `${data.title} - Joshua Cerdenia`)
-      .replace("$KEY_TITLE_BODY", data.title)
+      .replace(/\$KEY_TITLE_BODY/g, data.title)
+      .replace("$KEY_DESCRIPTION", data.description || defaultDescription)
       .replace("$KEY_SLUG", slug)
       .replace("$KEY_CONTENT", contentHtml)
-      .replace("$KEY_OTHER", `← <a href="../">Go back</a>`),
+      .replace("$KEY_BELOW_CONTENT", `← <a href="../">Go back</a>`),
     minifyOptions
   );
 };
@@ -79,12 +87,12 @@ const build = () => {
 
   // Create redirects.
   const rd = require("./redirects.json");
-  const rdTemplate = fs.readFileSync("./templates/redirect.html", "utf-8");
+  const template = fs.readFileSync("./templates/redirect.html", "utf-8");
 
   Object.keys(rd).forEach((key) => {
     fs.writeFileSync(
       `./public/${key}.html`,
-      minify(rdTemplate.replace("$KEY_URL", rd[key]), minifyOptions)
+      minify(template.replace("$KEY_URL", rd[key]), minifyOptions)
     );
   });
 };

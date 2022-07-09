@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const { getHomePage, getPage } = require("./build.js");
-const redirects = require("./redirects.json");
+const { redirects } = require("./siteConfig");
 
 const app = express();
 const PORT = 3000;

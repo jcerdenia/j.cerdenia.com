@@ -45,23 +45,18 @@
         </h1>
 
         <div>{{ content }}</div>
-
         <div>{{ belowContent }}</div>
       </section>
 
       <footer>
         <div class="row">
-          <div class="col-12 col-sm-auto">© 2022 Joshua Cerdenia</div>
-          <div class="col-12 col-sm-auto">
-            <a href="https://github.com/joshuacerdenia/cerdenia.com">Source</a>
-            | <a href="https://github.com/joshuacerdenia">GitHub</a> |
-            <a href="mailto:joshua@cerdenia.com">Contact</a>
-          </div>
+          <div class="col-12 col-sm-auto">{{ copyright }}</div>
+          <div class="col-12 col-sm-auto">{{ links }}</div>
         </div>
       </footer>
 
-      <div id="theme-toggle" style="opacity: 50" onclick="toggleTheme()">
-        <i id="theme-icon" class="bi bi-sun"></i>
+      <div id="theme-toggle" onclick="toggleTheme()">
+        <i id="theme-icon"></i>
       </div>
     </div>
 

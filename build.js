@@ -4,22 +4,27 @@ const md = require("markdown-it")({ html: true });
 const siteConfig = require("./siteConfig");
 const { minify } = require("html-minifier");
 
-const populate = (template, data, useMinify = true) => {
+const populate = (template, data) => {
   Object.keys(data).forEach((key) => {
     const keyRegex = new RegExp(`{{ ${key} }}`, "g");
     template = template.replace(keyRegex, data[key]);
   });
 
-  return useMinify
-    ? minify(template, {
-        collapseWhitespace: true,
-        removeComments: true,
-        collapseBooleanAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
-      })
-    : template;
+  return minify(template, {
+    collapseWhitespace: true,
+    removeComments: true,
+    collapseBooleanAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+  });
+};
+
+const footerData = {
+  copyright: siteConfig.copyright,
+  links: Object.entries(siteConfig.links)
+    .map(([name, url], i) => (i ? " | " : "") + `<a href="${url}">${name}</a>`)
+    .join("\n"),
 };
 
 const getHomePage = () => {
@@ -52,6 +57,7 @@ const getHomePage = () => {
     content: contentHtml,
     belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
     slug: "/",
+    ...footerData,
   });
 };
 
@@ -70,7 +76,9 @@ const getPage = (slug) => {
     image: data.image || siteConfig.image,
     content: contentHtml,
     belowContent: `← <a href="../">Go back</a>`,
+    copyright: siteConfig.copyright,
     slug,
+    ...footerData,
   });
 };
 

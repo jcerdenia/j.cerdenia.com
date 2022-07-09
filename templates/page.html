@@ -29,16 +29,26 @@
       crossorigin="anonymous"
     />
 
+    <!-- Bootstrap Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+
     <!-- Internal -->
-    <link href="./css/style.css" type="text/css" rel="stylesheet" />
+    <link href="./styles/index.css" type="text/css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/jpg" href="./images/marsh.jpeg" />
 
     <title>$KEY_TITLE_HEAD</title>
   </head>
   <body>
+    <script src="./scripts/initialTheme.js"></script>
+
     <div class="container py-4">
       <section class="main">
-        <h1 class="title"><a href="$KEY_SLUG">$KEY_TITLE_BODY</a></h1>
+        <h1 class="title">
+          <a href="$KEY_SLUG">$KEY_TITLE_BODY</a>
+        </h1>
 
         <div>$KEY_CONTENT</div>
 
@@ -46,11 +56,17 @@
       </section>
 
       <footer>
-        © 2022 Joshua Cerdenia -
-        <a href="https://github.com/joshuacerdenia/cerdenia.com">Source</a> |
-        <a href="https://github.com/joshuacerdenia">GitHub</a> |
+        <span>© 2022 Joshua Cerdenia / </span>
+        <a href="https://github.com/joshuacerdenia/cerdenia.com">Source</a> /
+        <a href="https://github.com/joshuacerdenia">GitHub</a> /
         <a href="mailto:joshua@cerdenia.com">Contact</a>
       </footer>
+
+      <div id="theme-toggle" style="opacity: 50" onclick="toggleTheme()">
+        <i id="theme-icon" class="bi bi-sun"></i>
+      </div>
     </div>
+
+    <script src="./scripts/themeToggle.js"></script>
   </body>
 </html>

@@ -6,6 +6,21 @@ body {
   margin: 0;
   font-family: "DM Sans", sans-serif;
   font-size: 1.1rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  --color-muted: rgba(128, 128, 128);
+}
+
+body[data-theme="light"] {
+  --color-bg: #fff;
+  --color-text: rgb(33, 37, 41);
+  --color-shadow: #bcbcbc;
+}
+
+body[data-theme="dark"] {
+  --color-bg: #202022;
+  --color-text: rgb(224, 226, 226);
+  --color-shadow: #000;
 }
 
 a,
@@ -14,7 +29,7 @@ a:hover {
 }
 
 figcaption {
-  color: grey;
+  color: var(--color-muted);
   font-size: 0.9rem;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
@@ -23,7 +38,7 @@ figcaption {
 footer {
   margin-top: 2rem;
   font-size: 0.9rem;
-  color: grey;
+  color: var(--color-muted);
 }
 
 .main h1,
@@ -43,6 +58,10 @@ img {
   min-height: calc(100vh - 120px);
 }
 
+.text-muted {
+  color: var(--color-muted) !important;
+}
+
 .title {
   margin-bottom: 1rem;
 }
@@ -52,9 +71,29 @@ img {
   color: unset;
 }
 
+.theme-toggle {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  bottom: 1rem;
+  right: 1rem;
+  box-shadow: #252525;
+  border-radius: 50% !important;
+  transition: unset !important;
+  filter: drop-shadow(1px 2px 8px var(--color-shadow));
+}
+
 /* Limit max container width in wide view */
 @media screen and (min-width: 1200px) {
   .container {
     max-width: 960px !important;
+  }
+
+  .theme-toggle {
+    bottom: 2rem;
+    right: 2rem;
   }
 }

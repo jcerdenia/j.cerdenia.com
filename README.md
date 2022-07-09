@@ -1,8 +1,8 @@
-# Joshua Cerdenia's Home Page
+# Joshua Cerdenia's Digital Garden
 
 A bare-bones static site automatically generated from markdown; with CSS assistance from Bootstrap. 
 
-Served at [cerdenia.com](https://cerdenia.com) (deployed with Vercel).
+Served at [garden.cerdenia.com](https://garden.cerdenia.com) (deployed with Vercel).
 
 To run locally, after cloning, install dependencies and run the development server:
 

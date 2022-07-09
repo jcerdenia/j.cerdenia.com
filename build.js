@@ -1,8 +1,10 @@
-const fs = require("fs");
-const matter = require("gray-matter");
-const md = require("markdown-it")({ html: true });
-const siteConfig = require("./siteConfig");
-const { minify } = require("html-minifier");
+import fs from "fs";
+import matter from "gray-matter";
+import MarkdownIt from "markdown-it";
+import siteConfig from "./siteConfig.js";
+import { minify } from "html-minifier";
+
+const md = new MarkdownIt({ html: true });
 
 const populate = (template, data, minified = false) => {
   Object.keys(data).forEach((key) => {
@@ -29,7 +31,7 @@ const footerData = {
     .join("\n"),
 };
 
-const getHomePage = (minified = false) => {
+export const getHomePage = (minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
 
@@ -67,7 +69,7 @@ const getHomePage = (minified = false) => {
   );
 };
 
-const getPage = (slug, minified = false) => {
+export const getPage = (slug, minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
 
@@ -92,7 +94,7 @@ const getPage = (slug, minified = false) => {
   );
 };
 
-const main = () => {
+export const main = () => {
   // Clear existing HTML files.
   fs.readdirSync("./public")
     .filter((fn) => fn.endsWith(".html"))
@@ -119,10 +121,4 @@ const main = () => {
       populate(template, { url: redirects[key] })
     );
   });
-};
-
-module.exports = {
-  getHomePage,
-  getPage,
-  main,
 };

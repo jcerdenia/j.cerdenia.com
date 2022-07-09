@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "description": "Personal site",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "node -e 'require(\"./build.js\").main()'",
     "dev": "nodemon dev-server.js",

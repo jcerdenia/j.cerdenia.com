@@ -1,7 +1,7 @@
-const express = require("express");
-const path = require("path");
-const { getHomePage, getPage } = require("./build.js");
-const { redirects } = require("./siteConfig");
+import express from "express";
+import { join } from "path";
+import { getHomePage, getPage } from "./build.js";
+import siteConfig from "./siteConfig.js";
 
 const app = express();
 const PORT = 3000;
@@ -11,9 +11,9 @@ app.get("/", (_req, res) => {
 });
 
 app.get("/:page/", (req, res) => {
-  Object.keys(redirects).forEach((key) => {
+  Object.keys(siteConfig.redirects).forEach((key) => {
     if (key === req.params.page) {
-      res.redirect(redirects[key]);
+      res.redirect(siteConfig.redirects[key]);
     }
   });
 
@@ -22,7 +22,7 @@ app.get("/:page/", (req, res) => {
 
 app.get("/:dir/:file", (req, res) => {
   res.sendFile(req.params.file, {
-    root: path.join("public", req.params.dir),
+    root: join("public", req.params.dir),
   });
 });
 

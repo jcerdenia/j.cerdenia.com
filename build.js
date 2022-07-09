@@ -1,9 +1,8 @@
 const fs = require("fs");
 const matter = require("gray-matter");
 const md = require("markdown-it")({ html: true });
+const siteConfig = require("./siteConfig");
 const { minify } = require("html-minifier");
-
-const defaultDescription = "The online home of Joshua Cerdenia";
 
 const populate = (template, data, useMinify = true) => {
   Object.keys(data).forEach((key) => {
@@ -48,7 +47,8 @@ const getHomePage = () => {
     metaType: "website",
     headTitle: data.title,
     title: data.title,
-    description: data.description || defaultDescription,
+    description: data.description || siteConfig.description,
+    image: data.image || siteConfig.image,
     content: contentHtml,
     belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
     slug: "/",
@@ -64,9 +64,10 @@ const getPage = (slug) => {
 
   return populate(template, {
     metaType: "article",
-    headTitle: `${data.title} - Joshua Cerdenia`,
+    headTitle: `${data.title} - ${siteConfig.title}`,
     title: data.title,
-    description: data.description || defaultDescription,
+    description: data.description || siteConfig.description,
+    image: data.image || siteConfig.image,
     content: contentHtml,
     belowContent: `← <a href="../">Go back</a>`,
     slug,

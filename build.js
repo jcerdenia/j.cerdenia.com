@@ -134,7 +134,7 @@ export const getPage = (slug, minified = false) => {
   );
 };
 
-export const main = () => {
+const main = () => {
   // Clear existing HTML files.
   fs.readdirSync("./public")
     .filter((fn) => fn.endsWith(".html"))
@@ -162,3 +162,7 @@ export const main = () => {
     );
   });
 };
+
+if (process.argv[2] === "main") {
+  main();
+}

@@ -12,4 +12,4 @@ In the style of [Derek Sivers](https://nownownow.com/about)
 
 - Maintaining my sites, building side projects, and learning everything there is to learn.
 
-<p class="small text-muted">Updated July 2022</p>
+<small>Updated July 2022</small>

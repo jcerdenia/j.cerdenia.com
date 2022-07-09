@@ -2,7 +2,7 @@
 title: "From the Archives: Reflection on 2020 and Quitting the Music Profession"
 ---
 
-<p class="small text-muted">24 December 2020</p>
+<small>24 December 2020</small>
 
 The final days of the year are upon us. When the quarantines and lockdowns began in March, nobody had the slightest idea just how long they would stretch, and here we are. For me, though, it was a year of upheaval from the very start: in January, after a whole year of hemming and hawing over the decision, my mind was fully made up to quit New York and pursue a different life.
 

@@ -3,6 +3,7 @@ import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
+import HtmlElement from "./HtmlElement.js";
 
 const md = new MarkdownIt({ html: true });
 
@@ -27,7 +28,16 @@ const populate = (template, data, minified = false) => {
 const footerData = {
   copyright: siteConfig.copyright,
   links: Object.entries(siteConfig.links)
-    .map(([name, url], i) => (i ? " | " : "") + `<a href="${url}">${name}</a>`)
+    .map(([name, url], i) => {
+      return (
+        (i ? " | " : "") +
+        new HtmlElement.Builder("a")
+          .prop("href", url)
+          .child(name)
+          .build()
+          .toString()
+      );
+    })
     .join("\n"),
 };
 
@@ -49,7 +59,18 @@ export const getHomePage = (minified = false) => {
       return data;
     })
     .sort((a, b) => (a.title > b.title ? 1 : a.title < b.title ? -1 : 0))
-    .map((data) => `<li><a href="./${data.slug}">${data.title}</a></li>`)
+    .map((page) => {
+      return new HtmlElement.Builder("li")
+        .child(
+          new HtmlElement.Builder("a")
+            .prop("href", `/${page.slug}`)
+            .child(page.title)
+            .build()
+            .toString()
+        )
+        .build()
+        .toString();
+    })
     .join("\n");
 
   return populate(
@@ -61,7 +82,11 @@ export const getHomePage = (minified = false) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: contentHtml,
-      belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
+      belowContent: new HtmlElement.Builder("ul")
+        .prop("class", "my-4")
+        .child(pagesHtml)
+        .build()
+        .toString(),
       slug: "/",
       ...footerData,
     },
@@ -85,7 +110,22 @@ export const getPage = (slug, minified = false) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: contentHtml,
-      belowContent: `← <a href="../">Go back</a>`,
+      belowContent: new HtmlElement.Builder("span")
+        .child(
+          new HtmlElement.Builder("i")
+            .prop("class", "bi bi-arrow-left me-1")
+            .build()
+            .toString()
+        )
+        .child(
+          new HtmlElement.Builder("a")
+            .prop("href", "../")
+            .child("Go back")
+            .build()
+            .toString()
+        )
+        .build()
+        .toString(),
       copyright: siteConfig.copyright,
       slug,
       ...footerData,

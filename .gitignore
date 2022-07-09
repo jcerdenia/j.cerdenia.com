@@ -1,4 +1,9 @@
 node_modules
 archive
-public/*.html
+
+!public/images
+!public/scripts
+!public/styles
+public/*
+
 .DS_Store

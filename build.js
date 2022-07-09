@@ -4,20 +4,22 @@ const md = require("markdown-it")({ html: true });
 const siteConfig = require("./siteConfig");
 const { minify } = require("html-minifier");
 
-const populate = (template, data) => {
+const populate = (template, data, minified = false) => {
   Object.keys(data).forEach((key) => {
     const keyRegex = new RegExp(`{{ ${key} }}`, "g");
     template = template.replace(keyRegex, data[key]);
   });
 
-  return minify(template, {
-    collapseWhitespace: true,
-    removeComments: true,
-    collapseBooleanAttributes: true,
-    useShortDoctype: true,
-    removeEmptyAttributes: true,
-    removeOptionalTags: true,
-  });
+  return minified
+    ? minify(template, {
+        collapseWhitespace: true,
+        removeComments: true,
+        collapseBooleanAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+      })
+    : template;
 };
 
 const footerData = {
@@ -27,7 +29,7 @@ const footerData = {
     .join("\n"),
 };
 
-const getHomePage = () => {
+const getHomePage = (minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
 
@@ -48,38 +50,46 @@ const getHomePage = () => {
     .map((data) => `<li><a href="./${data.slug}">${data.title}</a></li>`)
     .join("\n");
 
-  return populate(template, {
-    metaType: "website",
-    headTitle: data.title,
-    title: data.title,
-    description: data.description || siteConfig.description,
-    image: data.image || siteConfig.image,
-    content: contentHtml,
-    belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
-    slug: "/",
-    ...footerData,
-  });
+  return populate(
+    template,
+    {
+      metaType: "website",
+      headTitle: data.title,
+      title: data.title,
+      description: data.description || siteConfig.description,
+      image: data.image || siteConfig.image,
+      content: contentHtml,
+      belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
+      slug: "/",
+      ...footerData,
+    },
+    minified
+  );
 };
 
-const getPage = (slug) => {
+const getPage = (slug, minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
 
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
-  return populate(template, {
-    metaType: "article",
-    headTitle: `${data.title} - ${siteConfig.title}`,
-    title: data.title,
-    description: data.description || siteConfig.description,
-    image: data.image || siteConfig.image,
-    content: contentHtml,
-    belowContent: `← <a href="../">Go back</a>`,
-    copyright: siteConfig.copyright,
-    slug,
-    ...footerData,
-  });
+  return populate(
+    template,
+    {
+      metaType: "article",
+      headTitle: `${data.title} - ${siteConfig.title}`,
+      title: data.title,
+      description: data.description || siteConfig.description,
+      image: data.image || siteConfig.image,
+      content: contentHtml,
+      belowContent: `← <a href="../">Go back</a>`,
+      copyright: siteConfig.copyright,
+      slug,
+      ...footerData,
+    },
+    minified
+  );
 };
 
 const main = () => {
@@ -89,14 +99,14 @@ const main = () => {
     .forEach((fn) => fs.unlinkSync(`./public/${fn}`));
 
   // Write index page.
-  fs.writeFileSync("./public/index.html", getHomePage());
+  fs.writeFileSync("./public/index.html", getHomePage(true));
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");
-      fs.writeFileSync(`./public/${slug}.html`, getPage(slug));
+      fs.writeFileSync(`./public/${slug}.html`, getPage(slug, true));
     });
 
   // Create redirects.

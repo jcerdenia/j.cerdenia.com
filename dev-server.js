@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
-const { buildIndex, buildPage } = require("./build.js");
+const { getHomePage, getPage } = require("./build.js");
 const redirects = require("./redirects.json");
 
 const app = express();
 const PORT = 3000;
 
 app.get("/", (_req, res) => {
-  res.send(buildIndex());
+  res.send(getHomePage());
 });
 
 app.get("/:page/", (req, res) => {
@@ -17,7 +17,7 @@ app.get("/:page/", (req, res) => {
     }
   });
 
-  res.send(buildPage(req.params.page));
+  res.send(getPage(req.params.page));
 });
 
 app.get("/:dir/:file", (req, res) => {

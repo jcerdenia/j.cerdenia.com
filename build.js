@@ -5,16 +5,25 @@ const { minify } = require("html-minifier");
 
 const defaultDescription = "The online home of Joshua Cerdenia";
 
-const minifyOptions = {
-  collapseWhitespace: true,
-  removeComments: true,
-  collapseBooleanAttributes: true,
-  useShortDoctype: true,
-  removeEmptyAttributes: true,
-  removeOptionalTags: true,
+const populate = (template, data, useMinify = true) => {
+  Object.keys(data).forEach((key) => {
+    const keyRegex = new RegExp(`{{ ${key} }}`, "g");
+    template = template.replace(keyRegex, data[key]);
+  });
+
+  return useMinify
+    ? minify(template, {
+        collapseWhitespace: true,
+        removeComments: true,
+        collapseBooleanAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+      })
+    : template;
 };
 
-const buildIndex = () => {
+const getHomePage = () => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
 
@@ -35,70 +44,66 @@ const buildIndex = () => {
     .map((data) => `<li><a href="./${data.slug}">${data.title}</a></li>`)
     .join("\n");
 
-  return minify(
-    template
-      .replace("$KEY_META_TYPE", "website")
-      .replace("$KEY_TITLE_HEAD", data.title)
-      .replace(/\$KEY_TITLE_BODY/g, data.title)
-      .replace("$KEY_DESCRIPTION", data.description || defaultDescription)
-      .replace("$KEY_SLUG", "/")
-      .replace("$KEY_CONTENT", contentHtml)
-      .replace("$KEY_BELOW_CONTENT", `<ul class="my-4">${pagesHtml}</ul>`),
-    minifyOptions
-  );
+  return populate(template, {
+    metaType: "website",
+    headTitle: data.title,
+    title: data.title,
+    description: data.description || defaultDescription,
+    content: contentHtml,
+    belowContent: `<ul class="my-4">${pagesHtml}</ul>`,
+    slug: "/",
+  });
 };
 
-const buildPage = (slug) => {
+const getPage = (slug) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
 
   const { data, content } = matter(markdown);
   const contentHtml = md.render(content);
 
-  return minify(
-    template
-      .replace("$KEY_META_TYPE", "article")
-      .replace("$KEY_TITLE_HEAD", `${data.title} - Joshua Cerdenia`)
-      .replace(/\$KEY_TITLE_BODY/g, data.title)
-      .replace("$KEY_DESCRIPTION", data.description || defaultDescription)
-      .replace("$KEY_SLUG", slug)
-      .replace("$KEY_CONTENT", contentHtml)
-      .replace("$KEY_BELOW_CONTENT", `← <a href="../">Go back</a>`),
-    minifyOptions
-  );
+  return populate(template, {
+    metaType: "article",
+    headTitle: `${data.title} - Joshua Cerdenia`,
+    title: data.title,
+    description: data.description || defaultDescription,
+    content: contentHtml,
+    belowContent: `← <a href="../">Go back</a>`,
+    slug,
+  });
 };
 
-const build = () => {
+const main = () => {
   // Clear existing HTML files.
   fs.readdirSync("./public")
     .filter((fn) => fn.endsWith(".html"))
     .forEach((fn) => fs.unlinkSync(`./public/${fn}`));
 
   // Write index page.
-  fs.writeFileSync("./public/index.html", buildIndex());
+  fs.writeFileSync("./public/index.html", getHomePage());
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");
-      fs.writeFileSync(`./public/${slug}.html`, buildPage(slug));
+      fs.writeFileSync(`./public/${slug}.html`, getPage(slug));
     });
 
   // Create redirects.
-  const rd = require("./redirects.json");
+  const redirects = require("./redirects.json");
   const template = fs.readFileSync("./templates/redirect.html", "utf-8");
 
-  Object.keys(rd).forEach((key) => {
+  Object.keys(redirects).forEach((key) => {
     fs.writeFileSync(
       `./public/${key}.html`,
-      minify(template.replace("$KEY_URL", rd[key]), minifyOptions)
+      populate(template, { url: redirects[key] })
     );
   });
 };
 
 module.exports = {
-  buildIndex,
-  buildPage,
-  build,
+  getHomePage,
+  getPage,
+  main,
 };

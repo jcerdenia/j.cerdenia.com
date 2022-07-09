@@ -5,17 +5,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="og:type" content="$KEY_META_TYPE" />
-    <meta property="og:title" content="$KEY_TITLE_BODY" />
-    <meta property="og:description" content="$KEY_DESCRIPTION" />
+    <meta property="og:type" content="{{ metaType }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
     <meta
       property="og:image"
       content="https://cerdenia.com/images/marsh.jpeg"
     />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="$KEY_TITLE_BODY" />
-    <meta name="twitter:description" content="$KEY_DESCRIPTION" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
     <meta
       name="twitter:image"
       content="https://cerdenia.com/images/marsh.jpeg"
@@ -39,7 +39,7 @@
     <link href="./styles/index.css" type="text/css" rel="stylesheet" />
     <link rel="shortcut icon" type="image/jpg" href="./images/marsh.jpeg" />
 
-    <title>$KEY_TITLE_HEAD</title>
+    <title>{{ headTitle }}</title>
   </head>
   <body>
     <script src="./scripts/initialTheme.js"></script>
@@ -47,12 +47,12 @@
     <div class="container py-4">
       <section class="main">
         <h1 class="title">
-          <a href="$KEY_SLUG">$KEY_TITLE_BODY</a>
+          <a href="{{ slug }}">{{ title }}</a>
         </h1>
 
-        <div>$KEY_CONTENT</div>
+        <div>{{ content }}</div>
 
-        <div>$KEY_BELOW_CONTENT</div>
+        <div>{{ belowContent }}</div>
       </section>
 
       <footer>

@@ -4,7 +4,7 @@
   "description": "Personal site",
   "main": "index.js",
   "scripts": {
-    "build": "node -e 'require(\"./build.js\").build()'",
+    "build": "node -e 'require(\"./build.js\").main()'",
     "dev": "nodemon dev-server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

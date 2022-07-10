@@ -43,9 +43,7 @@ const footerData = {
 export const getHomePage = (minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
-
   const { data, content } = matter(markdown);
-  const contentHtml = md.render(content);
 
   // Create HTML list of pages.
   const pagesHtml = fs
@@ -78,7 +76,7 @@ export const getHomePage = (minified = false) => {
       title: data.title,
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
-      content: contentHtml,
+      content: md.render(content),
       belowContent: new HtmlStringBuilder("ul")
         .addProp("class", "my-4")
         .addChild(pagesHtml)
@@ -91,35 +89,60 @@ export const getHomePage = (minified = false) => {
 };
 
 export const getPage = (slug, minified = false) => {
-  const template = fs.readFileSync("./templates/page.html", "utf-8");
-  const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
+  try {
+    const template = fs.readFileSync("./templates/page.html", "utf-8");
+    const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
+    const { data, content } = matter(markdown);
 
-  const { data, content } = matter(markdown);
-  const contentHtml = md.render(content);
+    return populate(
+      template,
+      {
+        metaType: "article",
+        headTitle: `${data.title} - ${siteConfig.title}`,
+        title: data.title,
+        description: data.description || siteConfig.description,
+        image: data.image || siteConfig.image,
+        content: md.render(content),
+        belowContent: new HtmlStringBuilder("span")
+          .addChild(
+            new HtmlStringBuilder("i")
+              .addProp("class", "bi bi-arrow-left me-1")
+              .toString()
+          )
+          .addChild(
+            new HtmlStringBuilder("a")
+              .addProp("href", "../")
+              .addChild("Go back")
+              .toString()
+          )
+          .toString(),
+        copyright: siteConfig.copyright,
+        slug,
+        ...footerData,
+      },
+      minified
+    );
+  } catch {
+    return getErrorPage(slug, minified);
+  }
+};
+
+export const getErrorPage = (slug, minified = false) => {
+  const template = fs.readFileSync("./templates/page.html", "utf-8");
 
   return populate(
     template,
     {
-      metaType: "article",
-      headTitle: `${data.title} - ${siteConfig.title}`,
-      title: data.title,
-      description: data.description || siteConfig.description,
-      image: data.image || siteConfig.image,
-      content: contentHtml,
-      belowContent: new HtmlStringBuilder("span")
-        .addChild(
-          new HtmlStringBuilder("i")
-            .addProp("class", "bi bi-arrow-left me-1")
-            .toString()
-        )
-        .addChild(
-          new HtmlStringBuilder("a")
-            .addProp("href", "../")
-            .addChild("Go back")
-            .toString()
-        )
+      metaType: "website",
+      headTitle: `Page Not Found - ${siteConfig.title}`,
+      title: "Page Not Found",
+      description: siteConfig.description,
+      image: siteConfig.image,
+      content: new HtmlStringBuilder("p").addChild("Sorry!").toString(),
+      belowContent: new HtmlStringBuilder("a")
+        .addProp("href", "/")
+        .addChild("Take me home")
         .toString(),
-      copyright: siteConfig.copyright,
       slug,
       ...footerData,
     },

@@ -4,6 +4,7 @@ import MarkdownIt from "markdown-it";
 import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
 import HtmlStringBuilder from "./lib/HtmlStringBuilder.js";
+import { compareBy } from "./lib/utils.js";
 
 const md = new MarkdownIt({ html: true });
 
@@ -22,14 +23,11 @@ const footerData = {
     .join("\n"),
 };
 
-export const getHomePage = (minified = false) => {
-  const template = fs.readFileSync("./templates/page.html", "utf-8");
-  const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
-  const { data, content } = matter(markdown);
+const getPageLists = () => {
+  const pinnedPages = [];
+  const pages = [];
 
-  // Create HTML list of pages.
-  const pagesHtml = fs
-    .readdirSync("./markdown")
+  fs.readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
       const markdown = fs.readFileSync(`./markdown/${fn}`);
@@ -38,18 +36,53 @@ export const getHomePage = (minified = false) => {
       return data;
     })
     .filter((page) => !page.draft)
-    .sort((a, b) => (a.title > b.title ? 1 : a.title < b.title ? -1 : 0))
+    .sort(compareBy("title"))
+    .forEach((page) => {
+      if (page.pinned) {
+        pinnedPages.push(page);
+      } else {
+        pages.push(page);
+      }
+    });
+
+  return { pinnedPages, pages };
+};
+
+export const getHomePage = (minified = false) => {
+  const template = fs.readFileSync("./templates/page.html", "utf-8");
+  const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
+  const { data, content } = matter(markdown);
+
+  // Create HTML lists of pages.
+  const { pinnedPages, pages } = getPageLists();
+
+  const toHtmlLinkElement = (metadata) => {
+    return new HtmlStringBuilder("a")
+      .addProp("href", `/${metadata.slug}`)
+      .addChild(metadata.title)
+      .toString();
+  };
+
+  const pinnedPagesHtml = pinnedPages
     .map((page) => {
       return new HtmlStringBuilder("li")
         .addChild(
-          new HtmlStringBuilder("a")
-            .addProp("href", `/${page.slug}`)
-            .addChild(page.title)
+          new HtmlStringBuilder("span")
+            .addChild("Pinned: ")
+            .addChild(toHtmlLinkElement(page))
             .toString()
         )
         .toString();
     })
-    .join("\n");
+    .join("");
+
+  const pagesHtml = pages
+    .map((page) => {
+      return new HtmlStringBuilder("li")
+        .addChild(toHtmlLinkElement(page))
+        .toString();
+    })
+    .join("");
 
   return populate(
     template,
@@ -60,9 +93,19 @@ export const getHomePage = (minified = false) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: md.render(content),
-      belowContent: new HtmlStringBuilder("ul")
-        .addProp("class", "my-4")
-        .addChild(pagesHtml)
+      belowContent: new HtmlStringBuilder("div")
+        .addChild(
+          new HtmlStringBuilder("ul")
+            .addProp("class", "my-4")
+            .addChild(pinnedPagesHtml)
+            .toString()
+        )
+        .addChild(
+          new HtmlStringBuilder("ul")
+            .addProp("class", "my-4")
+            .addChild(pagesHtml)
+            .toString()
+        )
         .toString(),
       slug: "/",
       ...footerData,

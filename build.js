@@ -182,7 +182,7 @@ const main = () => {
   Object.keys(redirects).forEach((key) => {
     fs.writeFileSync(
       `./public/${key}.html`,
-      populate(template, { url: redirects[key] })
+      populate(template, { url: redirects[key] }, true)
     );
   });
 };

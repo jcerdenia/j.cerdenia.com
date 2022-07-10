@@ -78,7 +78,7 @@ export const getPage = (slug, minified = false) => {
     const { data, content } = matter(markdown);
 
     if (data.draft) {
-      return getErrorPage(slug, minified);
+      return getErrorPage(minified);
     }
 
     return populate(
@@ -110,11 +110,11 @@ export const getPage = (slug, minified = false) => {
       minified
     );
   } catch {
-    return getErrorPage(slug, minified);
+    return getErrorPage(minified);
   }
 };
 
-const getErrorPage = (slug, minified = false) => {
+const getErrorPage = (minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
 
   return populate(
@@ -130,7 +130,7 @@ const getErrorPage = (slug, minified = false) => {
         .addProp("href", "/")
         .addChild("Take me home")
         .toString(),
-      slug,
+      slug: "#",
       ...footerData,
     },
     minified
@@ -171,6 +171,9 @@ const main = () => {
       const slug = fn.replace(".md", "");
       fs.writeFileSync(`./public/${slug}.html`, getPage(slug, true));
     });
+
+  // Write 404 page.
+  fs.writeFileSync(`./public/404.html`, getErrorPage(true));
 
   // Create redirects.
   const redirects = siteConfig.redirects;

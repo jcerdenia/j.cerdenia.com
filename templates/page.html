@@ -38,17 +38,19 @@
   <body>
     <script src="./scripts/initialTheme.js"></script>
 
-    <div class="container py-4">
-      <section class="main">
-        <h1 class="title">
-          <a href="{{ slug }}">{{ title }}</a>
-        </h1>
+    <div class="container">
+      <div class="main">
+        <div class="pt-4">
+          <h1 class="title">
+            <a href="{{ slug }}">{{ title }}</a>
+          </h1>
+        </div>
 
         <div>{{ content }}</div>
         <div>{{ belowContent }}</div>
-      </section>
+      </div>
 
-      <footer>
+      <footer id="footer" class="pb-4">
         <div class="row">
           <div class="col-12 col-sm-auto">{{ copyright }}</div>
           <div class="col-12 col-sm-auto">{{ links }}</div>

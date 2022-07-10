@@ -37,7 +37,7 @@ footer {
 
 .main {
   /* Arrived at this calculation through sheer trial and error */
-  min-height: calc(100vh - 111.5px);
+  min-height: calc(100vh - 85px);
 }
 
 .main h1,
@@ -95,7 +95,7 @@ footer {
 @media screen and (max-width: 576px) {
   .main {
     /* Also sheer trial and error */
-    min-height: calc(100vh - 135.5px);
+    min-height: calc(100vh - 109px);
   }
 }
 

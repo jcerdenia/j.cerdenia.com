@@ -6,6 +6,7 @@ export default {
   links: {
     Source: "https://github.com/joshuacerdenia/garden.cerdenia.com",
     GitHub: "https://github.com/joshuacerdenia",
+    Music: "https://music.cerdenia.com",
     Contact: "mailto:joshua@cerdenia.com",
   },
   redirects: {

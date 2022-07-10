@@ -7,24 +7,6 @@ import HtmlStringBuilder from "./lib/HtmlStringBuilder.js";
 
 const md = new MarkdownIt({ html: true });
 
-const populate = (template, data, minified = false) => {
-  Object.keys(data).forEach((key) => {
-    const keyRegex = new RegExp(`{{ ${key} }}`, "g");
-    template = template.replace(keyRegex, data[key]);
-  });
-
-  return minified
-    ? minify(template, {
-        collapseWhitespace: true,
-        removeComments: true,
-        collapseBooleanAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
-      })
-    : template;
-};
-
 const footerData = {
   copyright: siteConfig.copyright,
   links: Object.entries(siteConfig.links)
@@ -55,6 +37,7 @@ export const getHomePage = (minified = false) => {
       data.slug = fn.replace(".md", "");
       return data;
     })
+    .filter((page) => !page.draft)
     .sort((a, b) => (a.title > b.title ? 1 : a.title < b.title ? -1 : 0))
     .map((page) => {
       return new HtmlStringBuilder("li")
@@ -94,6 +77,10 @@ export const getPage = (slug, minified = false) => {
     const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
     const { data, content } = matter(markdown);
 
+    if (data.draft) {
+      return getErrorPage(slug, minified);
+    }
+
     return populate(
       template,
       {
@@ -127,7 +114,7 @@ export const getPage = (slug, minified = false) => {
   }
 };
 
-export const getErrorPage = (slug, minified = false) => {
+const getErrorPage = (slug, minified = false) => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
 
   return populate(
@@ -148,6 +135,24 @@ export const getErrorPage = (slug, minified = false) => {
     },
     minified
   );
+};
+
+const populate = (template, data, minified = false) => {
+  Object.keys(data).forEach((key) => {
+    const keyRegex = new RegExp(`{{ ${key} }}`, "g");
+    template = template.replace(keyRegex, data[key]);
+  });
+
+  return minified
+    ? minify(template, {
+        collapseWhitespace: true,
+        removeComments: true,
+        collapseBooleanAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+      })
+    : template;
 };
 
 const main = () => {

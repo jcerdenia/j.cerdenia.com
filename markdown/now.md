@@ -1,5 +1,6 @@
 ---
 title: "What I'm Doing Now"
+pinned: true
 ---
 
 In the style of [Derek Sivers](https://nownownow.com/about)

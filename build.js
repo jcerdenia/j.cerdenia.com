@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
-import HtmlElement from "./HtmlElement.js";
+import HtmlStringBuilder from "./lib/HtmlStringBuilder.js";
 
 const md = new MarkdownIt({ html: true });
 
@@ -31,10 +31,9 @@ const footerData = {
     .map(([name, url], i) => {
       return (
         (i ? " | " : "") +
-        new HtmlElement.Builder("a")
-          .prop("href", url)
-          .child(name)
-          .build()
+        new HtmlStringBuilder("a")
+          .addProp("href", url)
+          .addChild(name)
           .toString()
       );
     })
@@ -60,15 +59,13 @@ export const getHomePage = (minified = false) => {
     })
     .sort((a, b) => (a.title > b.title ? 1 : a.title < b.title ? -1 : 0))
     .map((page) => {
-      return new HtmlElement.Builder("li")
-        .child(
-          new HtmlElement.Builder("a")
-            .prop("href", `/${page.slug}`)
-            .child(page.title)
-            .build()
+      return new HtmlStringBuilder("li")
+        .addChild(
+          new HtmlStringBuilder("a")
+            .addProp("href", `/${page.slug}`)
+            .addChild(page.title)
             .toString()
         )
-        .build()
         .toString();
     })
     .join("\n");
@@ -82,10 +79,9 @@ export const getHomePage = (minified = false) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: contentHtml,
-      belowContent: new HtmlElement.Builder("ul")
-        .prop("class", "my-4")
-        .child(pagesHtml)
-        .build()
+      belowContent: new HtmlStringBuilder("ul")
+        .addProp("class", "my-4")
+        .addChild(pagesHtml)
         .toString(),
       slug: "/",
       ...footerData,
@@ -110,21 +106,18 @@ export const getPage = (slug, minified = false) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: contentHtml,
-      belowContent: new HtmlElement.Builder("span")
-        .child(
-          new HtmlElement.Builder("i")
-            .prop("class", "bi bi-arrow-left me-1")
-            .build()
+      belowContent: new HtmlStringBuilder("span")
+        .addChild(
+          new HtmlStringBuilder("i")
+            .addProp("class", "bi bi-arrow-left me-1")
             .toString()
         )
-        .child(
-          new HtmlElement.Builder("a")
-            .prop("href", "../")
-            .child("Go back")
-            .build()
+        .addChild(
+          new HtmlStringBuilder("a")
+            .addProp("href", "../")
+            .addChild("Go back")
             .toString()
         )
-        .build()
         .toString(),
       copyright: siteConfig.copyright,
       slug,

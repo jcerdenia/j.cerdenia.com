@@ -48,7 +48,7 @@ const getPageLists = () => {
   return { pinnedPages, pages };
 };
 
-export const getHomePage = (minified = false) => {
+export const getHomePage = () => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
   const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
   const { data, content } = matter(markdown);
@@ -84,118 +84,103 @@ export const getHomePage = (minified = false) => {
     })
     .join("");
 
-  return populate(
-    template,
-    {
-      metaType: "website",
-      headTitle: data.title,
-      title: data.title,
-      description: data.description || siteConfig.description,
-      image: data.image || siteConfig.image,
-      content: md.render(content),
-      belowContent: new HtmlStringBuilder("div")
-        .addChild(
-          new HtmlStringBuilder("ul")
-            .addProp("class", "my-4")
-            .addChild(pinnedPagesHtml)
-            .toString()
-        )
-        .addChild(
-          new HtmlStringBuilder("ul")
-            .addProp("class", "my-4")
-            .addChild(pagesHtml)
-            .toString()
-        )
-        .toString(),
-      slug: "/",
-      ...footerData,
-    },
-    minified
-  );
+  return populate(template, {
+    metaType: "website",
+    headTitle: data.title,
+    title: data.title,
+    description: data.description || siteConfig.description,
+    image: data.image || siteConfig.image,
+    content: md.render(content),
+    belowContent: new HtmlStringBuilder("div")
+      .addChild(
+        new HtmlStringBuilder("ul")
+          .addProp("class", "my-4")
+          .addChild(pinnedPagesHtml)
+          .toString()
+      )
+      .addChild(
+        new HtmlStringBuilder("ul")
+          .addProp("class", "my-4")
+          .addChild(pagesHtml)
+          .toString()
+      )
+      .toString(),
+    slug: "/",
+    ...footerData,
+  });
 };
 
-export const getPage = (slug, minified = false) => {
+export const getPage = (slug) => {
   try {
     const template = fs.readFileSync("./templates/page.html", "utf-8");
     const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
     const { data, content } = matter(markdown);
 
     if (data.draft) {
-      return getErrorPage(minified);
+      return getErrorPage();
     }
 
-    return populate(
-      template,
-      {
-        metaType: "article",
-        headTitle: `${data.title} - ${siteConfig.title}`,
-        title: data.title,
-        description: data.description || siteConfig.description,
-        image: data.image || siteConfig.image,
-        content: md.render(content),
-        belowContent: new HtmlStringBuilder("span")
-          .addChild(
-            new HtmlStringBuilder("i")
-              .addProp("class", "bi bi-arrow-left me-1")
-              .toString()
-          )
-          .addChild(
-            new HtmlStringBuilder("a")
-              .addProp("href", "../")
-              .addChild("Go back")
-              .toString()
-          )
-          .toString(),
-        copyright: siteConfig.copyright,
-        slug,
-        ...footerData,
-      },
-      minified
-    );
+    return populate(template, {
+      metaType: "article",
+      headTitle: `${data.title} - ${siteConfig.title}`,
+      title: data.title,
+      description: data.description || siteConfig.description,
+      image: data.image || siteConfig.image,
+      content: md.render(content),
+      belowContent: new HtmlStringBuilder("span")
+        .addChild(
+          new HtmlStringBuilder("i")
+            .addProp("class", "bi bi-arrow-left me-1")
+            .toString()
+        )
+        .addChild(
+          new HtmlStringBuilder("a")
+            .addProp("href", "../")
+            .addChild("Go back")
+            .toString()
+        )
+        .toString(),
+      slug,
+      ...footerData,
+    });
   } catch {
-    return getErrorPage(minified);
+    return getErrorPage();
   }
 };
 
-const getErrorPage = (minified = false) => {
+const getErrorPage = () => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
 
-  return populate(
-    template,
-    {
-      metaType: "website",
-      headTitle: `Page Not Found - ${siteConfig.title}`,
-      title: "Page Not Found",
-      description: siteConfig.description,
-      image: siteConfig.image,
-      content: new HtmlStringBuilder("p").addChild("Sorry!").toString(),
-      belowContent: new HtmlStringBuilder("a")
-        .addProp("href", "/")
-        .addChild("Take me home")
-        .toString(),
-      slug: "#",
-      ...footerData,
-    },
-    minified
-  );
+  return populate(template, {
+    metaType: "website",
+    headTitle: `Page Not Found - ${siteConfig.title}`,
+    title: "Page Not Found",
+    description: siteConfig.description,
+    image: siteConfig.image,
+    content: new HtmlStringBuilder("p").addChild("Sorry!").toString(),
+    belowContent: new HtmlStringBuilder("a")
+      .addProp("href", "/")
+      .addChild("Take me home")
+      .toString(),
+    slug: "#",
+    ...footerData,
+  });
 };
 
-const populate = (template, data, minified = false) => {
+const populate = (template, data) => {
   Object.keys(data).forEach((key) => {
     const keyRegex = new RegExp(`{{ ${key} }}`, "g");
     template = template.replace(keyRegex, data[key]);
   });
 
-  return minified
-    ? minify(template, {
-        collapseWhitespace: true,
-        removeComments: true,
-        collapseBooleanAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeOptionalTags: true,
-      })
-    : template;
+  return minify(template, {
+    collapseWhitespace: true,
+    removeComments: true,
+    collapseBooleanAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+  });
 };
 
 const main = () => {
@@ -205,18 +190,18 @@ const main = () => {
     .forEach((fn) => fs.unlinkSync(`./public/${fn}`));
 
   // Write index page.
-  fs.writeFileSync("./public/index.html", getHomePage(true));
+  fs.writeFileSync("./public/index.html", getHomePage());
 
   // Write HTML pages from markdown files.
   fs.readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");
-      fs.writeFileSync(`./public/${slug}.html`, getPage(slug, true));
+      fs.writeFileSync(`./public/${slug}.html`, getPage(slug));
     });
 
   // Write 404 page.
-  fs.writeFileSync(`./public/404.html`, getErrorPage(true));
+  fs.writeFileSync(`./public/404.html`, getErrorPage());
 
   // Create redirects.
   const redirects = siteConfig.redirects;

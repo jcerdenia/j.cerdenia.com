@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
 
 html,
 body {
@@ -10,6 +10,9 @@ body {
   background-color: var(--color-bg);
   --color-muted: rgba(128, 128, 128);
   --font-small: 0.9rem;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
 }
 
 body[data-theme="light"] {
@@ -29,6 +32,30 @@ a:hover {
   color: unset;
 }
 
+.brand,
+.title {
+  margin-bottom: 1rem;
+  font-weight: var(--weight-normal);
+}
+
+.brand a,
+.title a {
+  text-decoration: none;
+  color: unset;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: var(--weight-medium);
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 footer {
   margin-top: 2rem;
   font-size: var(--font-small);
@@ -38,15 +65,6 @@ footer {
 .main {
   /* Arrived at this calculation through sheer trial and error */
   min-height: calc(100vh - 85px);
-}
-
-.main h1,
-.main h2,
-.main h3,
-.main h4,
-.main h5,
-.main h6 {
-  margin-bottom: 1rem;
 }
 
 .main img {
@@ -65,15 +83,6 @@ footer {
 
 .text-muted {
   color: var(--color-muted) !important;
-}
-
-.title {
-  margin-bottom: 1rem;
-}
-
-.title a {
-  text-decoration: none;
-  color: unset;
 }
 
 .theme-toggle {

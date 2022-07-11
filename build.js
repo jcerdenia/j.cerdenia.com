@@ -86,10 +86,11 @@ export const getHomePage = () => {
 
   return populate(template, {
     metaType: "website",
-    headTitle: data.title,
-    title: data.title,
-    description: data.description || siteConfig.description,
-    image: data.image || siteConfig.image,
+    headTitle: data.title || siteConfig.title,
+    brand: siteConfig.title,
+    title: "",
+    description: siteConfig.description,
+    image: siteConfig.image,
     content: md.render(content),
     belowContent: new HtmlStringBuilder("div")
       .addChild(
@@ -123,6 +124,7 @@ export const getPage = (slug) => {
     return populate(template, {
       metaType: "article",
       headTitle: `${data.title} - ${siteConfig.title}`,
+      brand: siteConfig.title,
       title: data.title,
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,

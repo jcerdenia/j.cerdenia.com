@@ -41,12 +41,17 @@
     <div class="container">
       <div class="main">
         <div class="pt-4">
-          <h1 class="title">
-            <a href="{{ slug }}">{{ title }}</a>
+          <h1 class="brand">
+            <a href="/">{{ brand }}</a>
           </h1>
         </div>
 
-        <div>{{ content }}</div>
+        <h2 class="title">
+          <a href="{{ slug }}">{{ title }}</a>
+        </h2>
+
+        <div class="content">{{ content }}</div>
+
         <div>{{ belowContent }}</div>
       </div>
 

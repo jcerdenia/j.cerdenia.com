@@ -118,7 +118,7 @@ export const getPage = (slug) => {
     const { data, content } = matter(markdown);
 
     if (data.draft) {
-      return getErrorPage();
+      throw Error("The requested page is a draft.");
     }
 
     return populate(template, {
@@ -156,6 +156,7 @@ const getErrorPage = () => {
   return populate(template, {
     metaType: "website",
     headTitle: `Page Not Found - ${siteConfig.title}`,
+    brand: siteConfig.title,
     title: "Page Not Found",
     description: siteConfig.description,
     image: siteConfig.image,

@@ -1,5 +1,5 @@
 ---
-title: "Joshua Cerdenia"
+title: ""
 ---
 
 ![](/images/marsh.jpeg)

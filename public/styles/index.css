@@ -44,6 +44,12 @@ a:hover {
   color: unset;
 }
 
+.content code,
+.content pre {
+  color: var(--color-text);
+  opacity: 0.8;
+}
+
 .content h1,
 .content h2,
 .content h3,

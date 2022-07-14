@@ -1,6 +1,6 @@
 # Joshua Cerdenia's Digital Garden
 
-A bare-bones static site automatically generated from markdown; with CSS assistance from Bootstrap. 
+A frameworkless poor man's static site generator building a bare-bones static site from markdown.
 
 Served at [garden.cerdenia.com](https://garden.cerdenia.com) (deployed with Vercel).
 
@@ -16,3 +16,9 @@ When building, the sites's HTML files are generated in the `public` folder. To b
 ```
 npm run build
 ```
+
+## Features
+
+- Express.js development server building individual pages on demand
+- Dark mode using vanilla JS trickery
+- CSS assitance from Bootstrap

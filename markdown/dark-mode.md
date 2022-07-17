@@ -9,7 +9,7 @@ This is a quick and easy dark mode implementation with plain JavaScript that can
 
 I favor an approach that relies on CSS data attributes and variables. In my main CSS file, I define separate sets of styles that represent my site's themes (in this case, "light" and "dark"):
 
-```
+```css
 body[data-theme="light"] {
   --color-bg: #fff;
   --color-text: rgb(33, 37, 41);
@@ -25,7 +25,7 @@ body[data-theme="dark"] {
 
 These variables can then simply be referenced elsewhere in the document, like so:
 
-```
+```css
 html,
 body {
   ...
@@ -40,7 +40,7 @@ The variable that controls the theme can be accessed at `document.body.dataset.t
 
 When a page first loads, that value has to be initialized to either a previous setting (from a previous session, stored in `window.localStorage`) or the system default. this can be done with JavaScript:
 
-```
+```js
 function setInitialTheme() {
   const dataset = document.body.dataset;
   const theme = window.localStorage.getItem("theme");
@@ -58,7 +58,7 @@ setInitialTheme(); // Call the above function immediately
 
 I put the above code in a file, e.g. `initialTheme.js` and reference at the top of the body of my main HTML file. It's important that the script goes before all other content to ensure that it is evaluated before anything is painted to the screen.
 
-```
+```html
 <body>
     <script src="./scripts/initialTheme.js"></script>
     ...
@@ -73,7 +73,7 @@ Next I need a UI element to enable toggling between light and dark states. For m
 
 While in light mode, the icon should be a moon; in dark mode, a sun. Defining that behavior requires JavaScript. For now, I just create a basic `div` element that contains an icon in the body of my main HTML file:
 
-```
+```html
 <body>
   ...
   <div id="theme-toggle">
@@ -84,7 +84,7 @@ While in light mode, the icon should be a moon; in dark mode, a sun. Defining th
 
 That button needs a function to update itself depending on the current theme. I'm using Bootstrap and Bootstrap icons, so I just reference pre-made classes such as `btn btn-dark` and `btn btn-light` to set the button's color, and `bi bi-moon` and `bi bi-sun` to set the icons.
 
-```
+```js
 function updateThemeToggle() {
   const theme = document.body.dataset.theme;
   const toggle = document.getElementById("theme-toggle");
@@ -96,7 +96,7 @@ function updateThemeToggle() {
 
 Next, a function to actually change the theme whenever it's called. The function must first check the current value of `document.body.dataset` and change it to the opposite value. Then, that value is saved to local storage so that it persists between sessions. Finally, the button is updated to reflect the new theme, simply by calling `updateThemeToggle()`.
 
-```
+```js
 function toggleTheme() {
   const dataset = document.body.dataset;
   dataset.theme = dataset.theme === "light" ? "dark" : "light";
@@ -107,7 +107,7 @@ function toggleTheme() {
 
 The above two functions go in their own JS file, e.g. `themeToggle.js`. `updateThemeToggle()` also has to be called immediately to set the button's appearance based on the initial theme.
 
-```
+```js
 function updateThemeToggle() {
   ...
 }
@@ -121,7 +121,7 @@ updateThemeToggle(); // Call immediately when script runs
 
 Finally, this new script goes at the bottom of the body of my main HTML file. To trigger a theme change each time the toggle is clicked, its `onclick` attribute is set to `toggleTheme()`.
 
-```
+```html
 <body>
   <script src="./scripts/initialTheme.js"></script>
   ...
@@ -133,7 +133,7 @@ Finally, this new script goes at the bottom of the body of my main HTML file. To
 </body>
 ```
 
-And that's it!
+And that's it.
 
 # References
 

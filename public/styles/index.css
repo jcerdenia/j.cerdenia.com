@@ -62,13 +62,11 @@ a:hover {
 }
 
 .content pre {
-  padding: 1rem;
-  font-size: var(--font-small);
-  background-color: rgb(55, 55, 55);
-}
-
-.content pre > code {
-  color: rgb(224, 226, 226);
+  border: none !important;
+  box-shadow: none !important;
+  font-size: var(--font-small) !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
 }
 
 .main {

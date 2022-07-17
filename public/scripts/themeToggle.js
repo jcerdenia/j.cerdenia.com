@@ -2,7 +2,7 @@ function updateThemeToggle() {
   const theme = document.body.dataset.theme;
   const toggle = document.getElementById("theme-toggle");
   const icon = document.getElementById("theme-icon");
-  toggle.className = `btn btn-${theme} theme-toggle`;
+  toggle.className = `btn btn-${theme}`;
   icon.className = theme === "light" ? "bi bi-moon" : "bi bi-sun";
 }
 

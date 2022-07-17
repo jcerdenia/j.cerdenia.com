@@ -44,12 +44,6 @@ a:hover {
   color: unset;
 }
 
-.content code,
-.content pre {
-  color: var(--color-text);
-  opacity: 0.8;
-}
-
 .content h1,
 .content h2,
 .content h3,
@@ -62,10 +56,19 @@ a:hover {
   margin-bottom: 1rem;
 }
 
-footer {
-  margin-top: 2rem;
-  font-size: var(--font-small);
-  color: var(--color-muted);
+.content code {
+  color: var(--color-text);
+  opacity: 0.9;
+}
+
+.content pre {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: rgb(55, 55, 55);
+}
+
+.content pre > code {
+  color: rgb(224, 226, 226);
 }
 
 .main {
@@ -91,7 +94,13 @@ footer {
   color: var(--color-muted) !important;
 }
 
-.theme-toggle {
+footer {
+  margin-top: 2rem;
+  font-size: var(--font-small);
+  color: var(--color-muted);
+}
+
+#theme-toggle {
   position: fixed;
   display: flex;
   align-items: center;
@@ -100,7 +109,6 @@ footer {
   width: 48px;
   bottom: 1rem;
   right: 1rem;
-  box-shadow: #252525;
   border-radius: 50% !important;
   transition: unset !important;
   filter: drop-shadow(1px 2px 8px var(--color-shadow));
@@ -121,7 +129,7 @@ footer {
     max-width: 960px !important;
   }
 
-  .theme-toggle {
+  #theme-toggle {
     bottom: 2rem;
     right: 2rem;
   }

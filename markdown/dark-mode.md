@@ -1,5 +1,5 @@
 ---
-title: "Dark mode: A simple JavaScript implementation"
+title: "Dark Mode: A Simple JavaScript Implementation"
 draft: false
 ---
 

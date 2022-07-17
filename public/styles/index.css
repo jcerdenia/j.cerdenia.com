@@ -58,7 +58,7 @@ a:hover {
 
 .content code {
   color: var(--color-text);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .content pre {

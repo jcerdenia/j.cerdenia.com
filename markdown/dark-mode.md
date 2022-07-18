@@ -1,6 +1,5 @@
 ---
 title: "Dark Mode: A Simple JavaScript Implementation"
-draft: false
 ---
 
 This is a quick and easy dark mode implementation with plain JavaScript that can be built on and adapted to other frameworks.
@@ -60,8 +59,8 @@ I put the above code in a file, e.g. `initialTheme.js` and reference at the top 
 
 ```html
 <body>
-    <script src="./scripts/initialTheme.js"></script>
-    ...
+  <script src="./scripts/initialTheme.js"></script>
+  ...
 </body>
 ```
 

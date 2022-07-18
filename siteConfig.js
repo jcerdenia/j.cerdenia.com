@@ -10,7 +10,6 @@ export default {
     Contact: "mailto:joshua@cerdenia.com",
   },
   redirects: {
-    coding: "https://dev.cerdenia.com",
     music: "https://music.cerdenia.com",
   },
 };

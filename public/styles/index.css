@@ -44,6 +44,21 @@ a:hover {
   color: unset;
 }
 
+.main {
+  /* Arrived at this calculation through sheer trial and error */
+  min-height: calc(100vh - 85px);
+}
+
+.main img {
+  width: 100%;
+}
+
+.main small {
+  color: var(--color-muted);
+  font-size: var(--font-small);
+  margin-bottom: 1rem;
+}
+
 .content h1,
 .content h2,
 .content h3,
@@ -67,21 +82,6 @@ a:hover {
   font-size: var(--font-small) !important;
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
-}
-
-.main {
-  /* Arrived at this calculation through sheer trial and error */
-  min-height: calc(100vh - 85px);
-}
-
-.main img {
-  width: 100%;
-}
-
-.main small {
-  color: var(--color-muted);
-  font-size: var(--font-small);
-  margin-bottom: 1rem;
 }
 
 .small {

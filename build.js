@@ -160,7 +160,9 @@ const getErrorPage = () => {
     title: "Page Not Found",
     description: siteConfig.description,
     image: siteConfig.image,
-    content: new HtmlStringBuilder("p").addChild("Sorry!").toString(),
+    content: new HtmlStringBuilder("p")
+      .addChild("Sorry! That page doesn't exist or may have moved.")
+      .toString(),
     belowContent: new HtmlStringBuilder("a")
       .addProp("href", "/")
       .addChild("Take me home")

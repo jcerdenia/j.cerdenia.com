@@ -3,7 +3,7 @@ import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
 import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
-import HtmlStringBuilder from "./lib/HtmlStringBuilder.js";
+import HtmlBuilder from "./lib/HtmlBuilder.js";
 import { compareBy } from "./lib/utils.js";
 
 const md = new MarkdownIt({ html: true });
@@ -14,38 +14,10 @@ const footerData = {
     .map(([name, url], i) => {
       return (
         (i ? " | " : "") +
-        new HtmlStringBuilder("a")
-          .addProp("href", url)
-          .addChild(name)
-          .toString()
+        new HtmlBuilder("a").prop("href", url).child(name).toString()
       );
     })
     .join("\n"),
-};
-
-const getPageLists = () => {
-  const pinnedPages = [];
-  const pages = [];
-
-  fs.readdirSync("./markdown")
-    .filter((fn) => fn !== "index.md")
-    .map((fn) => {
-      const markdown = fs.readFileSync(`./markdown/${fn}`);
-      const { data } = matter(markdown);
-      data.slug = fn.replace(".md", "");
-      return data;
-    })
-    .filter((page) => !page.draft)
-    .sort(compareBy("title"))
-    .forEach((page) => {
-      if (page.pinned) {
-        pinnedPages.push(page);
-      } else {
-        pages.push(page);
-      }
-    });
-
-  return { pinnedPages, pages };
 };
 
 export const getHomePage = () => {
@@ -56,20 +28,20 @@ export const getHomePage = () => {
   // Create HTML lists of pages.
   const { pinnedPages, pages } = getPageLists();
 
-  const toHtmlLinkElement = (metadata) => {
-    return new HtmlStringBuilder("a")
-      .addProp("href", `/${metadata.slug}`)
-      .addChild(metadata.title)
+  const toHtmlLink = (metadata) => {
+    return new HtmlBuilder("a")
+      .prop("href", `/${metadata.slug}`)
+      .child(metadata.title)
       .toString();
   };
 
   const pinnedPagesHtml = pinnedPages
     .map((page) => {
-      return new HtmlStringBuilder("li")
-        .addChild(
-          new HtmlStringBuilder("span")
-            .addChild("Pinned: ")
-            .addChild(toHtmlLinkElement(page))
+      return new HtmlBuilder("li")
+        .child(
+          new HtmlBuilder("span")
+            .child("Pinned: ")
+            .child(toHtmlLink(page))
             .toString()
         )
         .toString();
@@ -78,9 +50,7 @@ export const getHomePage = () => {
 
   const pagesHtml = pages
     .map((page) => {
-      return new HtmlStringBuilder("li")
-        .addChild(toHtmlLinkElement(page))
-        .toString();
+      return new HtmlBuilder("li").child(toHtmlLink(page)).toString();
     })
     .join("");
 
@@ -92,38 +62,20 @@ export const getHomePage = () => {
     description: siteConfig.description,
     image: siteConfig.image,
     content: md.render(content),
-    belowContent: new HtmlStringBuilder("div")
-      .addChild(
-        new HtmlStringBuilder("ul")
-          .addProp("class", "my-4")
-          .addChild(pinnedPagesHtml)
+    belowContent: new HtmlBuilder("div")
+      .child(
+        new HtmlBuilder("ul")
+          .prop("class", "my-4")
+          .child(pinnedPagesHtml)
           .toString()
       )
-      .addChild(
-        new HtmlStringBuilder("ul")
-          .addProp("class", "my-4")
-          .addChild(pagesHtml)
-          .toString()
+      .child(
+        new HtmlBuilder("ul").prop("class", "my-4").child(pagesHtml).toString()
       )
       .toString(),
     slug: "/",
     ...footerData,
   });
-};
-
-const getBacklinks = (slug) => {
-  return fs
-    .readdirSync("./markdown")
-    .filter((fn) => fn !== "index.md")
-    .map((fn) => {
-      const markdown = fs.readFileSync(`./markdown/${fn}`);
-      const { data, content } = matter(markdown);
-      data.slug = fn.replace(".md", "");
-      return { ...data, content };
-    })
-    .filter(({ draft, content }) => !draft && content.includes(`](/${slug})`))
-    .map(({ title, slug }) => ({ title, slug }))
-    .sort(compareBy("title"));
 };
 
 export const getPage = (slug) => {
@@ -139,22 +91,18 @@ export const getPage = (slug) => {
     const backlinks = getBacklinks(slug);
 
     const backlinksHtml = backlinks.length
-      ? new HtmlStringBuilder("div")
-          .addProp("class", "mt-5")
-          .addChild(
-            new HtmlStringBuilder("h5")
-              .addChild("Pages that link here")
-              .toString()
-          )
-          .addChild(
-            new HtmlStringBuilder("ul")
-              .addChild(
+      ? new HtmlBuilder("div")
+          .prop("class", "mt-5")
+          .child(new HtmlBuilder("h5").child("Pages that link here").toString())
+          .child(
+            new HtmlBuilder("ul")
+              .child(
                 backlinks
                   .map((item) => {
-                    return new HtmlStringBuilder("li").addChild(
-                      new HtmlStringBuilder("a")
-                        .addProp("href", item.slug)
-                        .addChild(item.title)
+                    return new HtmlBuilder("li").child(
+                      new HtmlBuilder("a")
+                        .prop("href", item.slug)
+                        .child(item.title)
                     );
                   })
                   .join("\n")
@@ -164,17 +112,12 @@ export const getPage = (slug) => {
           .toString()
       : "";
 
-    const backButtonHtml = new HtmlStringBuilder("span")
-      .addChild(
-        new HtmlStringBuilder("i")
-          .addProp("class", "bi bi-arrow-left me-1")
-          .toString()
+    const backButtonHtml = new HtmlBuilder("span")
+      .child(
+        new HtmlBuilder("i").prop("class", "bi bi-arrow-left me-1").toString()
       )
-      .addChild(
-        new HtmlStringBuilder("a")
-          .addProp("href", "../")
-          .addChild("Go back")
-          .toString()
+      .child(
+        new HtmlBuilder("a").prop("href", "../").child("Go back").toString()
       )
       .toString();
 
@@ -205,16 +148,56 @@ const getErrorPage = () => {
     title: "Page Not Found",
     description: siteConfig.description,
     image: siteConfig.image,
-    content: new HtmlStringBuilder("p")
-      .addChild("Sorry! That page doesn't exist or may have moved.")
+    content: new HtmlBuilder("p")
+      .child("Sorry! That page doesn't exist or may have moved.")
       .toString(),
-    belowContent: new HtmlStringBuilder("a")
-      .addProp("href", "/")
-      .addChild("Take me home")
+    belowContent: new HtmlBuilder("a")
+      .prop("href", "/")
+      .child("Take me home")
       .toString(),
     slug: "#",
     ...footerData,
   });
+};
+
+const getPageLists = () => {
+  const pinnedPages = [];
+  const pages = [];
+
+  fs.readdirSync("./markdown")
+    .filter((fn) => fn !== "index.md")
+    .map((fn) => {
+      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const { data } = matter(markdown);
+      data.slug = fn.replace(".md", "");
+      return data;
+    })
+    .filter((page) => !page.draft)
+    .sort(compareBy("title"))
+    .forEach((page) => {
+      if (page.pinned) {
+        pinnedPages.push(page);
+      } else {
+        pages.push(page);
+      }
+    });
+
+  return { pinnedPages, pages };
+};
+
+const getBacklinks = (slug) => {
+  return fs
+    .readdirSync("./markdown")
+    .filter((fn) => fn !== "index.md")
+    .map((fn) => {
+      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const { data, content } = matter(markdown);
+      data.slug = fn.replace(".md", "");
+      return { ...data, content };
+    })
+    .filter(({ draft, content }) => !draft && content.includes(`](/${slug})`))
+    .map(({ title, slug }) => ({ title, slug }))
+    .sort(compareBy("title"));
 };
 
 const populate = (template, data) => {

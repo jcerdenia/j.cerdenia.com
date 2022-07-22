@@ -111,6 +111,21 @@ export const getHomePage = () => {
   });
 };
 
+const getBacklinks = (slug) => {
+  return fs
+    .readdirSync("./markdown")
+    .filter((fn) => fn !== "index.md")
+    .map((fn) => {
+      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const { data, content } = matter(markdown);
+      data.slug = fn.replace(".md", "");
+      return { ...data, content };
+    })
+    .filter(({ draft, content }) => !draft && content.includes(`](/${slug})`))
+    .map(({ title, slug }) => ({ title, slug }))
+    .sort(compareBy("title"));
+};
+
 export const getPage = (slug) => {
   try {
     const template = fs.readFileSync("./templates/page.html", "utf-8");
@@ -121,6 +136,48 @@ export const getPage = (slug) => {
       throw Error("The requested page is a draft.");
     }
 
+    const backlinks = getBacklinks(slug);
+
+    const backlinksHtml = backlinks.length
+      ? new HtmlStringBuilder("div")
+          .addProp("class", "mt-5")
+          .addChild(
+            new HtmlStringBuilder("h5")
+              .addChild("Pages that link here")
+              .toString()
+          )
+          .addChild(
+            new HtmlStringBuilder("ul")
+              .addChild(
+                backlinks
+                  .map((item) => {
+                    return new HtmlStringBuilder("li").addChild(
+                      new HtmlStringBuilder("a")
+                        .addProp("href", item.slug)
+                        .addChild(item.title)
+                    );
+                  })
+                  .join("\n")
+              )
+              .toString()
+          )
+          .toString()
+      : "";
+
+    const backButtonHtml = new HtmlStringBuilder("span")
+      .addChild(
+        new HtmlStringBuilder("i")
+          .addProp("class", "bi bi-arrow-left me-1")
+          .toString()
+      )
+      .addChild(
+        new HtmlStringBuilder("a")
+          .addProp("href", "../")
+          .addChild("Go back")
+          .toString()
+      )
+      .toString();
+
     return populate(template, {
       metaType: "article",
       headTitle: `${data.title} - ${siteConfig.title}`,
@@ -129,19 +186,7 @@ export const getPage = (slug) => {
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: md.render(content),
-      belowContent: new HtmlStringBuilder("span")
-        .addChild(
-          new HtmlStringBuilder("i")
-            .addProp("class", "bi bi-arrow-left me-1")
-            .toString()
-        )
-        .addChild(
-          new HtmlStringBuilder("a")
-            .addProp("href", "../")
-            .addChild("Go back")
-            .toString()
-        )
-        .toString(),
+      belowContent: [backlinksHtml, backButtonHtml].join("\n"),
       slug,
       ...footerData,
     });

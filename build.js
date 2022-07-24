@@ -100,7 +100,8 @@ export const getPage = (slug) => {
     const { data, content } = matter(markdown);
 
     if (data.draft) {
-      throw Error("The requested page is a draft.");
+      console.log("Found draft, returning error page instead.");
+      return getErrorPage();
     }
 
     const template = fs.readFileSync("./templates/page.html", "utf-8");
@@ -205,6 +206,8 @@ const main = () => {
   Object.keys(redirects).forEach((key) => {
     fs.writeFileSync(`./public/${key}.html`, populate(template, { url: redirects[key] }));
   });
+
+  console.log("Build complete.");
 };
 
 if (process.argv[2] === "main") {

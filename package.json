@@ -20,9 +20,11 @@
   },
   "homepage": "https://github.com/joshuacerdenia/cerdenia.com#readme",
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "express": "^4.18.1",
     "gray-matter": "^4.0.3",
     "html-minifier": "^4.0.0",
+    "livereload": "^0.9.3",
     "markdown-it": "^12.3.2",
     "nodemon": "^2.0.16"
   },

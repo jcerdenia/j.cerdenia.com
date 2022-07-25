@@ -1,10 +1,19 @@
 import express from "express";
+import livereload from "livereload";
+import connectLivereload from "connect-livereload";
 import { join } from "path";
 import { getHomePage, getPage } from "./build.js";
 import siteConfig from "./siteConfig.js";
 
 const app = express();
+const liveReloadServer = livereload.createServer();
 const PORT = 3000;
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => liveReloadServer.refresh("/"), 100);
+});
+
+app.use(connectLivereload());
 
 app.get("/", (_req, res) => {
   res.send(getHomePage());

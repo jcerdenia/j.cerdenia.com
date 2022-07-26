@@ -12,7 +12,10 @@ const footerData = {
   copyright: siteConfig.copyright,
   links: Object.entries(siteConfig.links)
     .map(([name, url], i) => {
-      return (i ? " | " : "") + new HtmlBuilder("a").prop("href", url).child(name).toString();
+      return (
+        (i ? " | " : "") +
+        new HtmlBuilder("a").prop("href", url).child(name).toString()
+      );
     })
     .join(""),
 };
@@ -54,14 +57,36 @@ export const getHomePage = () => {
   // Create HTML lists of pages.
   const pageItems = getPageItems();
 
+  const renderLink = (title, slug) => {
+    return new HtmlBuilder("a")
+      .prop("href", `/${slug}`)
+      .child(title)
+      .toString();
+  };
+
+  const renderDate = (date) => {
+    return new HtmlBuilder("span")
+      .prop("class", "small text-muted ms-2")
+      .child(date)
+      .toString();
+  };
+
+  const renderList = (listItems) => {
+    return new HtmlBuilder("ul")
+      .prop("class", "my-4")
+      .child(listItems)
+      .toString();
+  };
+
   const pinnedPages = pageItems
     .filter((page) => page.pinned)
-    .map(({ slug, title }) => {
+    .map(({ slug, title, date }) => {
       return new HtmlBuilder("li")
         .child(
           new HtmlBuilder("span")
             .child("Pinned: ")
-            .child(new HtmlBuilder("a").prop("href", `/${slug}`).child(title).toString())
+            .child(renderLink(title, slug))
+            .child(renderDate(date))
             .toString()
         )
         .toString();
@@ -70,24 +95,24 @@ export const getHomePage = () => {
 
   const pages = pageItems
     .filter((page) => !page.pinned)
-    .map(({ slug, title }) =>
-      new HtmlBuilder("li")
-        .child(new HtmlBuilder("a").prop("href", `/${slug}`).child(title).toString())
-        .toString()
-    )
+    .map(({ slug, title, date }) => {
+      return new HtmlBuilder("li")
+        .child(renderLink(title, slug))
+        .child(renderDate(date))
+        .toString();
+    })
     .join("");
 
   return populate(template, {
     metaType: "website",
     headTitle: data.title || siteConfig.title,
     brand: siteConfig.title,
-    title: "",
     description: siteConfig.description,
     image: siteConfig.image,
     content: md.render(content),
     belowContent: new HtmlBuilder("div")
-      .child(new HtmlBuilder("ul").prop("class", "my-4").child(pinnedPages).toString())
-      .child(new HtmlBuilder("ul").prop("class", "my-4").child(pages).toString())
+      .child(renderList(pinnedPages))
+      .child(renderList(pages))
       .toString(),
     slug: "/",
     ...footerData,
@@ -122,8 +147,14 @@ export const getPage = (slug) => {
 
     const homeButton = new HtmlBuilder("div")
       .prop("class", "mt-5")
-      .child(new HtmlBuilder("i").prop("class", "bi bi-chevron-double-left me-1").toString())
-      .child(new HtmlBuilder("a").prop("href", "../").child("Go home").toString())
+      .child(
+        new HtmlBuilder("i")
+          .prop("class", "bi bi-chevron-double-left me-1")
+          .toString()
+      )
+      .child(
+        new HtmlBuilder("a").prop("href", "../").child("Go home").toString()
+      )
       .toString();
 
     return populate(template, {
@@ -131,6 +162,7 @@ export const getPage = (slug) => {
       headTitle: `${data.title} - ${siteConfig.title}`,
       brand: siteConfig.title,
       title: data.title,
+      date: data.date,
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: md.render(content),
@@ -157,7 +189,10 @@ const getErrorPage = () => {
     content: new HtmlBuilder("p")
       .child("Sorry! That page doesn't exist or may have moved.")
       .toString(),
-    belowContent: new HtmlBuilder("a").prop("href", "/").child("Take me home").toString(),
+    belowContent: new HtmlBuilder("a")
+      .prop("href", "/")
+      .child("Take me home")
+      .toString(),
     slug: "#",
     ...footerData,
   });
@@ -165,9 +200,14 @@ const getErrorPage = () => {
 
 const populate = (template, data) => {
   Object.keys(data).forEach((key) => {
-    const keyRegex = new RegExp(`{{ ${key} }}`, "g");
-    template = template.replace(keyRegex, data[key]);
+    if (data[key]) {
+      const keyRegex = new RegExp(`{{ ${key} }}`, "g");
+      template = template.replace(keyRegex, data[key]);
+    }
   });
+
+  // Clear any remaining template stubs.
+  template = template.replace(/{{ [A-Za-z0-9_]+ }}/g, "");
 
   return minify(template, {
     collapseWhitespace: true,
@@ -204,10 +244,13 @@ const main = () => {
   const template = fs.readFileSync("./templates/redirect.html", "utf-8");
 
   Object.keys(redirects).forEach((key) => {
-    fs.writeFileSync(`./public/${key}.html`, populate(template, { url: redirects[key] }));
+    fs.writeFileSync(
+      `./public/${key}.html`,
+      populate(template, { url: redirects[key] })
+    );
   });
 
-  console.log("Build complete.");
+  console.log("Built.");
 };
 
 if (process.argv[2] === "main") {

@@ -26,8 +26,8 @@ serve public
 
 ## Frameworks/Libraries
 
-- [Express](https://expressjs.com/) development server to build individual pages on demand paired with `nodemon`
-- [Bootstrap](https://getbootstrap.com/) CSS and icons
-- [`gray-matter`](https://www.npmjs.com/package/gray-matter) for parsing YAML front matter
-- [`markdown-it`](https://www.npmjs.com/package/markdown-it) for parsing markdown to HTML
+- [Express](https://expressjs.com/) development server to build individual pages on demand
+- [`nodemon`](https://nodemon.io/), [`livereload`](https://www.npmjs.com/package/livereload) and [`connect-livereload`](https://www.npmjs.com/package/connect-livereload) for hot reloading in development
+- [`gray-matter`](https://www.npmjs.com/package/gray-matter) and [`markdown-it`](https://www.npmjs.com/package/markdown-it) for parsing YAML front matter and markdown
 - [`html-minifier`](https://www.npmjs.com/package/html-minifier) for minifying HTML output
+- [Bootstrap](https://getbootstrap.com/) CSS and icons

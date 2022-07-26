@@ -1,6 +1,5 @@
 ---
 title: "Lorem Ipsum"
-pinned: true
 draft: true
 ---
 

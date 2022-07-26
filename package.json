@@ -29,9 +29,9 @@
     "nodemon": "^2.0.16"
   },
   "nodemonConfig": {
-    "ext": "js,json,md,html,css",
+    "ext": "*",
     "ignore": [
-      "public/*"
+      "public/*.html"
     ]
   }
 }

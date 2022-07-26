@@ -9,10 +9,6 @@ const app = express();
 const liveReloadServer = livereload.createServer();
 const PORT = 3000;
 
-liveReloadServer.server.once("connection", () => {
-  setTimeout(() => liveReloadServer.refresh("/"), 100);
-});
-
 app.use(connectLivereload());
 
 app.get("/", (_req, res) => {
@@ -36,5 +32,12 @@ app.get("/:dir/:file", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Development server listening at port ${PORT}.`);
+  console.log(`Dev server listening at port ${PORT}.`);
+});
+
+liveReloadServer.server.once("connection", () => {
+  setTimeout(() => {
+    liveReloadServer.refresh("/");
+    console.log("Live reload triggered.");
+  }, 100);
 });

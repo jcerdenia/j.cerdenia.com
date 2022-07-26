@@ -4,7 +4,7 @@ import MarkdownIt from "markdown-it";
 import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
 import HtmlBuilder from "./lib/HtmlBuilder.js";
-import { compareBy } from "./lib/utils.js";
+import { compareBy, formatDate } from "./lib/utils.js";
 
 const md = new MarkdownIt({ html: true });
 
@@ -67,7 +67,7 @@ export const getHomePage = () => {
   const renderDate = (date) => {
     return new HtmlBuilder("span")
       .prop("class", "small text-muted ms-2")
-      .child(date)
+      .child(formatDate(date, { month: "short", day: undefined }))
       .toString();
   };
 
@@ -162,7 +162,7 @@ export const getPage = (slug) => {
       headTitle: `${data.title} - ${siteConfig.title}`,
       brand: siteConfig.title,
       title: data.title,
-      date: data.date,
+      date: formatDate(data.date),
       description: data.description || siteConfig.description,
       image: data.image || siteConfig.image,
       content: md.render(content),

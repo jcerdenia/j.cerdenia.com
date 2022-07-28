@@ -1,21 +1,25 @@
 import fs from "fs";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
-import siteConfig from "./siteConfig.js";
 import { minify } from "html-minifier";
 import HtmlBuilder from "./lib/HtmlBuilder.js";
 import { compareBy, formatDate } from "./lib/utils.js";
+import siteConfig from "./siteConfig.js";
 
 const md = new MarkdownIt({ html: true });
 
-const footerData = {
-  copyright: siteConfig.copyright,
-  links: Object.entries(siteConfig.links)
+const { metadata, links, redirects } = siteConfig;
+
+const defaults = {
+  ...metadata,
+  links: Object.entries(links)
     .map(([name, url], i) => {
-      return (
-        (i ? " | " : "") +
-        new HtmlBuilder("a").prop("href", url).child(name).toString()
-      );
+      const link = new HtmlBuilder("a")
+        .prop("href", url)
+        .child(name)
+        .toString();
+
+      return (i ? " | " : "") + link;
     })
     .join(""),
 };
@@ -105,17 +109,13 @@ export const getHomePage = () => {
 
   return populate(template, {
     metaType: "website",
-    headTitle: data.title || siteConfig.title,
-    brand: siteConfig.title,
-    description: siteConfig.description,
-    image: siteConfig.image,
+    headTitle: data.title || metadata.brand,
     content: md.render(content),
     belowContent: new HtmlBuilder("div")
       .child(renderList(pinnedPages))
       .child(renderList(pages))
       .toString(),
     slug: "/",
-    ...footerData,
   });
 };
 
@@ -159,16 +159,14 @@ export const getPage = (slug) => {
 
     return populate(template, {
       metaType: "article",
-      headTitle: `${data.title} - ${siteConfig.title}`,
-      brand: siteConfig.title,
+      headTitle: `${data.title} - ${metadata.brand}`,
       title: data.title,
       date: formatDate(data.date),
-      description: data.description || siteConfig.description,
-      image: data.image || siteConfig.image,
+      description: data.description || metadata.description,
+      image: data.image || metadata.image,
       content: md.render(content),
       belowContent: [backlinks, homeButton].join(""),
       slug,
-      ...footerData,
     });
   } catch (error) {
     console.log(error);
@@ -181,11 +179,8 @@ const getErrorPage = () => {
 
   return populate(template, {
     metaType: "website",
-    headTitle: `Page Not Found - ${siteConfig.title}`,
-    brand: siteConfig.title,
+    headTitle: `Page Not Found - ${metadata.title}`,
     title: "Page Not Found",
-    description: siteConfig.description,
-    image: siteConfig.image,
     content: new HtmlBuilder("p")
       .child("Sorry! That page doesn't exist or may have moved.")
       .toString(),
@@ -194,11 +189,12 @@ const getErrorPage = () => {
       .child("Take me home")
       .toString(),
     slug: "#",
-    ...footerData,
   });
 };
 
 const populate = (template, data) => {
+  data = { ...defaults, ...data };
+
   Object.keys(data).forEach((key) => {
     if (data[key]) {
       const keyRegex = new RegExp(`{{ ${key} }}`, "g");
@@ -240,7 +236,6 @@ const main = () => {
   fs.writeFileSync(`./public/404.html`, getErrorPage());
 
   // Create redirects.
-  const redirects = siteConfig.redirects;
   const template = fs.readFileSync("./templates/redirect.html", "utf-8");
 
   Object.keys(redirects).forEach((key) => {

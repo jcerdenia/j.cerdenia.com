@@ -1,7 +1,8 @@
 import fs from "fs";
 import matter from "gray-matter";
-import MarkdownIt from "markdown-it";
 import { minify } from "html-minifier";
+import MarkdownIt from "markdown-it";
+
 import HtmlBuilder from "./lib/HtmlBuilder.js";
 import { compareBy, formatDate } from "./lib/utils.js";
 import siteConfig from "./siteConfig.js";
@@ -12,7 +13,7 @@ const { metadata, links, redirects } = siteConfig;
 
 const defaults = {
   ...metadata,
-  links: Object.entries(links)
+  links: links
     .map(([name, url], i) => {
       const link = new HtmlBuilder("a")
         .prop("href", url)
@@ -24,8 +25,32 @@ const defaults = {
     .join(""),
 };
 
-const getPageItems = () => {
-  return fs
+const populate = (template, args) => {
+  const data = { ...defaults, ...args };
+  let html = template;
+
+  Object.keys(data).forEach((key) => {
+    if (data[key]) {
+      const keyRegex = new RegExp(`{{ ${key} }}`, "g");
+      html = html.replace(keyRegex, data[key]);
+    }
+  });
+
+  // Clear any remaining template stubs.
+  html = html.replace(/{{ [A-Za-z0-9_]+ }}/g, "");
+
+  return minify(html, {
+    collapseBooleanAttributes: true,
+    collapseWhitespace: true,
+    removeComments: true,
+    removeEmptyAttributes: true,
+    removeOptionalTags: true,
+    useShortDoctype: true,
+  });
+};
+
+const getPageItems = () =>
+  fs
     .readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
@@ -36,10 +61,9 @@ const getPageItems = () => {
     })
     .filter((page) => !page.draft)
     .sort(compareBy("title"));
-};
 
-const getBacklinks = (slug) => {
-  return fs
+const getBacklinks = (slug) =>
+  fs
     .readdirSync("./markdown")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
@@ -49,8 +73,25 @@ const getBacklinks = (slug) => {
       return { ...data, content };
     })
     .filter(({ draft, content }) => !draft && content.includes(`](/${slug})`))
-    .map(({ title, slug }) => ({ title, slug }))
+    .map(({ title, slug: pageSlug }) => ({ slug: pageSlug, title }))
     .sort(compareBy("title"));
+
+const getErrorPage = () => {
+  const template = fs.readFileSync("./templates/page.html", "utf-8");
+
+  return populate(template, {
+    content: new HtmlBuilder("p")
+      .child("Sorry! That page doesn't exist or may have moved.")
+      .toString(),
+    contentAfter: new HtmlBuilder("a")
+      .prop("href", "/")
+      .child("Take me home")
+      .toString(),
+    headTitle: `Page Not Found - ${metadata.title}`,
+    metaType: "website",
+    slug: "#",
+    title: "Page Not Found",
+  });
 };
 
 export const getHomePage = () => {
@@ -61,31 +102,22 @@ export const getHomePage = () => {
   // Create HTML lists of pages.
   const pageItems = getPageItems();
 
-  const renderLink = (title, slug) => {
-    return new HtmlBuilder("a")
-      .prop("href", `/${slug}`)
-      .child(title)
-      .toString();
-  };
+  const renderLink = (title, slug) =>
+    new HtmlBuilder("a").prop("href", `/${slug}`).child(title).toString();
 
-  const renderDate = (date) => {
-    return new HtmlBuilder("span")
+  const renderDate = (date) =>
+    new HtmlBuilder("span")
       .prop("class", "small text-muted ms-2")
-      .child(formatDate(date, { month: "short", day: undefined }))
+      .child(formatDate(date, { day: undefined, month: "short" }))
       .toString();
-  };
 
-  const renderList = (listItems) => {
-    return new HtmlBuilder("ul")
-      .prop("class", "my-4")
-      .child(listItems)
-      .toString();
-  };
+  const renderList = (listItems) =>
+    new HtmlBuilder("ul").prop("class", "my-4").child(listItems).toString();
 
   const pinnedPages = pageItems
     .filter((page) => page.pinned)
-    .map(({ slug, title, date }) => {
-      return new HtmlBuilder("li")
+    .map(({ slug, title, date }) =>
+      new HtmlBuilder("li")
         .child(
           new HtmlBuilder("span")
             .child("Pinned: ")
@@ -93,28 +125,28 @@ export const getHomePage = () => {
             .child(renderDate(date))
             .toString()
         )
-        .toString();
-    })
+        .toString()
+    )
     .join("");
 
   const pages = pageItems
     .filter((page) => !page.pinned)
-    .map(({ slug, title, date }) => {
-      return new HtmlBuilder("li")
+    .map(({ slug, title, date }) =>
+      new HtmlBuilder("li")
         .child(renderLink(title, slug))
         .child(renderDate(date))
-        .toString();
-    })
+        .toString()
+    )
     .join("");
 
   return populate(template, {
-    metaType: "website",
-    headTitle: data.title || metadata.brand,
     content: md.render(content),
-    belowContent: new HtmlBuilder("div")
+    contentAfter: new HtmlBuilder("div")
       .child(renderList(pinnedPages))
       .child(renderList(pages))
       .toString(),
+    headTitle: data.title || metadata.brand,
+    metaType: "website",
     slug: "/",
   });
 };
@@ -125,17 +157,16 @@ export const getPage = (slug) => {
     const { data, content } = matter(markdown);
 
     if (data.draft) {
-      console.log("Found draft, returning error page instead.");
       return getErrorPage();
     }
 
     const template = fs.readFileSync("./templates/page.html", "utf-8");
 
-    const backlinkItems = getBacklinks(slug).map((item) => {
-      return new HtmlBuilder("li").child(
+    const backlinkItems = getBacklinks(slug).map((item) =>
+      new HtmlBuilder("li").child(
         new HtmlBuilder("a").prop("href", item.slug).child(item.title)
-      );
-    });
+      )
+    );
 
     const backlinks = backlinkItems.length
       ? new HtmlBuilder("div")
@@ -158,61 +189,20 @@ export const getPage = (slug) => {
       .toString();
 
     return populate(template, {
-      metaType: "article",
-      headTitle: `${data.title} - ${metadata.brand}`,
-      title: data.title,
+      content: md.render(content),
+      contentAfter: [backlinks, homeButton].join(""),
       date: formatDate(data.date),
       description: data.description || metadata.description,
+      headTitle: `${data.title} - ${metadata.brand}`,
       image: data.image || metadata.image,
-      content: md.render(content),
-      belowContent: [backlinks, homeButton].join(""),
+      metaType: "article",
       slug,
+      title: data.title,
     });
   } catch (error) {
     console.log(error);
     return getErrorPage();
   }
-};
-
-const getErrorPage = () => {
-  const template = fs.readFileSync("./templates/page.html", "utf-8");
-
-  return populate(template, {
-    metaType: "website",
-    headTitle: `Page Not Found - ${metadata.title}`,
-    title: "Page Not Found",
-    content: new HtmlBuilder("p")
-      .child("Sorry! That page doesn't exist or may have moved.")
-      .toString(),
-    belowContent: new HtmlBuilder("a")
-      .prop("href", "/")
-      .child("Take me home")
-      .toString(),
-    slug: "#",
-  });
-};
-
-const populate = (template, data) => {
-  data = { ...defaults, ...data };
-
-  Object.keys(data).forEach((key) => {
-    if (data[key]) {
-      const keyRegex = new RegExp(`{{ ${key} }}`, "g");
-      template = template.replace(keyRegex, data[key]);
-    }
-  });
-
-  // Clear any remaining template stubs.
-  template = template.replace(/{{ [A-Za-z0-9_]+ }}/g, "");
-
-  return minify(template, {
-    collapseWhitespace: true,
-    removeComments: true,
-    collapseBooleanAttributes: true,
-    useShortDoctype: true,
-    removeEmptyAttributes: true,
-    removeOptionalTags: true,
-  });
 };
 
 const main = () => {
@@ -233,7 +223,7 @@ const main = () => {
     });
 
   // Write 404 page.
-  fs.writeFileSync(`./public/404.html`, getErrorPage());
+  fs.writeFileSync("./public/404.html", getErrorPage());
 
   // Create redirects.
   const template = fs.readFileSync("./templates/redirect.html", "utf-8");

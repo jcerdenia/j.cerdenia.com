@@ -1,7 +1,8 @@
+import connectLivereload from "connect-livereload";
 import express from "express";
 import livereload from "livereload";
-import connectLivereload from "connect-livereload";
 import { join } from "path";
+
 import { getHomePage, getPage } from "./build.js";
 import siteConfig from "./siteConfig.js";
 

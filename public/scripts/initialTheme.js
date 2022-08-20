@@ -1,5 +1,5 @@
 function setInitialTheme() {
-  const dataset = document.body.dataset;
+  const { dataset } = document.body;
   const theme = window.localStorage.getItem("theme");
 
   if (theme) {

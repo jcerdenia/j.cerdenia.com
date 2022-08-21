@@ -1,11 +1,12 @@
 ---
 title: "About"
 pinned: true
+draft: true
 ---
 
-This site is meant for anything I'm personally interested in: code, music, and everything in between.
+This site is meant for anything I'm personally interested in: code, music, and living.
 
-Right now, I work as a software engineer. Before that, I worked as a composer, performer, and arts administrator; now I treat music as a serious hobby ([it's better that way](/2020)). I draw on my musical experience and sensibilities to bring a unique perspective to my work.
+I have had a few different professional identities, but right now, I work as a software engineer. Before that, I worked as a composer, performer, and arts administrator. Now I treat music as a serious hobby – it's better that way. I draw on my musical experience and sensibilities to bring a unique perspective to whatever I do.
 
 I was born and raised in the Philippines and have spent seasons in Singapore, Baltimore, and New York City. Currently I live in the Metro Manila area. [See what I'm doing now](/now).
 

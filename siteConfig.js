@@ -1,6 +1,6 @@
 export default {
   links: [
-    ["Source", "https://github.com/joshuacerdenia/garden.cerdenia.com"],
+    ["Source", "https://github.com/joshuacerdenia/j.cerdenia.com"],
     ["GitHub", "https://github.com/joshuacerdenia"],
     ["Music", "https://music.cerdenia.com"],
     ["Contact", "mailto:joshua@cerdenia.com"],
@@ -13,6 +13,6 @@ export default {
     image: "/images/marsh.jpeg",
   },
   redirects: {
-    music: "https://music.cerdenia.com",
+    music: "https://cerdenia.com",
   },
 };

@@ -9,8 +9,8 @@ export default {
     brand: "Joshua Cerdenia",
     copyright: "&#169; 2022 Joshua Cerdenia",
     description: "The online home of Joshua Cerdenia",
-    icon: "/images/marsh.jpeg",
-    image: "/images/marsh.jpeg",
+    icon: "/images/village.jpeg",
+    image: "/images/village.jpeg",
   },
   redirects: {
     music: "https://cerdenia.com",

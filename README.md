@@ -1,8 +1,8 @@
 # garden.cerdenia.com
 
-A bare-bones markdown-based static site powered by a poor man's static site generator, meant to be a "digital garden" of sorts.
+A bare-bones markdown-based static site powered by a custom static site generator.
 
-Served at [garden.cerdenia.com](https://garden.cerdenia.com) (deployed with Vercel).
+Served at [j.cerdenia.com](https://j.cerdenia.com) (deployed with Vercel).
 
 To run locally, after cloning, install dependencies and run the development server:
 

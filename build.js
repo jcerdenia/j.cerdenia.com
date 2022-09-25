@@ -15,11 +15,16 @@ const defaults = {
   ...metadata,
   links: links
     .map(([name, url], i) => {
-      const link = new HtmlBuilder("a").href(url).child(name).toString();
+      const link = new HtmlBuilder("a").href(url).child(name);
       return (i ? " | " : "") + link;
     })
     .join(""),
 };
+
+const homeButton = new HtmlBuilder("div")
+  .class("mt-5")
+  .child(new HtmlBuilder("i").class("bi bi-chevron-left me-1"))
+  .child(new HtmlBuilder("a").href("/").child("Go home"));
 
 const populate = (template, args) => {
   const data = { ...defaults, ...args };
@@ -72,19 +77,13 @@ const getBacklinks = (slug) =>
     .map(({ title, slug: pageSlug }) => ({ slug: pageSlug, title }))
     .sort(compareBy("title"));
 
-const homeButton = new HtmlBuilder("div")
-  .class("mt-5")
-  .child(new HtmlBuilder("i").class("bi bi-chevron-left me-1").toString())
-  .child(new HtmlBuilder("a").href("/").child("Go home").toString())
-  .toString();
-
 const getErrorPage = () => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
 
   return populate(template, {
-    content: new HtmlBuilder("p")
-      .child("Sorry! That page doesn't exist or may have moved.")
-      .toString(),
+    content: new HtmlBuilder("p").child(
+      "Sorry! That page doesn't exist or may have moved."
+    ),
     contentAfter: homeButton,
     headTitle: `Page Not Found - ${metadata.title}`,
     metaType: "website",
@@ -102,29 +101,25 @@ export const getHomePage = () => {
   const pageItems = getPageItems();
 
   const renderLink = (title, slug) =>
-    new HtmlBuilder("a").href(`/${slug}`).child(title).toString();
+    new HtmlBuilder("a").href(`/${slug}`).child(title);
 
   const renderDate = (date) =>
     new HtmlBuilder("span")
       .class("small text-muted ms-2")
-      .child(formatDate(date, { day: undefined, month: "short" }))
-      .toString();
+      .child(formatDate(date, { day: undefined, month: "short" }));
 
   const renderList = (listItems) =>
-    new HtmlBuilder("ul").class("my-4").child(listItems).toString();
+    new HtmlBuilder("ul").class("my-4").child(listItems);
 
   const pinnedPages = pageItems
     .filter((page) => page.pinned)
     .map(({ slug, title, date }) =>
-      new HtmlBuilder("li")
-        .child(
-          new HtmlBuilder("span")
-            .child("Pinned: ")
-            .child(renderLink(title, slug))
-            .child(renderDate(date))
-            .toString()
-        )
-        .toString()
+      new HtmlBuilder("li").child(
+        new HtmlBuilder("span")
+          .child("Pinned: ")
+          .child(renderLink(title, slug))
+          .child(renderDate(date))
+      )
     )
     .join("");
 
@@ -134,7 +129,6 @@ export const getHomePage = () => {
       new HtmlBuilder("li")
         .child(renderLink(title, slug))
         .child(renderDate(date))
-        .toString()
     )
     .join("");
 
@@ -142,8 +136,7 @@ export const getHomePage = () => {
     content: md.render(content),
     contentAfter: new HtmlBuilder("div")
       .child(renderList(pinnedPages))
-      .child(renderList(pages))
-      .toString(),
+      .child(renderList(pages)),
     headTitle: data.title || metadata.brand,
     metaType: "website",
     slug: "/",
@@ -169,10 +162,9 @@ export const getPage = (slug) => {
 
     const backlinks = backlinkItems.length
       ? new HtmlBuilder("div")
-          .child(new HtmlBuilder("hr").class("my-4").void().toString())
-          .child(new HtmlBuilder("h5").child("Pages that link here").toString())
-          .child(new HtmlBuilder("ul").child(backlinkItems.join("")).toString())
-          .toString()
+          .child(new HtmlBuilder("hr").class("my-4").void())
+          .child(new HtmlBuilder("h5").child("Pages that link here"))
+          .child(new HtmlBuilder("ul").child(backlinkItems.join("")))
       : "";
 
     return populate(template, {

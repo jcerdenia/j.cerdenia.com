@@ -3,8 +3,8 @@ import express from "express";
 import livereload from "livereload";
 import { join } from "path";
 
-import { getHomePage, getPage } from "./build.js";
-import siteConfig from "./siteConfig.js";
+import { buildRssFeed, getHomePage, getPage } from "./build.js";
+import { redirects } from "./siteConfig.js";
 
 const app = express();
 const liveReloadServer = livereload.createServer();
@@ -16,10 +16,15 @@ app.get("/", (_req, res) => {
   res.send(getHomePage());
 });
 
+app.get("/rss.xml", (_req, res) => {
+  res.header("Content-Type", "application/xml");
+  res.send(buildRssFeed());
+});
+
 app.get("/:page/", (req, res) => {
-  Object.keys(siteConfig.redirects).forEach((key) => {
+  Object.keys(redirects).forEach((key) => {
     if (key === req.params.page) {
-      res.redirect(siteConfig.redirects[key]);
+      res.redirect(redirects[key]);
     }
   });
 

@@ -1,5 +1,6 @@
 node_modules
 archive
 public/*.html
+public/*.xml
 .vscode
 .DS_Store

@@ -14,6 +14,7 @@ module.exports = {
     "import/no-extraneous-dependencies": 0,
     "lines-between-class-members": 0,
     "no-console": 0,
+    "no-underscore-dangle": 0,
     "prettier/prettier": "error",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",

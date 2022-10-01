@@ -1,15 +1,12 @@
+import { Feed } from "feed";
 import fs from "fs";
 import matter from "gray-matter";
 import { minify } from "html-minifier";
-import MarkdownIt from "markdown-it";
 
 import HtmlBuilder from "./lib/HtmlBuilder.js";
+import md from "./lib/markdown.js";
 import { compareBy, formatDate } from "./lib/utils.js";
-import siteConfig from "./siteConfig.js";
-
-const md = new MarkdownIt({ html: true });
-
-const { metadata, links, redirects } = siteConfig;
+import { links, metadata, redirects } from "./siteConfig.js";
 
 const defaults = {
   ...metadata,
@@ -23,8 +20,8 @@ const defaults = {
 
 const homeButton = new HtmlBuilder("div")
   .class("mt-5")
-  .child(new HtmlBuilder("i").class("bi bi-chevron-left me-1"))
-  .child(new HtmlBuilder("a").href("/").child("Go home"));
+  .child(new HtmlBuilder("i").class("bi bi-chevron-double-left me-1"))
+  .child(new HtmlBuilder("a").href("/").child("Home"));
 
 const populate = (template, args) => {
   const data = { ...defaults, ...args };
@@ -183,6 +180,70 @@ export const getPage = (slug) => {
   }
 };
 
+export const buildRssFeed = () => {
+  const posts = fs
+    .readdirSync("./markdown")
+    .filter((fn) => fn !== "index.md")
+    .map((fn) => {
+      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const { data, content } = matter(markdown);
+      data.slug = fn.replace(".md", "");
+
+      if (!Object.keys(data).includes("feed")) {
+        data.feed = true;
+      }
+
+      return {
+        content: md.render(content),
+        ...data,
+      };
+    })
+    .filter((post) => !post.draft && post.feed)
+    .sort(compareBy("date"))
+    .reverse()
+    .slice(0, 20);
+
+  const baseUrl = metadata.siteUrl;
+
+  const author = {
+    email: "joshua@cerdenia",
+    link: baseUrl,
+    name: "Joshua Cerdenia",
+  };
+
+  const feed = new Feed({
+    author,
+    copyright: metadata.copyright,
+    description: metadata.description,
+    favicon: baseUrl + metadata.icon,
+    id: baseUrl,
+    image: baseUrl + metadata.image,
+    language: "en",
+    link: `${baseUrl}/rss.xml`,
+    title: "Joshua Cerdenia",
+    updated: new Date(),
+  });
+
+  posts.forEach((post) => {
+    feed.addItem({
+      author: [author],
+      content: post.content.replace(
+        /<p><img src="\//g,
+        `<p><img src="${baseUrl}/`
+      ),
+      contributor: [author],
+      date: new Date(post.date || post._date),
+      description: post.description,
+      id: `${baseUrl}/${post.slug}`,
+      image: baseUrl + metadata.image,
+      link: `${baseUrl}/${post.slug}`,
+      title: post.title,
+    });
+  });
+
+  return feed.rss2();
+};
+
 const main = () => {
   // Clear existing HTML files.
   fs.readdirSync("./public")
@@ -212,6 +273,9 @@ const main = () => {
       populate(template, { url: redirects[key] })
     );
   });
+
+  // Write RSS XML.
+  fs.writeFileSync("public/rss.xml", buildRssFeed());
 
   console.log("Built.");
 };

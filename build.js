@@ -49,10 +49,10 @@ const populate = (template, args) => {
 
 const getPageItems = () =>
   fs
-    .readdirSync("./markdown")
+    .readdirSync("./content")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
-      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const markdown = fs.readFileSync(`./content/${fn}`);
       const { data } = matter(markdown);
       data.slug = fn.replace(".md", "");
       return data;
@@ -62,10 +62,10 @@ const getPageItems = () =>
 
 const getBacklinks = (slug) =>
   fs
-    .readdirSync("./markdown")
+    .readdirSync("./content")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
-      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const markdown = fs.readFileSync(`./content/${fn}`);
       const { data, content } = matter(markdown);
       data.slug = fn.replace(".md", "");
       return { ...data, content };
@@ -91,7 +91,7 @@ const getErrorPage = () => {
 
 export const getHomePage = () => {
   const template = fs.readFileSync("./templates/page.html", "utf-8");
-  const markdown = fs.readFileSync("./markdown/index.md", "utf-8");
+  const markdown = fs.readFileSync("./content/index.md", "utf-8");
   const { data, content } = matter(markdown);
 
   // Create HTML lists of pages.
@@ -132,6 +132,7 @@ export const getHomePage = () => {
   return populate(template, {
     content: md.render(content),
     contentAfter: new HtmlBuilder("div")
+      .child(new HtmlBuilder("h5").child("Pages"))
       .child(renderList(pinnedPages))
       .child(renderList(pages)),
     headTitle: data.title || metadata.brand,
@@ -142,7 +143,7 @@ export const getHomePage = () => {
 
 export const getPage = (slug) => {
   try {
-    const markdown = fs.readFileSync(`./markdown/${slug}.md`, "utf-8");
+    const markdown = fs.readFileSync(`./content/${slug}.md`, "utf-8");
     const { data, content } = matter(markdown);
 
     if (data.draft) {
@@ -182,10 +183,10 @@ export const getPage = (slug) => {
 
 export const buildRssFeed = () => {
   const posts = fs
-    .readdirSync("./markdown")
+    .readdirSync("./content")
     .filter((fn) => fn !== "index.md")
     .map((fn) => {
-      const markdown = fs.readFileSync(`./markdown/${fn}`);
+      const markdown = fs.readFileSync(`./content/${fn}`);
       const { data, content } = matter(markdown);
       data.slug = fn.replace(".md", "");
 
@@ -254,7 +255,7 @@ const main = () => {
   fs.writeFileSync("./public/index.html", getHomePage());
 
   // Write HTML pages from markdown files.
-  fs.readdirSync("./markdown")
+  fs.readdirSync("./content")
     .filter((fn) => fn !== "index.md")
     .forEach((fn) => {
       const slug = fn.replace(".md", "");

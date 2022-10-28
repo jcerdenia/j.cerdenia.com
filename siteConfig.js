@@ -10,8 +10,8 @@ const siteConfig = {
     brand: "Joshua Cerdenia",
     copyright: "&#169; 2022 Joshua Cerdenia",
     description: "The online home of Joshua Cerdenia",
-    icon: "/images/village.jpeg",
-    image: "/images/village.jpeg",
+    icon: "/images/marsh.jpeg",
+    image: "/images/marsh.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

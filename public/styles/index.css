@@ -67,7 +67,7 @@ a:hover {
 .content h6 {
   font-weight: var(--weight-medium);
   font-size: 1.25rem;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -90,6 +90,10 @@ a:hover {
   font-size: var(--font-small) !important;
   margin-top: 1rem !important;
   margin-bottom: 1rem !important;
+}
+
+.content-after {
+  margin-top: 2rem;
 }
 
 .small {

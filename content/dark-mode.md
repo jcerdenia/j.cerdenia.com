@@ -1,6 +1,7 @@
 ---
 title: "Dark Mode: A Simple JavaScript Implementation"
 _date: "2022-07-17"
+draft: true
 ---
 
 This is a quick and easy dark mode implementation with plain JavaScript that can be built on and adapted to any framework.

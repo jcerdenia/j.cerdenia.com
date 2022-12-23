@@ -11,10 +11,9 @@ import { links, metadata, redirects } from "./siteConfig.js";
 const defaults = {
   ...metadata,
   links: links
-    .map(([name, url], i) => {
-      const link = new HtmlBuilder("a").href(url).child(name);
-      return (i ? " | " : "") + link;
-    })
+    .map(([name, url]) =>
+      new HtmlBuilder("a").class("me-3").href(url).child(name)
+    )
     .join(""),
 };
 
@@ -50,7 +49,7 @@ const populate = (template, args) => {
 const getPageItems = () =>
   fs
     .readdirSync("./content")
-    .filter((fn) => fn !== "index.md")
+    .filter((fn) => !fn.startsWith(".") && fn !== "index.md")
     .map((fn) => {
       const markdown = fs.readFileSync(`./content/${fn}`);
       const { data } = matter(markdown);
@@ -63,7 +62,7 @@ const getPageItems = () =>
 const getBacklinks = (slug) =>
   fs
     .readdirSync("./content")
-    .filter((fn) => fn !== "index.md")
+    .filter((fn) => !fn.startsWith(".") && fn !== "index.md")
     .map((fn) => {
       const markdown = fs.readFileSync(`./content/${fn}`);
       const { data, content } = matter(markdown);
@@ -184,7 +183,7 @@ export const getPage = (slug) => {
 export const buildRssFeed = () => {
   const posts = fs
     .readdirSync("./content")
-    .filter((fn) => fn !== "index.md")
+    .filter((fn) => !fn.startsWith(".") && fn !== "index.md")
     .map((fn) => {
       const markdown = fs.readFileSync(`./content/${fn}`);
       const { data, content } = matter(markdown);

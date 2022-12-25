@@ -1,10 +1,10 @@
 import { Feed } from "feed";
 import fs from "fs";
 import matter from "gray-matter";
-import { minify } from "html-minifier";
 
 import HtmlBuilder from "./lib/HtmlBuilder.js";
 import md from "./lib/markdown.js";
+import minified from "./lib/minified.js";
 import { compareBy, formatDate } from "./lib/utils.js";
 import { links, metadata, redirects } from "./siteConfig.js";
 
@@ -35,15 +35,7 @@ const populate = (template, args) => {
 
   // Clear any remaining template stubs.
   html = html.replace(/{{ [A-Za-z0-9_]+ }}/g, "");
-
-  return minify(html, {
-    collapseBooleanAttributes: true,
-    collapseWhitespace: true,
-    removeComments: true,
-    removeEmptyAttributes: true,
-    removeOptionalTags: true,
-    useShortDoctype: true,
-  });
+  return minified(html);
 };
 
 const getPageItems = () =>

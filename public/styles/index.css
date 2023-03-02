@@ -50,6 +50,8 @@ a:hover {
 }
 
 .main img {
+  object-fit: cover;
+  max-height: 525px;
   width: 100%;
 }
 

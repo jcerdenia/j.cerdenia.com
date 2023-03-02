@@ -2,8 +2,8 @@
 title: ""
 ---
 
-![](/images/marsh.jpeg)
-<small>My current surroundings</small>
+![](/images/hkg.jpeg)
+<small>Life in transit (from my recent trip to New York via HKG)</small>
 
 Hi, I'm Joshua. I lead a double life as a [composer](https://music.cerdenia.com) and [software developer](https://github.com/joshuacerdenia). This is my personal site, meant for anything that doesn't (or does – I don't really know) fall under my regular work.
 

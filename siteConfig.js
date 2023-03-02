@@ -4,6 +4,7 @@ const siteConfig = {
     ["Source", "https://github.com/joshuacerdenia/j.cerdenia.com", "bi bi-code-slash"],
     ["GitHub", "https://github.com/joshuacerdenia", "bi bi-github"],
     ["Music", "https://music.cerdenia.com", "bi bi-music-note"],
+    ["Gram", "https://instagram.com/joshuatopia", "bi bi-instagram"],
     ["Contact", "mailto:joshua@cerdenia.com", "bi bi-envelope-fill"],
     ["RSS", "/feed", "bi bi-rss-fill"],
   ],
@@ -11,8 +12,8 @@ const siteConfig = {
     brand: "Joshua Cerdenia",
     copyright: "&#169; 2022 Joshua Cerdenia",
     description: "The online home of Joshua Cerdenia",
-    icon: "/images/marsh.jpeg",
-    image: "/images/marsh.jpeg",
+    icon: "/images/hkg.jpeg",
+    image: "/images/hkg.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

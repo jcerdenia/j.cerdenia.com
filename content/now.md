@@ -5,10 +5,12 @@ pinned: true
 
 In the style of [Derek Sivers](https://nownownow.com/about)
 
-- Living/melting in the Philippines. I moved back here in 2020 to reboot after several years of “the artist life” in NYC. It ended up coinciding with the pandemic. I don't plan on being here forever, but where I'll go next is anyone's guess.
+- Living/melting in the Philippines, where I moved back to reboot after several years of “the artist life” in NYC. It ended up coinciding with the pandemic. It's comfortable here, but I'm looking for something else and working on my next long-term move.
 
 - Laboring in obscurity as a software engineer at a fintech company.
 
-- I'm taking a break from composing, but [my music](https://music.cerdenia.com/news) continues to be played in random parts of the world, for which I handle purchases and rentals. I'm open occasionally to small music projects.
+- Working on a new musical, _Hay Fever_, which will make its first [in-person appearance](https://www.eventbrite.com/e/hay-fever-a-new-musical-reading-tickets-495479341047) at Lincoln Center in June.
 
-<small>Updated Aug 2022</small>
+- Starting a new piece for orchestra.
+
+<small>Updated March 2023</small>

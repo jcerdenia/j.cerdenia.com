@@ -1,7 +1,6 @@
 const siteConfig = {
   links: [
     // eslint-disable-next-line prettier/prettier
-    ["Source", "https://github.com/joshuacerdenia/j.cerdenia.com", "bi bi-code-slash"],
     ["GitHub", "https://github.com/joshuacerdenia", "bi bi-github"],
     ["Music", "https://music.cerdenia.com", "bi bi-music-note"],
     ["Gram", "https://instagram.com/joshuatopia", "bi bi-instagram"],

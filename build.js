@@ -126,7 +126,7 @@ export const getHomePage = () => {
       .child(new HtmlBuilder("h5").child("Pages"))
       .child(renderList(pinnedPages))
       .child(renderList(pages)),
-    headTitle: data.title || metadata.brand,
+    headTitle: data.title || `${metadata.brand} - ${metadata.description}`,
     metaType: "website",
     slug: "/",
   });

@@ -8,11 +8,11 @@ const siteConfig = {
     ["RSS", "/feed", "bi bi-rss-fill"],
   ],
   metadata: {
-    brand: "Joshua Cerdenia",
-    copyright: "&#169; 2022 Joshua Cerdenia",
-    description: "The online home of Joshua Cerdenia",
-    icon: "/images/hkg.jpeg",
-    image: "/images/hkg.jpeg",
+    brand: "J. C.",
+    copyright: `&#169; ${new Date().getFullYear()} Joshua Cerdenia`,
+    description: "A website",
+    icon: "/images/marsh.jpeg",
+    image: "/images/marsh.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

@@ -11,8 +11,8 @@ const siteConfig = {
     brand: "J. C.",
     copyright: `&#169; ${new Date().getFullYear()} Joshua Cerdenia`,
     description: "A website",
-    icon: "/images/marsh.jpeg",
-    image: "/images/marsh.jpeg",
+    icon: "/images/icarus.jpeg",
+    image: "/images/icarus.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

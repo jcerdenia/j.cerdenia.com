@@ -2,7 +2,7 @@
 title: ""
 ---
 
-![](/images/marsh.jpeg)
+![Landscape with the Fall of Icarus](/images/icarus.jpeg)
 
 Hi, I'm Joshua. I lead a double life as a [composer](https://music.cerdenia.com) and [software developer](https://github.com/joshuacerdenia). This is my personal site, meant for anything that doesn't (or does – I don't really know) fall under my regular work.
 

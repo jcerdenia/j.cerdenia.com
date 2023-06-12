@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import HtmlBuilder from "./lib/HtmlBuilder.js";
 import md from "./lib/markdown.js";
 import minified from "./lib/minified.js";
-import { compareBy, formatDate } from "./lib/utils.js";
+import { compareBy, excerpt, formatDate } from "./lib/utils.js";
 import { links, metadata, redirects } from "./siteConfig.js";
 
 const defaults = {
@@ -120,14 +120,18 @@ export const getHomePage = () => {
     )
     .join("");
 
+  const renderedContent = md.render(content);
+
   return populate(template, {
     className: "home",
-    content: md.render(content),
+    content: renderedContent,
     contentAfter: new HtmlBuilder("div")
       .child(new HtmlBuilder("h5").child("Pages"), false) // Hide for now
       .child(renderList(pinnedPages))
       .child(renderList(pages)),
+    description: data.description || excerpt(renderedContent),
     headTitle: data.title || `${metadata.brand} - ${metadata.description}`,
+    image: metadata.siteUrl + (data.image || metadata.image),
     metaType: "website",
     slug: "/",
   });
@@ -157,13 +161,15 @@ export const getPage = (slug) => {
           .child(new HtmlBuilder("ul").child(backlinkItems.join("")))
       : "";
 
+    const renderedContent = md.render(content);
+
     return populate(template, {
-      content: md.render(content),
+      content: renderedContent,
       contentAfter: [backlinks, homeButton].join(""),
       date: formatDate(data.date),
-      description: data.description || metadata.description,
+      description: data.description || excerpt(renderedContent),
       headTitle: `${data.title} - ${metadata.brand}`,
-      image: data.image || metadata.image,
+      image: metadata.siteUrl + (data.image || metadata.image),
       metaType: "article",
       slug,
       title: data.title,

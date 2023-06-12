@@ -4,7 +4,7 @@ pinned: true
 draft: false
 ---
 
-In the style of [Derek Sivers](https://nownownow.com/about)
+In the style of [Derek Sivers](https://nownownow.com/about):
 
 - Living/melting in Manila, Philippines and gradually plotting my next move.
 
@@ -12,4 +12,4 @@ In the style of [Derek Sivers](https://nownownow.com/about)
 
 - Reading a lot; trying to write.
 
-<small>Updated Jun 2023</small>
+<small>Updated June 2023</small>

@@ -3,6 +3,11 @@ title: "'A Shropshire Lad XL'—in Tagalog"
 date: 2023-06-12
 ---
 
+<audio controls controlsList="nodownload">
+  <source src="https://www.dropbox.com/s/uo88dbo648fgqui/binatang_shoprshire_xl.m4a?raw=1" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
 <div class="row">
   <div class="col-md-6 my-4">
     <div>Into my heart an air that kills</div>
@@ -30,11 +35,11 @@ date: 2023-06-12
 
 ***
 
-I first encountered this little poem by A. E. Housman narrated over the final moments of the 1971 film _Walkabout_. Short but deeply moving, it has haunted me in various seasons of my life, especially lately. I felt a compulsion to render it in Tagalog.
+I first encountered this little poem by A. E. Housman narrated over the final moments of the 1971 film _Walkabout_. Short but deeply moving, it has haunted me in various seasons of life, especially lately. I felt a compulsion to render it in Tagalog.
 
 Like many overeducated Filipinos of my station, I'm poorly read and barely literate in my own country's tongue, and offer the above in blissful ignorance of my own stupidity. All I know is that, in its less pedestrian forms, it is an exceedingly dignified language, naturally musical and given to poetry.
 
-A few notes:
+A few remarks:
 
 Regarding meter, Tagalog is more verbose than English, so reproducing the original exactly is a fool's errand. The English text is economical and quite precise metrically, but the accents can be fairly approximated; each quatrain alternates between lines of four and three accents, which I have preserved, with some liberties taken.
 

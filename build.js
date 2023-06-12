@@ -123,7 +123,7 @@ export const getHomePage = () => {
   return populate(template, {
     content: md.render(content),
     contentAfter: new HtmlBuilder("div")
-      .child(new HtmlBuilder("h5").child("Pages"), pageItems.length)
+      .child(new HtmlBuilder("h5").child("Pages"), false) // Hide for now
       .child(renderList(pinnedPages))
       .child(renderList(pages)),
     headTitle: data.title || `${metadata.brand} - ${metadata.description}`,

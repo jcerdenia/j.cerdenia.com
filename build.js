@@ -121,6 +121,7 @@ export const getHomePage = () => {
     .join("");
 
   return populate(template, {
+    className: "home",
     content: md.render(content),
     contentAfter: new HtmlBuilder("div")
       .child(new HtmlBuilder("h5").child("Pages"), false) // Hide for now

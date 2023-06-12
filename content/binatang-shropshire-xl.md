@@ -3,10 +3,7 @@ title: "'A Shropshire Lad XL'—in Tagalog"
 date: 2023-06-12
 ---
 
-<audio controls controlsList="nodownload">
-  <source src="https://www.dropbox.com/s/uo88dbo648fgqui/binatang_shoprshire_xl.m4a?raw=1" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+<iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1537740271%3Fsecret_token%3Ds-7PhqBdJAvWA&color=%23112c39&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"></iframe>
 
 <div class="row">
   <div class="col-md-6 my-4">

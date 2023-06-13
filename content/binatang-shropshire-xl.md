@@ -19,7 +19,7 @@ date: 2023-06-12
   </div>
   <div class="col-md-6 my-4">
     <div>Sa aking puso, hanging mapaminsala</div>
-    <div>ang ihip ng malayong bayan:</div>
+    <div>Ang ihip ng malayong bayan:</div>
     <div>Ano iyong mga burol na bughaw sa alaala,</div>
     <div>Anong mga tore't kabukiran?</div>
     <br>

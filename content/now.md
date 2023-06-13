@@ -1,7 +1,7 @@
 ---
 title: "What I'm Doing Now"
 pinned: true
-draft: false
+date: "2023/06/12"
 ---
 
 In the style of [Derek Sivers](https://nownownow.com/about):
@@ -11,5 +11,3 @@ In the style of [Derek Sivers](https://nownownow.com/about):
 - Laboring in obscurity as a software engineer at a fintech company.
 
 - Reading a lot; trying to write.
-
-<small>Updated June 2023</small>

@@ -94,7 +94,7 @@ export const getHomePage = () => {
   const renderDate = (date) =>
     new HtmlBuilder("span")
       .class("small text-muted ms-2")
-      .child(formatDate(date, { day: undefined, month: "short" }));
+      .child(formatDate(date));
 
   const renderList = (listItems) =>
     new HtmlBuilder("ul").class("my-4").child(listItems);

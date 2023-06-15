@@ -118,6 +118,8 @@ export const getHomePage = () => {
         .child(renderLink(title, slug))
         .child(renderDate(date))
     )
+    .sort(compareBy("date"))
+    .reverse()
     .join("");
 
   const renderedContent = md.render(content);

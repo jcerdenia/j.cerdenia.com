@@ -1,5 +1,5 @@
 ---
-title: "'War and Peace' Notes"
+title: "War and Peace: Notes"
 date: "2023-06-016"
 pinned: false
 draft: false

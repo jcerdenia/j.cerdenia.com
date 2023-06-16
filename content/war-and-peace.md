@@ -1,0 +1,16 @@
+---
+title: "'War and Peace' Notes"
+date: "2023-06-016"
+pinned: false
+draft: false
+---
+
+# 23.6.16
+
+I feel a cold coming on; partly from the fatigue of the last several weeks, partly after having just read the Borodino chapters of _War and Peace._ The intensity of the story leaves me exhausted; as if I have experienced even a fraction of... if not the battle itself, the interior turmoil of Tolstoy's characters as war descends on them.
+
+In this part of the book, and in the long buildup towards the great battle, my expectations have finally been met: increasingly, Tolstoy dips in and out of the narrative he had built up over the first half of the novel, and wonderfully offers his own perspective on history: the tension between the wills of individual men and the hand of providence that shapes grand events. Tolstoy's thesis is worth revisiting now in our own time's forgetfulness: that this mysterious thing called history is conscious of its own ends; that free, individual acts, once made, irrevocably become part of the grand tapestry of events that were predetermined long ago; and that the great men of history are the least free of all, acting not of their own accord as they often believe, but involuntarily and inevitably.
+
+Take Borodino, for example. Tolstoy points out that, despite the opinions of historians developed after the fact, at the moment of battle, all of the involved actors ultimately had no idea what they were doing; and that the details of the battle fell into place not through careful forethought nor planning. Tolstoy paints in no uncertain terms the senselessness and worthlessness of the battle, which resulted in a massive loss of life on both the French and Russian sides, and, in the moment, had no benefit to either one. And yet, Borodino resulted in a moral victory for the Russians. As a direct consequence of it, as Tolstoy says, later Napoleon would voluntarily withdraw from Moscow and take the treacherous road back out of Russia, whereupon his invading force, already exhausted, would be harassed and decimated. Precisely Tolstoy's point that in retrospect, one easily sees the guiding hand of destiny and ascribes favorable outcomes of events to the forethought and genius of so-called great leaders. Yet, upon reflection, at the moments in which decisive events actually occur, forethought is rendered useless, plans fail to be carried out, and the ultimate course of things is driven instead by the collective wills of countless individuals each with their own hidden concerns responding to countless events as they come.
+
+Back in the narrative, Tolstoy paints the aforementioned tension through his contrasting portrayals of two historical figures: Napoleon, on the French side, and, for the Russians, the commander-in-chief Kutuzov. All throughout, Napoleon naively and stubbornly bears responsibility for the course of the war, while Kutuzov, frail and aged but full of the wisdom of the years, recognizes that he is only part of a larger picture, that a hundred thousand men cannot possibly be commanded by a single man, and that his most reliable soldiers are time and patience. Ultimately, the Russians catch on to Kutuzov's spirit, which is why, even at great cost against a formidable enemy, they would ultimately prevail over the French.

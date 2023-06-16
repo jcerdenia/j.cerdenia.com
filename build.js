@@ -102,12 +102,14 @@ export const getHomePage = () => {
   const pinnedPages = pageItems
     .filter((page) => page.pinned)
     .map(({ slug, title, date }) =>
-      new HtmlBuilder("li").child(
-        new HtmlBuilder("span")
-          .child("Pinned: ")
-          .child(renderLink(title, slug))
-          .child(renderDate(date))
-      )
+      new HtmlBuilder("li")
+        .class("my-1")
+        .child(
+          new HtmlBuilder("span")
+            .child("Pinned: ")
+            .child(renderLink(title, slug))
+            .child(renderDate(date))
+        )
     )
     .join("");
 
@@ -115,6 +117,7 @@ export const getHomePage = () => {
     .filter((page) => !page.pinned)
     .map(({ slug, title, date }) =>
       new HtmlBuilder("li")
+        .class("my-1")
         .child(renderLink(title, slug))
         .child(renderDate(date))
     )

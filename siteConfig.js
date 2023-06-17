@@ -1,4 +1,5 @@
 const siteConfig = {
+  linkMode: "icon",
   links: [
     // eslint-disable-next-line prettier/prettier
     ["Source", "https://github.com/joshuacerdenia/j.cerdenia.com", "bi bi-github"],
@@ -21,4 +22,4 @@ const siteConfig = {
   },
 };
 
-export const { links, metadata, redirects } = siteConfig;
+export const { links, linkMode, metadata, redirects } = siteConfig;

@@ -115,8 +115,8 @@ audio {
 footer {
   display: flex;
   align-items: center;
+  justify-content: end;
   height: 5rem;
-  font-size: var(--font-small);
   color: var(--color-muted);
 }
 

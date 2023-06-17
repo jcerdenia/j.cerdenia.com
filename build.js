@@ -6,13 +6,18 @@ import HtmlBuilder from "./lib/HtmlBuilder.js";
 import md from "./lib/markdown.js";
 import minified from "./lib/minified.js";
 import { compareBy, excerpt, formatDate } from "./lib/utils.js";
-import { links, metadata, redirects } from "./siteConfig.js";
+import { linkMode, links, metadata, redirects } from "./siteConfig.js";
 
 const defaults = {
   ...metadata,
   links: links
-    .map(([name, url]) =>
-      new HtmlBuilder("a").class("me-3").href(url).child(name)
+    .map(([name, url, icon]) =>
+      new HtmlBuilder("a")
+        .class("ms-3 small", linkMode === "text")
+        .class("ms-4", linkMode === "icon")
+        .href(url)
+        .child(name, linkMode === "text")
+        .child(new HtmlBuilder("i").class(icon), linkMode === "icon")
     )
     .join(""),
 };

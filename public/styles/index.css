@@ -49,8 +49,7 @@ audio {
 }
 
 .main {
-  /* Arrived at this calculation through sheer trial and error */
-  min-height: calc(100vh - 89.5px);
+  min-height: calc(100vh - 5rem);
 }
 
 .main img {
@@ -114,7 +113,9 @@ audio {
 }
 
 footer {
-  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  height: 5rem;
   font-size: var(--font-small);
   color: var(--color-muted);
 }

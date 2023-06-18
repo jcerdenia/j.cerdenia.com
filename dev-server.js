@@ -3,7 +3,9 @@ import express from "express";
 import livereload from "livereload";
 import { join } from "path";
 
-import { buildRssFeed, getHomePage, getPage } from "./build.js";
+import HomePage from "./components/HomePage.js";
+import Page from "./components/Page.js";
+import RSSFeed from "./components/RSSFeed.js";
 import { redirects } from "./siteConfig.js";
 
 const app = express();
@@ -13,12 +15,12 @@ const PORT = 3000;
 app.use(connectLivereload());
 
 app.get("/", (_req, res) => {
-  res.send(getHomePage());
+  res.send(HomePage());
 });
 
 app.get("/rss.xml", (_req, res) => {
   res.header("Content-Type", "application/xml");
-  res.send(buildRssFeed());
+  res.send(RSSFeed());
 });
 
 app.get("/:page/", (req, res) => {
@@ -28,7 +30,7 @@ app.get("/:page/", (req, res) => {
     }
   });
 
-  res.send(getPage(req.params.page));
+  res.send(Page(req.params.page));
 });
 
 app.get("/:dir/:file", (req, res) => {

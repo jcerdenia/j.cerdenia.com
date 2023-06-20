@@ -4,27 +4,29 @@ import toHtml from "../lib/markdown.js";
 import render from "../lib/render.js";
 import { compareBy, excerpt, formatDate } from "../lib/utils.js";
 import { metadata } from "../siteConfig.js";
+import Date from "./Date.js";
 import ErrorPage from "./ErrorPage.js";
 import HomeButton from "./HomeButton.js";
+import Link from "./Link.js";
+import List from "./List.js";
 
 const Backlinks = (slug) => {
-  const items = getFiles()
+  const backlinks = getFiles()
     .map(unpackFile)
     .filter(
       ({ data, content }) => !data.draft && content.includes(`](/${slug})`)
     )
-    .sort(compareBy("title"))
-    .map(({ data }) =>
-      HtmlBuilder("li").child(
-        HtmlBuilder("a").href(data.slug).child(data.title)
-      )
-    );
+    .sort(compareBy("title"));
 
-  return items.length
+  return backlinks.length
     ? HtmlBuilder("div")
         .child(HtmlBuilder("hr").class("my-4").void())
         .child(HtmlBuilder("h5").child("Backlinks"))
-        .child(HtmlBuilder("ul").child(items.join("")))
+        .child(
+          List(backlinks, ({ data }) =>
+            [Link(data.title, data.slug), Date(data.date)].join("")
+          )
+        )
     : "";
 };
 

@@ -4,7 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Spectral", sans-serif;
+  font-family: "Spectral", serif;
   font-size: 1.15rem;
   color: var(--color-text);
   background-color: var(--color-bg);

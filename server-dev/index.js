@@ -1,16 +1,18 @@
+import { exec } from "child_process";
 import connectLivereload from "connect-livereload";
 import express from "express";
 import livereload from "livereload";
 import { join } from "path";
 
-import HomePage from "./components/HomePage.js";
-import Page from "./components/Page.js";
-import RSSFeed from "./components/RSSFeed.js";
-import { redirects } from "./siteConfig.js";
+import HomePage from "../components/HomePage.js";
+import Page from "../components/Page.js";
+import RSSFeed from "../components/RSSFeed.js";
+import { redirects } from "../siteConfig.js";
+import { getState, setState } from "./state/accessors.js";
 
 const app = express();
 const liveReloadServer = livereload.createServer();
-const PORT = 3000;
+const port = 3000;
 
 app.use(connectLivereload());
 
@@ -39,8 +41,18 @@ app.get("/:dir/:file", (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Dev server listening at port ${PORT}.`);
+app.listen(port, () => {
+  console.log(`Dev server listening at port ${port}.`);
+
+  if (!getState().browserOpened) {
+    exec(`open http://localhost:${port}`, (error) => {
+      if (error) {
+        console.error(`Failed to open browser: ${error}`);
+      } else {
+        setState({ browserOpened: true });
+      }
+    });
+  }
 });
 
 liveReloadServer.server.once("connection", () => {

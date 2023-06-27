@@ -1,5 +1,6 @@
 node_modules
 archive
+server-dev/state/*.json
 public/*.html
 public/*.xml
 .vscode

@@ -1,4 +1,4 @@
-# garden.cerdenia.com
+# j.cerdenia.com
 
 A bare-bones markdown-based static site powered by a custom static site generator.
 

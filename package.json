@@ -1,24 +1,24 @@
 {
-  "name": "cerdenia.com",
+  "name": "j.cerdenia.com",
   "version": "3.0.0",
   "description": "Personal site",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "build": "node build.js build",
-    "dev": "nodemon dev-server.js",
+    "dev": "node server-dev/state && nodemon server-dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshuacerdenia/cerdenia.com.git"
+    "url": "git+https://github.com/joshuacerdenia/j.cerdenia.com.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/joshuacerdenia/cerdenia.com/issues"
+    "url": "https://github.com/joshuacerdenia/j.cerdenia.com/issues"
   },
-  "homepage": "https://github.com/joshuacerdenia/cerdenia.com#readme",
+  "homepage": "https://github.com/joshuacerdenia/j.cerdenia.com#readme",
   "devDependencies": {
     "connect-livereload": "^0.6.1",
     "eslint": "^8.22.0",
@@ -40,7 +40,8 @@
   "nodemonConfig": {
     "ext": "*",
     "ignore": [
-      "public/*.html"
+      "public/*.html",
+      "server-dev/state/*.json"
     ]
   }
 }

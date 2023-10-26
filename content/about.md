@@ -9,6 +9,8 @@ My music can be found at [cerdenia.com](https://cerdenia.com), and a smattering 
 
 See [what I'm doing now](/now).
 
+<!--
 ## Mailing List
 
 I'm experimenting with a private [mailing list](http://tinyletter.com/jcerdenia) to share sporadic updates on life and music on a personal scale. Join to make contact and exchange thoughts.
+-->

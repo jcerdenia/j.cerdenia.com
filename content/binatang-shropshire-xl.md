@@ -1,6 +1,7 @@
 ---
 title: "A Shropshire Lad XL—in Tagalog"
 date: 2023-06-12
+draft: true
 ---
 
 <!--

@@ -2,7 +2,7 @@
 title: "War and Peace: Impressions"
 date: "2023-06-016"
 pinned: false
-draft: false
+draft: true
 ---
 
 # 23.6.16

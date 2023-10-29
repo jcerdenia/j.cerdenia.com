@@ -73,7 +73,7 @@ audio {
 .content h4,
 .content h5,
 .content h6 {
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-bold);
   font-size: 1.25rem;
   margin-top: 2rem;
   margin-bottom: 1rem;

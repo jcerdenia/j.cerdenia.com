@@ -3,9 +3,9 @@ title: "About"
 pinned: true
 ---
 
-J. C. is Joshua Cerdenia, who lives a double life as a composer and software engineer. In my best moments, I'm neither of these.
+J. C. is Joshua Cerdenia, who lives a double life as a composer (currently on hiatus) and software engineer. In my best moments, I'm neither of these.
 
-My music can be found at [cerdenia.com](https://cerdenia.com), and a smattering of code I've written in my spare time on [my GitHub](https://github.com/joshuacerdenia).
+<!-- My music can be found at [cerdenia.com](https://cerdenia.com), and a smattering of code I've written in my spare time on [my GitHub](https://github.com/joshuacerdenia). -->
 
 See [what I'm doing now](/now).
 

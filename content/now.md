@@ -1,13 +1,15 @@
 ---
 title: "What I'm Doing Now"
 pinned: true
-date: "2023/06/12"
+date: "2023/10/30"
 ---
 
-In the style of [Derek Sivers](https://nownownow.com/about):
+- Living/melting in the Philippines and slowly working on a big move.
 
-- Living/melting in Manila, Philippines and gradually plotting my next move.
-
-- Laboring in obscurity as a software engineer at a fintech company.
+- Laboring in obscurity as a software engineer.
 
 - Reading a lot; trying to write.
+
+- [Birding](/birding-ph).
+
+["What's a 'now' page?"](https://nownownow.com/about)

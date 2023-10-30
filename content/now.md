@@ -10,6 +10,6 @@ date: "2023/10/30"
 
 - Reading a lot; trying to write.
 
-- [Birding](/birding-ph).
+- [Birding](/birding-ph-2023).
 
-[What's a "now" page](https://nownownow.com/about), you ask?
+["What's a 'now' page"?](https://nownownow.com/about)

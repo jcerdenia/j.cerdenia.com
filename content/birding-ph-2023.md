@@ -1,11 +1,11 @@
 ---
-title: "Birding the Philippines – 2023"
+title: "Birding the Philippines, 2023"
 _date: "2023-10-30"
 pinned: false
 draft: false
 ---
 
-# 0/23–10/29
+# 10/23–10/29
 
 Arrived back at MNL late at night on the 23rd after one month in America. Early next morning, I was roused by the harsh, grating call outside my window of what I would later identify as the brown shrike, a winter visitor to these parts. Small bird, sleek and handsome, but apparently a "butcher bird." Immediately went out and began the week's birding.
 
@@ -19,4 +19,5 @@ The whole week I birded only my neighborhood wetland, except for this afternoon 
 
 # 10/30
 
-Morning. Immediately saw the red-keeled flowerpecker for the second time, a stunning little bird. Not such a common sight; seems to favor being high up on trees. Glad I saw it again. A little later, sighted the latest addition to my running list of 25 neighborhood species: the **26) Philippine pygmy woodpecker,** a lone specimen in the same leafless tree that I saw the barbets last week. Then, venturing out closer to a large pond, saw a beautiful grey heron and a **27) little egret** (distinguished from the cattle egret by its more slender build and dark beak) close by. Other familiar sights were bulbuls, moorhens, terns, and swiftlets and/or swallows. In another watery spot, I got a great view of a mature purple heron, with its distinct coloration. Also saw, for a moment, a small reddish heron-like bird land and disappear quickly into the vegetation (cinnamon bittern?) while I was look at something else, as well as several of what looked like plovers or sandpipers; but I could not come to any confident answers.
+Morning. Immediately saw the red-keeled flowerpecker for the second time, a stunning little bird. Not such a common sight; seems to favor being high up on trees. Glad I saw it again. A little later, sighted the latest addition to my running list of 25 neighborhood species: the **26) Philippine pygmy woodpecker,** a lone specimen in the same leafless tree that I saw the barbets last week. Then, venturing out closer to a large pond, saw a beautiful grey heron and a **27) little egret** (distinguished from the cattle egret by its more slender build and dark beak) close by. Other familiar sights were bulbuls, moorhens, terns, and swiftlets and/or swallows. In another watery spot, I got a great view of a mature purple heron, with its distinct coloration. Also saw, for a moment, a small reddish heron-like bird land and disappear quickly into the vegetation (cinnamon bittern?) while I was looking at something else, as well as several of what looked like plovers or sandpipers, but I could not come to any confident identifications.
+

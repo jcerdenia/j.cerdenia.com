@@ -43,7 +43,7 @@ const HomePage = () => {
   return render(template, {
     className: "home",
     content: htmlContent,
-    contentAfter: HtmlBuilder("div")
+    contentEnd: HtmlBuilder("div")
       .child(PinnedPages(pages))
       .child(Pages(pages)),
     description: data.description || excerpt(htmlContent),

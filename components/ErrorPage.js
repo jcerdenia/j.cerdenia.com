@@ -11,7 +11,7 @@ const ErrorPage = () => {
     content: HtmlBuilder("p").child(
       "Sorry! That page doesn't exist or may have moved."
     ),
-    contentAfter: HomeButton(),
+    contentEnd: HomeButton(),
     headTitle: `Page Not Found - ${metadata.brand}`,
     metaType: "website",
     slug: "#",

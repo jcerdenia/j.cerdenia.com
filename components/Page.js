@@ -43,7 +43,7 @@ const Page = (slug) => {
 
     return render(template, {
       content: htmlContent,
-      contentAfter: [Backlinks(slug), HomeButton()].join(""),
+      contentEnd: [Backlinks(slug), HomeButton()].join(""),
       date: formatDate(data.date),
       description: data.description || excerpt(htmlContent),
       headTitle: `${data.title} - ${metadata.brand}`,

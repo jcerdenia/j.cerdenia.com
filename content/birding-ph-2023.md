@@ -21,4 +21,7 @@ The whole week I birded only my neighborhood wetland, except for this afternoon 
 10.30. Morning. Immediately saw the red-keeled flowerpecker for the second time, a stunning little bird. Not such a common sight; seems to favor being high up on trees. Glad I saw it again. A little later, sighted the latest addition to my running list of 25 neighborhood species: the **26) Philippine pygmy woodpecker,** a lone specimen in the same leafless tree that I saw the barbets last week. Then, venturing out closer to a large pond, saw a beautiful grey heron and a **27) little egret** (distinguished from the cattle egret by its more slender build and dark bill) close by. Other familiar sights were bulbuls, moorhens, terns, and swiftlets and/or swallows. In another watery spot, I got a great view of a mature purple heron, with its distinct coloration. Also saw, for a moment, a small reddish heron-like bird land and disappear quickly into the vegetation (cinnamon bittern?) while I was looking at something else, as well as several of what looked like plovers or sandpipers, but I could not come to any confident identifications.
 
 10.31. Morning. Quiet. But saw small flock of black-winged stilts in flight; very fleeting but distinct. Long dark bills, orange legs trailing behind flight, distinct black-and-white coloration.
+Afternoon. Heritage. Cinnamon bitterns.
+
+11.1. Good view of flock of black-winged stilts. Grey herons. The return of the coppersmith barbets.
 -->

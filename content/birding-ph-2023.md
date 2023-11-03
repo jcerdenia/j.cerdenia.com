@@ -3,6 +3,7 @@ title: "Birding the Philippines, 2023"
 _date: "2023-10-30"
 pinned: false
 draft: false
+reverse_sections: true
 ---
 
 # 10/23–10/29

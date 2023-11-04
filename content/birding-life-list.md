@@ -4,10 +4,11 @@ _date: "2023-11-04"
 pinned: false
 draft: false
 reverse_sections: false
-evaluate: true
+evaluate_js: true
 ---
 
-(function content() {
+```js
+function render() {
   const data = [
     ["Eurasian Tree Sparrow", "2023/07-09", "Taytay, Rizal, PH"],
     ["Yellow-vented Bulbul", "2023/07-09", "Taytay, Rizal, PH"],
@@ -95,8 +96,8 @@ evaluate: true
           <div class="col-md-4">${loc}</div>
         </div>
       </li>
-    `;
-  }).join("\n");
+    `.trim();
+  });
 
   return `
     <ol>
@@ -105,7 +106,12 @@ evaluate: true
         <div class="col-md-3 bold">Date</div>
         <div class="col-md-4 bold">Location</div>
       </div>
-      ${renderedList}
+      <div>
+        ${renderedList.join("\n")}
+      </div>
     </ol>
-  `
-})();
+  `.trim();
+};
+
+render();
+```

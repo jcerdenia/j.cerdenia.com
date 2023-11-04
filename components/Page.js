@@ -32,15 +32,25 @@ const Backlinks = (slug) => {
 
 const Page = (slug) => {
   try {
-    const { data, content } = unpackFile(`${slug}.md`);
+    const { data, content: _content } = unpackFile(`${slug}.md`);
 
     if (data.draft) {
       throw Error();
     }
 
     const template = getTemplate("page");
-    // eslint-disable-next-line no-eval
-    const htmlContent = data.evaluate ? eval(content) : toHtml(content);
+    let content = _content;
+
+    if (data.evaluateJs) {
+      const pattern = /```js([\s\S]*?)```/g;
+      content.match(pattern).forEach((match) => {
+        const js = match.replace(/```(js)?/g, "");
+        // eslint-disable-next-line no-eval
+        content = content.replace(match, eval(js));
+      });
+    }
+
+    const htmlContent = toHtml(content.trim());
 
     return render(template, {
       content: htmlContent,

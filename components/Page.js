@@ -39,7 +39,8 @@ const Page = (slug) => {
     }
 
     const template = getTemplate("page");
-    const htmlContent = toHtml(content);
+    // eslint-disable-next-line no-eval
+    const htmlContent = data.evaluate ? eval(content) : toHtml(content);
 
     return render(template, {
       content: htmlContent,

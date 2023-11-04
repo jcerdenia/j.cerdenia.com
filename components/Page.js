@@ -63,7 +63,8 @@ const Page = (slug) => {
       slug,
       title: data.title,
     });
-  } catch {
+  } catch (err) {
+    console.error(err);
     return ErrorPage();
   }
 };

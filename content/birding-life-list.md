@@ -83,10 +83,10 @@ const data = [
   ["Little Egret", "2023/10/30", "Taytay, Rizal, PH"],
   ["Black-winged Stilt", "2023/10/31", "Taytay, Rizal, PH", "Very cute and distinctive"],
   ["Cinnamon Bittern", "2023/10/31", "Taguig, PH"],
-  ["Common Sandpiper", "2023/11/03", "Taytay, Rizal, PH"],
   ["Long-tailed Shrike", "2023/11/04", "Quezon City, PH", "Handsome"],
   ["Pied Triller", "2023/11/04", "Quezon City, PH"],
   ["Pygmy Flowerpecker (?)", "2023/11/04", "Quezon City, PH"],
+  ["Common Sandpiper", "2023/11/05", "Taytay, Rizal, PH"],
 ];
 
 function render(data) {
@@ -99,7 +99,7 @@ function render(data) {
   }))];
 
   return (
-    `<ol>
+    `<ol reversed>
       <div class="row">
         ${headers.map((header, i) => {
           const cls = `col-md-${spans[i]} bold`;
@@ -107,17 +107,17 @@ function render(data) {
         }).join("\n")}
       </div>
       <div>
-        ${data.map((entry) => {
-          return `
-            <li>
+        ${data.reverse().map((entry) => {
+          return (
+            `<li>
               <div class="row">
                 ${entry.map((item, i) => {
                   const cls = `col-md-${spans[i]} ${i > 0 && "small"}`;
                   return `<div class="${cls}">${item}</div>`;
                 }).join("\n")}
               </div>
-            </li>
-          `.trim();
+            </li>`
+          ).trim();
         }).join("\n")}
       </div>
       <div class="my-4">

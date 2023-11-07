@@ -37,8 +37,7 @@ const data = [
   ["Brewer's Blackbird", "2023/09/25", "Yosemite, CA, US"],
   ["House Sparrow", "2023/09-10", "New York, NY, US"],
   ["Double-crested Cormorant", "2023/09-10", "New York, NY, US"],
-  ["Laughing Gull", "2023/09-10", "New York, NY, US"],
-  ["Ring-billed Gull", "2023/09-10", "New York, NY, US"],
+  ["Herring Gull (?)", "2023/09-10", "New York, NY, US"],
   ["Canada Goose", "2023/09-10", "New York, NY, US"],
   ["Mute Swan", "2023/09-10", "New York, NY, US"],
   ["European (Common) Starling", "2023/09-10", "New York, NY, US"],
@@ -63,7 +62,6 @@ const data = [
   ["Common Grackle", "2023/09-10", "New York, NY, US"],
   ["Cooper's Hawk (?)", "2023/09-10", "New York, NY, US", "Fairly large; light and streaked underparts; barred tail; possible red-tailed hawk"],
   ["American Kestrel", "2023/10/19", "New York, NY, US", "Distinctive little raptor; hovers and plunges after prey; personal highlight"],
-  ["California Gull", "2023/10/21", "Daly City, CA, US"],
   ["Red-tailed Hawk", "2023/10/21", "Daly City, CA, US"],
   ["Golden-crowned Sparrow", "2023/10-21", "Daly City, CA, US"],
   ["Brown Shrike", "2023/10/23-29", "Taytay, Rizal, PH", "Sleek, noisy"],
@@ -87,10 +85,13 @@ const data = [
   ["Pied Triller", "2023/11/04", "Quezon City, PH"],
   ["Pygmy Flowerpecker (?)", "2023/11/04", "Quezon City, PH"],
   ["Common Sandpiper", "2023/11/05", "Taytay, Rizal, PH"],
+  ["Javan Pond-heron", "2023/11/06", "Taytay, Rizal, PH", "Saw red-brownish head poking out of grass; somewhat streaked; black-tipped bill; in flight, distinctly white wings"],
+  ["Blue-tailed Bea-eater", "2023/11/06", "Taytay, Rizal, PH", "Spotted on telephone wire outside my window; overall greenish color; superficially looks like kingfisher from afar, but sleeker and more pointed bill"],
+  ["Barn Swallow", "2023/11/07", "Taytay, Rizal, PH", "Seen gliding overhead; clear deeply forked tail"],
 ];
 
 function render(data) {
-  const spans = [4, 2, 3, 3];
+  const spans = [6, 3, 3];
   const headers = data[0];
   data.shift();
 
@@ -101,7 +102,7 @@ function render(data) {
   return (
     `<ol reversed>
       <div class="row">
-        ${headers.map((header, i) => {
+        ${headers.filter((_, i) => spans[i]).map((header, i) => {
           const cls = `col-md-${spans[i]} bold`;
           return `<div class="${cls}">${header}</div>`;
         }).join("\n")}
@@ -111,9 +112,9 @@ function render(data) {
           return (
             `<li>
               <div class="row">
-                ${entry.map((item, i) => {
-                  const cls = `col-md-${spans[i]} ${i > 0 && "small"}`;
-                  return `<div class="${cls}">${item}</div>`;
+                ${entry.filter((_, i) => spans[i]).map((item, i) => {
+                  const cls = `col-md-${spans[i]} ${i > 0 ? "small" : ""}`;
+                  return `<div class="${cls.trim()}">${item}</div>`;
                 }).join("\n")}
               </div>
             </li>`

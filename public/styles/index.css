@@ -52,6 +52,10 @@ audio {
   color: unset;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .main {
   min-height: calc(100vh - 5rem);
 }

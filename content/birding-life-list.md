@@ -89,7 +89,8 @@ const data = [
   ["Blue-tailed Bea-eater", "Merops philippinus", "2023/11/06", "Taytay, Rizal, PH", "Spotted on telephone wire outside my window; overall greenish color; superficially looks like kingfisher from afar, but sleeker and more pointed bill"],
   ["Barn Swallow", "Hirundo rustica", "2023/11/07", "Taytay, Rizal, PH", "Seen gliding overhead; clear deeply forked tail"],
   ["House Swallow", "Hirundo javanica", "2023/11/09", "Taytay, Rizal, PH", "Clearly forked tail, but not as deep as barn swallow's"],
-  ["Great Egret", "Ardea alba", "2023/11/10", "Taytay, Rizal, PH", "Lone egret slowly wading across lake to stalk prey; very long neck"]
+  ["Great Egret", "Ardea alba", "2023/11/10", "Taytay, Rizal, PH", "Lone egret slowly wading across lake to stalk prey; very long neck"],
+  ["Common Kingfisher", "Alcedo atthis", "2023/11/11", "Taytay, Rizal, PH"]
 ];
 
 function render(data) {
@@ -123,7 +124,7 @@ function render(data) {
                 ${entry.filter((_, i) => spans[i]).map((item, i) => {
                   const cls = `
                     col-md-${spans[i]}
-                    ${i > headers.COMMON_NAME.idx ? "small" : ""}
+                    ${i !== headers.COMMON_NAME.idx ? "small" : ""}
                     ${i === headers.SCIENTIFIC_NAME.idx ? "italic" : ""}
                   `.trim();
                   return `<div class="${cls}">${item}</div>`;

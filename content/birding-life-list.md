@@ -122,7 +122,7 @@ render([
   ["Eurasian Moorhen", "Gallinula chloropus", "2023/10/23-29", "Taytay, Rizal, PH"],
   ["Coppersmith Barbet", "Psilopogon haemacephalus", "2023/10/23-29", "Taytay, Rizal, PH"],
   ["Eastern Cattle Egret", "Bubulcus coromandus", "2023/10/23-29", "Taytay, Rizal, PH"],
-  ["Grey Heron", "Ardea cinerea", "2023/10/23-29", "Taytay, Rizal, PH"],
+  ["Gray Heron", "Ardea cinerea", "2023/10/23-29", "Taytay, Rizal, PH"],
   ["Purple Heron", "Ardea purpurea", "2023/10/23-29", "Taytay, Rizal, PH"],
   ["Whiskered Tern", "Chlidonias hybrida", "2023/10/23-29", "Taytay, Rizal, PH"],
   ["Red-keeled Flowerpecker", "Dicaeum australe", "2023/10/23-29", "Taytay, Rizal, PH"],

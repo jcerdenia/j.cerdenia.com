@@ -88,9 +88,11 @@ const data = [
   ["Javan Pond-heron", "Ardeola speciosa", "2023/11/06", "Taytay, Rizal, PH", "Saw red-brownish head poking out of grass; somewhat streaked; black-tipped bill; in flight, distinctly white wings"],
   ["Blue-tailed Bea-eater", "Merops philippinus", "2023/11/06", "Taytay, Rizal, PH", "Spotted on telephone wire outside my window; overall greenish color; superficially looks like kingfisher from afar, but sleeker and more pointed bill"],
   ["Barn Swallow", "Hirundo rustica", "2023/11/07", "Taytay, Rizal, PH", "Seen gliding overhead; clear deeply forked tail"],
-  ["House Swallow", "Hirundo javanica", "2023/11/09", "Taytay, Rizal, PH", "Clearly forked tail, but not as deep as barn swallow's"],
+  ["Pacific Swallow", "Hirundo tahitica", "2023/11/09", "Taytay, Rizal, PH", "Clearly forked tail, but not as deep as barn swallow's; see also, House Swallow (javanica)"],
   ["Great Egret", "Ardea alba", "2023/11/10", "Taytay, Rizal, PH", "Lone egret slowly wading across lake to stalk prey; very long neck"],
-  ["Common Kingfisher", "Alcedo atthis", "2023/11/11", "Taytay, Rizal, PH"]
+  ["Common Kingfisher", "Alcedo atthis", "2023/11/11", "Taytay, Rizal, PH"],
+  ["Intermediate Egret", "Ardea intermedia", "2023/11/14", "Taytay, Rizal, PH", "Rounder head; black-tipped bill; not as lanky as great egret"],
+  ["Arctic Warbler (?)", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"]
 ];
 
 function render(data) {

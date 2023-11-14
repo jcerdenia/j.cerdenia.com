@@ -8,7 +8,58 @@ evaluate_js: true
 ---
 
 ```js
-const data = [
+function render(data) {
+  const spans = [4, 3, 2, 3];
+  const headers = {};
+
+  data[0].forEach((hdr, i) => {
+    const key = hdr.replace(/ /g, '_').toUpperCase();
+    headers[key] = { display: hdr, idx: i};
+  });
+
+  data.shift();
+
+  const countries = [...new Set(data.map(([,,, loc]) => {
+    return loc.split(",").reverse()[0].trim();
+  }))].filter((ct) => ct);
+
+  return (
+    `<ol reversed>
+      <div class="row">
+        ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => {
+          const cls = `col-md-${spans[i]} bold`;
+          return `<div class="${cls}">${headers[key].display}</div>`;
+        }).join("\n")}
+      </div>
+      <div>
+        ${data.reverse().map((entry) => {
+          return (
+            `<li>
+              <div class="row">
+                ${entry.filter((_, i) => spans[i]).map((item, i) => {
+                  const cls = `
+                    col-md-${spans[i]}
+                    ${i !== headers.COMMON_NAME.idx ? "small" : ""}
+                    ${i === headers.SCIENTIFIC_NAME.idx ? "italic" : ""}
+                  `.trim();
+                  return `<div class="${cls}">${item}</div>`;
+                }).join("\n")}
+              </div>
+            </li>`
+          ).trim();
+        }).join("\n")}
+      </div>
+      <div class="my-4">
+        ${countries.map((ct) => {
+          const count = data.filter(([,,, loc]) => loc.endsWith(ct)).length;
+          return `<div><strong>No. of ${ct} species:</strong> ${count}</div>`;
+        }).join("\n")}
+      </div>
+    </ol>`
+  );
+};
+
+render([
   // Headers
   ["Common Name", "Scientific Name", "Date", "Location", "Note"],
   // Entries
@@ -26,7 +77,7 @@ const data = [
   ["Golden-bellied Gerygone", "Gerygone sulphurea", "2023/07-09", "Taytay, Rizal, PH"],
   ["American Crow", "Corvus brachyrhynchos", "2023/09/22", "Daly City, CA, US"],
   ["Common Raven", "Corvus corax", "2023/09/22", "Daly City, CA, US"],
-  ["Steller's Jay", "Cyanocitta stelleri", "2023/09/23", "San Francisco, CA, US",],
+  ["Steller's Jay", "Cyanocitta stelleri", "2023/09/23", "San Francisco, CA, US"],
   ["Red-winged Blackbird", "Agelaius phoeniceus", "2023/09/23", "San Francisco, CA, US"],
   ["Mallard", "Anas platyrhynchos", "2023/09/23", "San Francisco, CA, US"],
   ["Brown Pelican", "Pelecanus occidentalis", "2023/09/23", "San Francisco, CA, US"],
@@ -93,58 +144,5 @@ const data = [
   ["Common Kingfisher", "Alcedo atthis", "2023/11/11", "Taytay, Rizal, PH"],
   ["Intermediate Egret", "Ardea intermedia", "2023/11/14", "Taytay, Rizal, PH", "Rounder head; black-tipped bill; not as lanky as great egret"],
   ["Arctic Warbler (?)", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"]
-];
-
-function render(data) {
-  const spans = [4, 3, 2, 3];
-  const headers = {};
-
-  data[0].forEach((hdr, i) => {
-    const key = hdr.replace(/ /g, '_').toUpperCase();
-    headers[key] = { display: hdr, idx: i};
-  });
-
-  data.shift();
-
-  const countries = [...new Set(data.map(([,,, loc]) => {
-    return loc.split(",").reverse()[0].trim();
-  }))].filter((ct) => ct);
-
-  return (
-    `<ol reversed>
-      <div class="row">
-        ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => {
-          const cls = `col-md-${spans[i]} bold`;
-          return `<div class="${cls}">${headers[key].display}</div>`;
-        }).join("\n")}
-      </div>
-      <div>
-        ${data.reverse().map((entry) => {
-          return (
-            `<li>
-              <div class="row">
-                ${entry.filter((_, i) => spans[i]).map((item, i) => {
-                  const cls = `
-                    col-md-${spans[i]}
-                    ${i !== headers.COMMON_NAME.idx ? "small" : ""}
-                    ${i === headers.SCIENTIFIC_NAME.idx ? "italic" : ""}
-                  `.trim();
-                  return `<div class="${cls}">${item}</div>`;
-                }).join("\n")}
-              </div>
-            </li>`
-          ).trim();
-        }).join("\n")}
-      </div>
-      <div class="my-4">
-        ${countries.map((ct) => {
-          const count = data.filter(([,,, loc]) => loc.endsWith(ct)).length;
-          return `<div><strong>No. of ${ct} species:</strong> ${count}</div>`;
-        }).join("\n")}
-      </div>
-    </ol>`
-  );
-};
-
-render(data);
+]);
 ```

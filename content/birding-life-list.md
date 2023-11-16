@@ -19,49 +19,46 @@ function render(data) {
 
   data.shift();
 
-  const countries = [...new Set(data.map(([,,, loc]) => {
-    return loc.split(",").reverse()[0].trim();
-  }))].filter((ct) => ct);
+  const countries = [...new Set(
+    data.map(([,,, loc]) => loc.split(",").reverse()[0].trim())
+  )].filter((ct) => ct);
 
   const tables = [
-    { filter: ([name]) => !name.endsWith("?") },
-    { filter: ([name]) => name.endsWith("?"), title: "Almost sure" }
+    { title: "", filter: ([name]) => !name.endsWith("?") },
+    { title: "Almost sure", filter: ([name]) => name.endsWith("?") }
   ];
 
   return (
     `<ol reversed>
       <div class="row">
-        ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => {
-          return `<div class="col-md-${spans[i]} bold">${headers[key].text}</div>`;
-        }).join("\n")}
+        ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => (
+          `<div class="col-md-${spans[i]} bold">${headers[key].text}</div>`
+        ).trim()).join("\n")}
       </div>
       <div>
-        ${tables.map(({ filter, title }) => {
-          return (
+        ${tables.map(({ title, filter }) => (
             `${title 
               ? `<div class="mt-4 mb-2 bold">${title}</div>`
               : `<span></span>`
             }
             <div>
-              ${data.reverse().filter(filter).map((entry) => {
-                return (
-                  `<li>
-                    <div class="row">
-                      ${entry.filter((_, i) => spans[i]).map((item, i) => {
-                        const cls = `
-                          col-md-${spans[i]}
-                          ${i !== headers.COMMON_NAME.idx? "small" : ""}
-                          ${i === headers.SCIENTIFIC_NAME.idx? "italic" : ""}
-                        `.trim();
-                        return `<div class="${cls}">${item.replace("?", "")}</div>`;
-                      }).join("\n")}
-                    </div>
-                  </li>`
-                ).trim();
-              }).join("\n")}
+              ${data.reverse().filter(filter).map((entry) => (
+                `<li>
+                  <div class="row">
+                    ${entry.filter((_, i) => spans[i]).map((item, i) => (
+                      `<div class="
+                        ${`col-md-${spans[i]}
+                        ${i !== headers.COMMON_NAME.idx? "small" : ""}
+                        ${i === headers.SCIENTIFIC_NAME.idx? "italic" : ""}
+                      `.trim()}">
+                        ${item.replace("?", "")}
+                      </div>`
+                    )).join("\n")}
+                  </div>
+                </li>`
+              ).trim()).join("\n")}
             </div>`
-          );
-        }).join("\n")}
+          )).join("\n")}
       </div>
       <div class="my-4">
         ${countries.map((ct) => {

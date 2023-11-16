@@ -14,7 +14,7 @@ function render(data) {
 
   data[0].forEach((hdr, i) => {
     const key = hdr.replace(/ /g, '_').toUpperCase();
-    headers[key] = { display: hdr, idx: i};
+    headers[key] = { text: hdr, idx: i};
   });
 
   data.shift();
@@ -23,36 +23,50 @@ function render(data) {
     return loc.split(",").reverse()[0].trim();
   }))].filter((ct) => ct);
 
+  const tables = [
+    { filter: ([name]) => !name.endsWith("?") },
+    { filter: ([name]) => name.endsWith("?"), title: "Almost sure" }
+  ];
+
   return (
     `<ol reversed>
       <div class="row">
         ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => {
-          const cls = `col-md-${spans[i]} bold`;
-          return `<div class="${cls}">${headers[key].display}</div>`;
+          return `<div class="col-md-${spans[i]} bold">${headers[key].text}</div>`;
         }).join("\n")}
       </div>
       <div>
-        ${data.reverse().map((entry) => {
+        ${tables.map(({ filter, title }) => {
           return (
-            `<li>
-              <div class="row">
-                ${entry.filter((_, i) => spans[i]).map((item, i) => {
-                  const cls = `
-                    col-md-${spans[i]}
-                    ${i !== headers.COMMON_NAME.idx ? "small" : ""}
-                    ${i === headers.SCIENTIFIC_NAME.idx ? "italic" : ""}
-                  `.trim();
-                  return `<div class="${cls}">${item}</div>`;
-                }).join("\n")}
-              </div>
-            </li>`
-          ).trim();
+            `${title 
+              ? `<div class="mt-4 mb-2 bold">${title}</div>`
+              : `<span></span>`
+            }
+            <div>
+              ${data.reverse().filter(filter).map((entry) => {
+                return (
+                  `<li>
+                    <div class="row">
+                      ${entry.filter((_, i) => spans[i]).map((item, i) => {
+                        const cls = `
+                          col-md-${spans[i]}
+                          ${i !== headers.COMMON_NAME.idx? "small" : ""}
+                          ${i === headers.SCIENTIFIC_NAME.idx? "italic" : ""}
+                        `.trim();
+                        return `<div class="${cls}">${item.replace("?", "")}</div>`;
+                      }).join("\n")}
+                    </div>
+                  </li>`
+                ).trim();
+              }).join("\n")}
+            </div>`
+          );
         }).join("\n")}
       </div>
       <div class="my-4">
         ${countries.map((ct) => {
           const count = data.filter(([,,, loc]) => loc.endsWith(ct)).length;
-          return `<div><strong>No. of ${ct} species:</strong> ${count}</div>`;
+          return `<div><strong>Count of ${ct} species:</strong> ${count}</div>`;
         }).join("\n")}
       </div>
     </ol>`
@@ -88,7 +102,7 @@ render([
   ["Brewer's Blackbird", "Euphagus cyanocephalus", "2023/09/25", "Yosemite, CA, US"],
   ["House Sparrow", "Passer domesticus", "2023/09-10", "New York, NY, US"],
   ["Double-crested Cormorant", "Nannopterum auritum", "2023/09-10", "New York, NY, US"],
-  ["Herring Gull (?)", "Larus argentatus", "2023/09-10", "New York, NY, US"],
+  ["Ring-billed Gull", "Larus delawarensis", "2023/09-10", "New York, NY, US"],
   ["Canada Goose", "Branta canadensis", "2023/09-10", "New York, NY, US"],
   ["Mute Swan", "Cygnus olor", "2023/09-10", "New York, NY, US"],
   ["European Starling", "Sturnus vulgaris", "2023/09-10", "New York, NY, US"],
@@ -111,7 +125,7 @@ render([
   ["American Coot", "Fulica americana", "2023/09-10", "New York, NY, US"],
   ["Great Blue Heron", "Ardea herodias", "2023/09-10", "New York, NY, US"],
   ["Common Grackle", "Quiscalus quiscula", "2023/09-10", "New York, NY, US"],
-  ["Cooper's Hawk (?)", "Accipiter cooperii", "2023/09-10", "New York, NY, US", "Fairly large; light and streaked underparts; barred tail; possible red-tailed hawk"],
+  ["Cooper's Hawk?", "Accipiter cooperii", "2023/09-10", "New York, NY, US", "Fairly large; light and streaked underparts; barred tail; possible red-tailed hawk"],
   ["American Kestrel", "Falco sparverius", "2023/10/19", "New York, NY, US", "Distinctive little raptor; hovers and plunges after prey; personal highlight"],
   ["Red-tailed Hawk", "Buteo jamaicensis", "2023/10/21", "Daly City, CA, US"],
   ["Golden-crowned Sparrow", "Zonotrichia atricapilla", "2023/10/21", "Daly City, CA, US"],
@@ -131,11 +145,11 @@ render([
   ["Philippine Pygmy Woodpecker", "Yungipicus maculatus", "2023/10/30", "Taytay, Rizal, PH"],
   ["Little Egret", "Egretta garzetta", "2023/10/30", "Taytay, Rizal, PH"],
   ["Black-winged Stilt", "Himantopus himantopus", "2023/10/31", "Taytay, Rizal, PH"],
-  ["Cinnamon Bittern (?)", "Ixobrychus cinnamomeus", "2023/10/31", "Taguig, PH"],
+  ["Cinnamon Bittern?", "Ixobrychus cinnamomeus", "2023/10/31", "Taguig, PH"],
   ["Long-tailed Shrike", "Lanius schach", "2023/11/04", "Quezon City, PH"],
   ["Pied Triller", "Lalage nigra", "2023/11/04", "Quezon City, PH"],
-  ["Pygmy Flowerpecker (?)", "Dicaeum pygmaeum", "2023/11/04", "Quezon City, PH"],
-  ["Common Sandpiper (?)", "Actitis hypoleucos", "2023/11/05", "Taytay, Rizal, PH"],
+  ["Pygmy Flowerpecker?", "Dicaeum pygmaeum", "2023/11/04", "Quezon City, PH"],
+  ["Common Sandpiper?", "Actitis hypoleucos", "2023/11/05", "Taytay, Rizal, PH"],
   ["Javan Pond-heron", "Ardeola speciosa", "2023/11/06", "Taytay, Rizal, PH", "Saw red-brownish head poking out of grass; somewhat streaked; black-tipped bill; in flight, distinctly white wings"],
   ["Blue-tailed Bea-eater", "Merops philippinus", "2023/11/06", "Taytay, Rizal, PH", "Spotted on telephone wire outside my window; overall greenish color; superficially looks like kingfisher from afar, but sleeker and more pointed bill"],
   ["Barn Swallow", "Hirundo rustica", "2023/11/07", "Taytay, Rizal, PH", "Seen gliding overhead; clear deeply forked tail"],
@@ -143,6 +157,8 @@ render([
   ["Great Egret", "Ardea alba", "2023/11/10", "Taytay, Rizal, PH", "Lone egret slowly wading across lake to stalk prey; very long neck"],
   ["Common Kingfisher", "Alcedo atthis", "2023/11/11", "Taytay, Rizal, PH"],
   ["Intermediate Egret", "Ardea intermedia", "2023/11/14", "Taytay, Rizal, PH", "Rounder head; black-tipped bill; not as lanky as great egret"],
-  ["Arctic Warbler (?)", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"]
+  ["Arctic Warbler?", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"],
+  ["Striated Grassbird", "Megalurus palustris", "2023/11/16", "Taytay, Rizal, PH", "Found singing on a tree branch; big with long tail; strongly streaked back"],
+  ["Yellow Bittern", "Ixobrychus sinensis", "2023/11/16", "Taytay, Rizal, PH"],
 ]);
 ```

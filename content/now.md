@@ -1,10 +1,10 @@
 ---
 title: "What I'm Doing Now"
 pinned: true
-date: "2023/10/30"
+date: "2023/11/17"
 ---
 
-- Living/melting in the Philippines and slowly working on a big move.
+- Living/melting in the Philippines and orchestrating a move (back) to the US.
 
 - Laboring in obscurity as a software engineer in "fintech."
 

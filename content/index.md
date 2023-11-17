@@ -2,6 +2,6 @@
 title: ""
 ---
 
-<!-- ![Landscape with the Fall of Icarus](/images/icarus.jpeg) -->
+![](https://pbs.twimg.com/media/F771oHoXcAAPXmt?format=jpg&name=large)
 
 Fragments, drafts, etc.

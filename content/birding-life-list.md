@@ -10,29 +10,23 @@ evaluate_js: true
 ```js
 function render(data) {
   const spans = [4, 3, 2, 3];
-  const headers = {};
-
-  data[0].forEach((hdr, i) => {
-    const key = hdr.replace(/ /g, '_').toUpperCase();
-    headers[key] = { text: hdr, idx: i};
-  });
-
+  const headers = [...data[0]];
   data.shift();
-
-  const countries = [...new Set(
-    data.map(([,,, loc]) => loc.split(",").reverse()[0].trim())
-  )].filter((ct) => ct);
 
   const tables = [
     { title: "", filter: ([name]) => !name.endsWith("?") },
     { title: "Almost sure", filter: ([name]) => name.endsWith("?") }
   ];
 
+  const countries = [...new Set(
+    data.map(([,,, loc]) => loc.split(",").reverse()[0].trim())
+  )].filter((ct) => ct);
+
   return (
     `<ol reversed>
       <div class="row">
-        ${Object.keys(headers).filter((_, i) => spans[i]).map((key, i) => (
-          `<div class="col-md-${spans[i]} bold">${headers[key].text}</div>`
+        ${headers.filter((_, i) => spans[i]).map((header, i) => (
+          `<div class="col-md-${spans[i]} bold">${header}</div>`
         ).trim()).join("\n")}
       </div>
       <div>
@@ -42,14 +36,14 @@ function render(data) {
               : `<span></span>`
             }
             <div>
-              ${data.reverse().filter(filter).map((entry) => (
+              ${data.reverse().filter(filter).map((items) => (
                 `<li>
                   <div class="row">
-                    ${entry.filter((_, i) => spans[i]).map((item, i) => (
+                    ${items.filter((_, i) => spans[i]).map((item, i) => (
                       `<div class="
                         ${`col-md-${spans[i]}
-                        ${i !== headers.COMMON_NAME.idx? "small" : ""}
-                        ${i === headers.SCIENTIFIC_NAME.idx? "italic" : ""}
+                        ${i !== headers.indexOf("Common Name") ? "small" : ""}
+                        ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
                       `.trim()}">
                         ${item.replace("?", "")}
                       </div>`
@@ -61,9 +55,9 @@ function render(data) {
           )).join("\n")}
       </div>
       <div class="my-4">
-        ${countries.map((ct) => {
-          const count = data.filter(([,,, loc]) => loc.endsWith(ct)).length;
-          return `<div><strong>Count of ${ct} species:</strong> ${count}</div>`;
+        ${countries.map((country) => {
+          const count = data.filter(([,,, loc]) => loc.endsWith(country)).length;
+          return `<div><strong>Count of ${country} species:</strong> ${count}</div>`;
         }).join("\n")}
       </div>
     </ol>`
@@ -157,5 +151,6 @@ render([
   ["Arctic Warbler?", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"],
   ["Striated Grassbird", "Megalurus palustris", "2023/11/16", "Taytay, Rizal, PH", "Found singing on a tree branch; big with long tail; strongly streaked back"],
   ["Yellow Bittern", "Ixobrychus sinensis", "2023/11/16", "Taytay, Rizal, PH"],
+  ["Chestnut Munia", "Lonchura atricapilla", "2023/11/17", "Taytay, Rizal, PH"],
 ]);
 ```

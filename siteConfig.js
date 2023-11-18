@@ -5,7 +5,7 @@ const EMAIL = "joshua@cerdenia.com";
 const siteConfig = {
   linkMode: "icon",
   links: [
-    ["Source", "https://github.com/joshuacerdenia/j.cerdenia.com", "bi bi-github"],
+    ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
     ["Music", "https://www.youtube.com/watch?v=xnmJFpS1x34", "bi bi-music-note"],
     // ["Twitter", "https://twitter.com/jc_erde", "bi bi-twitter"],
     ["Mailing List", `https://tinyletter.com/jcerdenia`, "bi bi-envelope-fill"],

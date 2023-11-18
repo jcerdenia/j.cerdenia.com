@@ -10,17 +10,17 @@ evaluate_js: true
 ```js
 function render(data) {
   const spans = [4, 3, 2, 3];
-  const headers = [...data[0]];
-  data.shift();
+  const headers = data[0];
+  data.shift()
 
   const tables = [
     { title: "", filter: ([name]) => !name.endsWith("?") },
-    { title: "Almost sure", filter: ([name]) => name.endsWith("?") }
+    { title: "Almost sure", filter: ([name]) => name.endsWith("?") },
   ];
 
   const countries = [...new Set(
     data.map(([,,, loc]) => loc.split(",").reverse()[0].trim())
-  )].filter((ct) => ct);
+  )].filter((country) => country);
 
   return (
     `<ol reversed>
@@ -36,12 +36,12 @@ function render(data) {
               : `<span></span>`
             }
             <div>
-              ${data.reverse().filter(filter).map((items) => (
+              ${[...data].reverse().filter(filter).map((items) => (
                 `<li>
                   <div class="row">
                     ${items.filter((_, i) => spans[i]).map((item, i) => (
-                      `<div class="
-                        ${`col-md-${spans[i]}
+                      `<div class="row-item
+                        ${`col-md-${spans[i]} 
                         ${i !== headers.indexOf("Common Name") ? "small" : ""}
                         ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
                       `.trim()}">
@@ -136,7 +136,7 @@ render([
   ["Philippine Pygmy Woodpecker", "Yungipicus maculatus", "2023/10/30", "Taytay, Rizal, PH"],
   ["Little Egret", "Egretta garzetta", "2023/10/30", "Taytay, Rizal, PH"],
   ["Black-winged Stilt", "Himantopus himantopus", "2023/10/31", "Taytay, Rizal, PH"],
-  ["Cinnamon Bittern?", "Ixobrychus cinnamomeus", "2023/10/31", "Taguig, PH"],
+  // ["Cinnamon Bittern?", "Ixobrychus cinnamomeus", "2023/10/31", "Taguig, PH"],
   ["Long-tailed Shrike", "Lanius schach", "2023/11/04", "Quezon City, PH"],
   ["Pied Triller", "Lalage nigra", "2023/11/04", "Quezon City, PH"],
   ["Pygmy Flowerpecker?", "Dicaeum pygmaeum", "2023/11/04", "Quezon City, PH"],
@@ -150,7 +150,9 @@ render([
   ["Intermediate Egret", "Ardea intermedia", "2023/11/14", "Taytay, Rizal, PH", "Rounder head; black-tipped bill; not as lanky as great egret"],
   ["Arctic Warbler?", "Phylloscopus borealis", "2023/11/14", "Taytay, Rizal, PH"],
   ["Striated Grassbird", "Megalurus palustris", "2023/11/16", "Taytay, Rizal, PH", "Found singing on a tree branch; big with long tail; strongly streaked back"],
-  ["Yellow Bittern", "Ixobrychus sinensis", "2023/11/16", "Taytay, Rizal, PH"],
+  ["Yellow Bittern?", "Ixobrychus sinensis", "2023/11/16", "Taytay, Rizal, PH"],
   ["Chestnut Munia", "Lonchura atricapilla", "2023/11/17", "Taytay, Rizal, PH"],
+  ["Collared Kingfisher", "Todiramphus chloris", "2023/11/18", "Taytay, Rizal, PH", "Perched on telephone wire"],
+  ["Cinnamon Bittern", "Ixobrychus cinnamomeu", "2023/11/18", "Taytay, Rizal, PH", "Distinctly not yellow; larger than yellow bitterns from the other day; replaces uncertain 23/10/31 Taguig entry"],
 ]);
 ```

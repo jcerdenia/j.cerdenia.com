@@ -112,6 +112,11 @@ audio {
   margin-top: 2rem;
 }
 
+.row .row-item {
+  display: flex;
+  align-items: center;
+}
+
 .small {
   font-size: var(--font-small);
 }

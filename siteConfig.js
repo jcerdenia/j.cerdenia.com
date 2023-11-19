@@ -6,7 +6,7 @@ const siteConfig = {
   linkMode: "icon",
   links: [
     ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
-    ["Music", "https://www.youtube.com/watch?v=xnmJFpS1x34", "bi bi-music-note"],
+    // ["Music", "https://www.youtube.com/watch?v=YhaNa_622Wc", "bi bi-music-note"],
     // ["Twitter", "https://twitter.com/jc_erde", "bi bi-twitter"],
     ["Mailing List", `https://tinyletter.com/jcerdenia`, "bi bi-envelope-fill"],
     ["RSS", "/rss.xml", "bi bi-rss-fill"],

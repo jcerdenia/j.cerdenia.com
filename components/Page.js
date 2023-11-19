@@ -13,7 +13,13 @@ import List from "./List.js";
 const Backlinks = (slug) => {
   const backlinks = getFiles()
     .map(unpackFile)
-    .filter(({ data, content }) => !data.draft && content.includes(`/${slug}`))
+    .filter(
+      ({ data, content }) =>
+        !data.draft &&
+        (content.includes(`](/${slug})`) ||
+          content.includes(`](/${slug}#`) ||
+          content.includes(`href="/${slug}`))
+    )
     .sort(compareBy("title"));
 
   return backlinks.length

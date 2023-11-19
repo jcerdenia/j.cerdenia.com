@@ -16,7 +16,7 @@ It seems the experience I gained from all the birding I did in America paid off.
 
 Of the 25 species listed above, my favorites are the yellow-vented bulbul, Philippine pied fantail, and coppersmith barbet. The bulbuls are abundant but always elegant and beautiful; one can never get tired of seeing them. The pied fantails, endemic to these islands, are feisty little birds with gorgeous tails despite their otherwise unremarkable coloration. The colorful barbet is the most visually striking bird I've yet seen in these parts. I have only seen them on two occasions in the same tree; I hope there are more of them.
 
-The whole week I birded only my neighborhood wetland, except for this afternoon (Sunday, 10/ , which I spent at Heritage Memorial Park in Taguig. There, I met the president and some members of the [Wild Bird Club of the Philippines](https://birdwatch.ph) in a chance encounter. I saw the usual urban birds (tree sparrows, pied fantails, swiftlets) and a few waterbirds (waterhens, moorhens, egrets) but no new species.
+The whole week I birded only my neighborhood wetland, except for this afternoon, which I spent at Heritage Memorial Park in Taguig. There, I met the president and some members of the [Wild Bird Club of the Philippines](https://birdwatch.ph) in a chance encounter. I saw the usual urban birds (tree sparrows, pied fantails, swiftlets) and a few waterbirds (waterhens, moorhens, egrets) but no new species.
 
 # 10/30–11/05
 

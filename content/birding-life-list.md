@@ -33,25 +33,26 @@ function render(data) {
         ${tables.map(({ title, filter }) => (
             `${title 
               ? `<div class="mt-4 mb-2 bold">${title}</div>`
-              : `<span></span>`
-            }
+              : `<span></span>`}
             <div>
               ${[...data].reverse().filter(filter).map((items) => (
                 `<li>
                   <div class="row">
-                    ${items.filter((_, i) => spans[i]).map((item, i) => (
-                      `<div class="row-item
-                        ${`col-md-${spans[i]} 
-                        ${i !== headers.indexOf("Common Name") ? "small" : ""}
-                        ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
-                      `.trim()}">
-                        ${i === headers.indexOf("Date") && items[headers.indexOf("Ref")] 
-                          ? (`<a href="${items[headers.indexOf("Ref")]}">
-                              ${item.replace("?", "")}
-                            </a>`)
-                          : item.replace("?", "")}
-                      </div>`
-                    )).join("\n")}
+                    ${items.filter((_, i) => spans[i]).map((_item, i) => {
+                      const ref = items[headers.indexOf("Ref")];
+                      const item = _item.replace("?", "");
+                      return (
+                        `<div class="row-item
+                          ${`col-md-${spans[i]} 
+                          ${i !== headers.indexOf("Common Name") ? "small" : ""}
+                          ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
+                        `.trim()}">
+                          ${i === headers.indexOf("Date") && ref 
+                            ? `<a href="${ref}">${item}</a>`
+                            : item}
+                        </div>`
+                      );
+                    }).join("\n")}
                   </div>
                 </li>`
               ).trim()).join("\n")}

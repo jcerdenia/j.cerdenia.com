@@ -25,7 +25,7 @@ const Backlinks = (slug) => {
   return backlinks.length
     ? HtmlBuilder("div")
         .child(HtmlBuilder("hr").class("my-4").void())
-        .child(HtmlBuilder("h5").child("Backlinks"))
+        .child(HtmlBuilder("h5").child("Pages That Link Here"))
         .child(
           List(backlinks, ({ data }) =>
             [Link(data.title, data.slug), Date(data.date)].join("")

@@ -61,8 +61,13 @@ function render(data) {
       </div>
       <div class="my-4">
         ${countries.map((ctr) => {
-          const items = data.filter((i) => i[headers.indexOf("Location")].endsWith(ctr));
-          return `<div><strong>Count of ${ctr} species:</strong> ${items.length}</div>`;
+          const locationIdx = headers.indexOf("Location");
+          const items = data.filter((i) => i[locationIdx].endsWith(ctr));
+          return (
+            `<div>
+              <strong>Count of ${ctr} species:</strong> ${items.length}
+            </div>`
+          );
         }).join("\n")}
       </div>
     </ol>`

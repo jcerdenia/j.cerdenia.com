@@ -10,6 +10,6 @@ date: "2023/11/17"
 
 - Reading a lot; trying to write.
 
-- [Birding](/birding-ph-2023).
+- [Birding](/birding-life-list).
 
 ["What's a 'now' page?"](https://nownownow.com/about)

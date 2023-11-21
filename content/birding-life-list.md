@@ -161,6 +161,8 @@ const data = [
   ['Collared Kingfisher', 'Todiramphus chloris', 'Taytay, Rizal, PH', '2023/11/18', '/birding-ph-2023#1115-1119'],
   ['Cinnamon Bittern', 'Ixobrychus cinnamomeu', 'Taytay, Rizal, PH', '2023/11/18', '/birding-ph-2023#1115-1119'],
   ['Yellow Bittern', 'Ixobrychus sinensis', 'Taytay, Rizal, PH', '2023/11/19', '/birding-ph-2023#1115-1119'],
+  ['Black-crowned Night-heron', 'Nycticorax nycticorax', 'Taytay, Rizal, PH', '2023/11/21'],
+  ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21'],
 ];
 
 render(data);

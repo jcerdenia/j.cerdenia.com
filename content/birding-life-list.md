@@ -164,7 +164,7 @@ const data = [
   ['Black-crowned Night-heron', 'Nycticorax nycticorax', 'Taytay, Rizal, PH', '2023/11/21'],
   ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21'],
   ['Wood Sandpiper?', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24'],
-  ['Common Sandpiper', 'Actitis hypoleucos', "Taytay, Rizal., PH", "2023/11/26"],
+  ['Common Sandpiper', 'Actitis hypoleucos', "Taytay, Rizal, PH", "2023/11/26"],
 ];
 
 render(data);

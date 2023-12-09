@@ -147,7 +147,6 @@ const data = [
   ['Long-tailed Shrike', 'Lanius schach', 'Quezon City, PH', '2023/11/04', '/birding-ph-2023#1030-1105'],
   ['Pied Triller', 'Lalage nigra', 'Quezon City, PH', '2023/11/04', '/birding-ph-2023#1030-1105'],
   ['Pygmy Flowerpecker?', 'Dicaeum pygmaeum', 'Quezon City, PH', '2023/11/04', '/birding-ph-2023#1030-1105'],
-  // ['Common Sandpiper?', 'Actitis hypoleucos', 'Taytay, Rizal, PH', '2023/11/05', '/birding-ph-2023#1030-1105'],
   ['Javan Pond-heron', 'Ardeola speciosa', 'Taytay, Rizal, PH', '2023/11/06', '/birding-ph-2023#1106-1112'],
   ['Blue-tailed Bea-eater', 'Merops philippinus', 'Taytay, Rizal, PH', '2023/11/06', '/birding-ph-2023#1106-1112'],
   ['Barn Swallow', 'Hirundo rustica', 'Taytay, Rizal, PH', '2023/11/07', '/birding-ph-2023#1106-1112'],
@@ -161,10 +160,10 @@ const data = [
   ['Collared Kingfisher', 'Todiramphus chloris', 'Taytay, Rizal, PH', '2023/11/18', '/birding-ph-2023#1115-1119'],
   ['Cinnamon Bittern', 'Ixobrychus cinnamomeu', 'Taytay, Rizal, PH', '2023/11/18', '/birding-ph-2023#1115-1119'],
   ['Yellow Bittern', 'Ixobrychus sinensis', 'Taytay, Rizal, PH', '2023/11/19', '/birding-ph-2023#1115-1119'],
-  ['Black-crowned Night-heron', 'Nycticorax nycticorax', 'Taytay, Rizal, PH', '2023/11/21'],
-  ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21'],
-  ['Wood Sandpiper?', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24'],
-  ['Common Sandpiper', 'Actitis hypoleucos', "Taytay, Rizal, PH", "2023/11/26"],
+  ['Black-crowned Night-heron', 'Nycticorax nycticorax', 'Taytay, Rizal, PH', '2023/11/21', '/birding-ph-2023#1120-1126'],
+  ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21', '/birding-ph-2023#1120-1126'],
+  ['Wood Sandpiper?', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24', '/birding-ph-2023#1120-1126'],
+  ['Common Sandpiper', 'Actitis hypoleucos', 'Taytay, Rizal, PH', '2023/11/26', '/birding-ph-2023#1120-1126'],
 ];
 
 render(data);

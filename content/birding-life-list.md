@@ -164,7 +164,11 @@ const data = [
   ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21', '/birding-ph-2023#1120-1126'],
   ['Wood Sandpiper?', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24', '/birding-ph-2023#1120-1126'],
   ['Common Sandpiper', 'Actitis hypoleucos', 'Taytay, Rizal, PH', '2023/11/26', '/birding-ph-2023#1120-1126'],
-];
+  ['Elegant Tit', 'Pardaliparus elegans', 'Antipolo, Rizal, PH', '2023/12/14'],
+  ['Lowland White-eye', 'Zosterops meyeni', 'Antipolo, Rizal, PH', '2023/12/14'],
+  ['Philippine Cuckoo-dove', 'Macropygia tenuirostris', 'Antipolo, Rizal, PH', '2023/12/14'],
+  ['Philippine Bulbul', 'Hypsipetes philippinus', 'Antipolo, Rizal, PH', '2023/12/14'],
+]
 
 render(data);
 ```

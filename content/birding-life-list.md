@@ -168,6 +168,12 @@ const data = [
   ['Lowland White-eye', 'Zosterops meyeni', 'Antipolo, Rizal, PH', '2023/12/14', '/birding-ph-2023#1127-1216'],
   ['Philippine Cuckoo-dove', 'Macropygia tenuirostris', 'Antipolo, Rizal, PH', '2023/12/14', '/birding-ph-2023#1127-1216'],
   ['Philippine Bulbul', 'Hypsipetes philippinus', 'Antipolo, Rizal, PH', '2023/12/14', '/birding-ph-2023#1127-1216'],
+  ['Striated Heron', 'Butorides striata', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Pacific Golden Plover', 'Pluvialis fulva', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Common Redshank', 'Tringa totanus', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Common Greenshank', 'Tringa nebularia', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Kentish Plover', 'Anarhynchus alexandrinus', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Rufous Night-heron', 'Nycticorax caledonicus', 'Las Piñas/Parañaque, PH', '2023/12/17'],
 ]
 
 render(data);

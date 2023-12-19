@@ -67,3 +67,9 @@ Because I bird so much in wide open spaces I had been wishing a lot that I had a
 # 11/27–12/16
 
 Last few weeks have been quiet, though I continue to spend nearly every morning at my local wetland observing the herons and stilts. No new first-time sightings until Thursday, 12/14, where I met up first thing in the morning at Victoria Valley in Antipolo with a few fellow birders from the Wild Bird Club. We hoped in particular to see a Philippine hawk-eagle; and although we could hear birds in abundance, few came out in the open. Some new species for me: elegant tit, lowland white-eye, Philippine cuckoo-dove, Philippine bulbul. Other birds sighted: black-naped oriole, collared kingfisher, red-keeled flowerpecker, among others. My more experienced companions could hear more birds I hadn't seen, such as the tawny grassbird, and there were a few other potential sightings as well that I missed. A site worth visiting again in the near future.
+
+<!--
+# 12/17–12/18
+
+Early morning yesterday, went to Las Piñas-Parañaque Wetland Park along Manila Bay for a guided bird tour with the Wild Bird Club. It was the most fun I've had birding in the Philippines so far, especially because I got to put my little Celestron Hummingbird to the test in a real wetland environment. I arrived at the visitors' center just a little after 6, when the sun had not fully come out yet. Immediately, out in the open in a small mudflat, the early comers and I were greeted by about a dozen little egrets punctuated by common and collared kingfishers, whiskered terns, and striated and black-crowned night herons. The tour started here, where we observed the birds for a while, before making our way to the beach on the other side of the park where there were bigger mudflats. 
+-->

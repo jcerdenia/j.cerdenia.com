@@ -15,7 +15,7 @@ function render(data) {
 
   const tables = [
     { title: "", filter: ([name]) => !name.endsWith("?") },
-    { title: "Almost sure", filter: ([name]) => name.endsWith("?") },
+    { title: "Provisional", filter: ([name]) => name.endsWith("?") },
   ];
 
   const countries = [...new Set(data.map((i) => (
@@ -162,7 +162,7 @@ const data = [
   ['Yellow Bittern', 'Ixobrychus sinensis', 'Taytay, Rizal, PH', '2023/11/19', '/birding-ph-2023#1115-1119'],
   ['Black-crowned Night-heron', 'Nycticorax nycticorax', 'Taytay, Rizal, PH', '2023/11/21', '/birding-ph-2023#1120-1126'],
   ['Barred Rail', 'Hypotaenidia torquata', 'Taytay, Rizal, PH', '2023/11/21', '/birding-ph-2023#1120-1126'],
-  ['Wood Sandpiper?', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24', '/birding-ph-2023#1120-1126'],
+  ['Wood Sandpiper', 'Tringa glareola', 'Taytay, Rizal, PH', '2023/11/24', '/birding-ph-2023#1120-1126'],
   ['Common Sandpiper', 'Actitis hypoleucos', 'Taytay, Rizal, PH', '2023/11/26', '/birding-ph-2023#1120-1126'],
   ['Elegant Tit', 'Pardaliparus elegans', 'Antipolo, Rizal, PH', '2023/12/14', '/birding-ph-2023#1127-1216'],
   ['Lowland White-eye', 'Zosterops meyeni', 'Antipolo, Rizal, PH', '2023/12/14', '/birding-ph-2023#1127-1216'],
@@ -174,6 +174,7 @@ const data = [
   ['Common Greenshank', 'Tringa nebularia', 'Las Piñas/Parañaque, PH', '2023/12/17'],
   ['Kentish Plover', 'Anarhynchus alexandrinus', 'Las Piñas/Parañaque, PH', '2023/12/17'],
   ['Rufous Night-heron', 'Nycticorax caledonicus', 'Las Piñas/Parañaque, PH', '2023/12/17'],
+  ['Buff-banded Rail', 'Hypotaenidia philippensis', 'Taytay, Rizal, PH', '2023/12/21'],
 ]
 
 render(data);

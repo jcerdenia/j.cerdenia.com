@@ -10,11 +10,14 @@ evaluate_js: true
 ```js
 function render(data) {
   const spans = [4, 3, 3, 2];
+  const spanSize = "sm";
   const headers = data[0];
   data.shift()
 
   const tables = [
+    // Main Table
     { title: "", filter: ([name]) => !name.endsWith("?") },
+    // Provisional IDs
     { title: "Provisional", filter: ([name]) => name.endsWith("?") },
   ];
 
@@ -26,7 +29,7 @@ function render(data) {
     `<ol reversed>
       <div class="row">
         ${headers.filter((_, i) => spans[i]).map((hdr, i) => (
-          `<div class="col-md-${spans[i]} bold">${hdr}</div>`
+          `<div class="col-${spanSize}-${spans[i]} bold">${hdr}</div>`
         ).trim()).join("\n")}
       </div>
       <div>
@@ -43,7 +46,7 @@ function render(data) {
                       const item = _item.replace("?", "");
                       return (
                         `<div class="row-item
-                          ${`col-md-${spans[i]} 
+                          ${`col-${spanSize}-${spans[i]} 
                           ${i !== headers.indexOf("Common Name") ? "small" : ""}
                           ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
                         `.trim()}">

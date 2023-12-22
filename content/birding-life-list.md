@@ -10,7 +10,7 @@ evaluate_js: true
 ```js
 function render(data) {
   const spans = [4, 3, 3, 2];
-  const spanSize = "sm";
+  const breakpoint = "sm";
   const headers = data[0];
   data.shift()
 
@@ -29,7 +29,7 @@ function render(data) {
     `<ol reversed>
       <div class="row">
         ${headers.filter((_, i) => spans[i]).map((hdr, i) => (
-          `<div class="col-${spanSize}-${spans[i]} bold">${hdr}</div>`
+          `<div class="col-${breakpoint}-${spans[i]} bold">${hdr}</div>`
         ).trim()).join("\n")}
       </div>
       <div>
@@ -46,7 +46,7 @@ function render(data) {
                       const item = _item.replace("?", "");
                       return (
                         `<div class="row-item
-                          ${`col-${spanSize}-${spans[i]} 
+                          ${`col-${breakpoint}-${spans[i]} 
                           ${i !== headers.indexOf("Common Name") ? "small" : ""}
                           ${i === headers.indexOf("Scientific Name") ? "italic" : ""}
                         `.trim()}">
@@ -102,48 +102,48 @@ const data = [
   ["Anna's Hummingbird", 'Calypte anna', 'Oakhurt, CA, US', '2023/09/24'],
   ['California Quail', 'Callipepla californica', 'Oakhurst, CA, US', '2023/09/24'],
   ["Brewer's Blackbird", 'Euphagus cyanocephalus', 'Yosemite, CA, US', '2023/09/25'],
-  ['House Sparrow', 'Passer domesticus', 'New York, NY, US', '2023/09-10'],
-  ['Double-crested Cormorant', 'Nannopterum auritum', 'New York, NY, US', '2023/09-10'],
-  ['Ring-billed Gull', 'Larus delawarensis', 'New York, NY, US', '2023/09-10'],
-  ['Canada Goose', 'Branta canadensis', 'New York, NY, US', '2023/09-10'],
-  ['Mute Swan', 'Cygnus olor', 'New York, NY, US', '2023/09-10'],
-  ['European Starling', 'Sturnus vulgaris', 'New York, NY, US', '2023/09-10'],
-  ['American Robin', 'Turdus migratorius', 'New York, NY, US', '2023/09-10'],
-  ['Yellow-bellied Sapsucker', 'Sphyrapicus varius', 'New York, NY, US', '2023/09-10'],
-  ['Gray Catbird', 'Dumetella carolinensis', 'New York, NY, US', '2023/09-10'],
-  ['Ovenbird', 'Seiurus aurocapilla', 'New York, NY, US', '2023/09-10'],
-  ['White-throated Sparrow', 'Zonotrichia albicollis', 'New York, NY, US', '2023/09-10'],
-  ['Common Yellowthroat', 'Geothlypis trichas', 'New York, NY, US', '2023/09-10'],
-  ['Blue Jay', 'Cyanocitta cristata', 'New York, NY, US', '2023/09-10'],
-  ['Red-bellied Woodpecker', 'Melanerpes carolinus', 'New York, NY, US', '2023/09-10'],
-  ['Downy Woodpecker', 'Dryobates pubescens', 'New York, NY, US', '2023/09-10'],
-  ['Mourning Dove', 'Zenaida macroura', 'New York, NY, US', '2023/09-10'],
-  ['Northern Cardinal', 'Cardinalis cardinalis', 'New York, NY, US', '2023/09-10'],
-  ['Ruby-crowned Kinglet', 'Corthylio calendula', 'New York, NY, US', '2023/09-10'],
-  ['Golden-crowned Kinglet', 'Regulus satrapa', 'New York, NY, US', '2023/09-10'],
-  ['Winter Wren', 'Troglodytes hiemalis', 'New York, NY, US', '2023/09-10'],
-  ['Eastern Towhee', 'Pipilo erythrophthalmus', 'New York, NY, US', '2023/09-10'],
-  ['Hermit Thrush', 'Catharus guttatus', 'New York, NY, US', '2023/09-10'],
-  ['American Coot', 'Fulica americana', 'New York, NY, US', '2023/09-10'],
-  ['Great Blue Heron', 'Ardea herodias', 'New York, NY, US', '2023/09-10'],
-  ['Common Grackle', 'Quiscalus quiscula', 'New York, NY, US', '2023/09-10'],
-  ["Cooper's Hawk?", 'Accipiter cooperii', 'New York, NY, US', '2023/09-10'],
+  ['House Sparrow', 'Passer domesticus', 'New York, NY, US', '2023/10/04'],
+  ['Double-crested Cormorant', 'Nannopterum auritum', 'New York, NY, US', '2023/10/04'],
+  ['Canada Goose', 'Branta canadensis', 'New York, NY, US', '2023/10/04'],
+  ['Mute Swan', 'Cygnus olor', 'New York, NY, US', '2023/10/04'],
+  ['European Starling', 'Sturnus vulgaris', 'New York, NY, US', '2023/10/05'],
+  ['Gray Catbird', 'Dumetella carolinensis', 'New York, NY, US', '2023/10/05'],
+  ['Ovenbird', 'Seiurus aurocapilla', 'New York, NY, US', '2023/10/05'],
+  ['White-throated Sparrow', 'Zonotrichia albicollis', 'New York, NY, US', '2023/10/05'],
+  ['Yellow-bellied Sapsucker', 'Sphyrapicus varius', 'New York, NY, US', '2023/10/05'],
+  ['Blue Jay', 'Cyanocitta cristata', 'New York, NY, US', '2023/10/08'],
+  ["Cooper's Hawk?", 'Accipiter cooperii', 'New York, NY, US', '2023/10/08'],
+  ['American Robin', 'Turdus migratorius', 'New York, NY, US', '2023/10/08'],
+  ['Ring-billed Gull', 'Larus delawarensis', 'New York, NY, US', '2023/10/08'],
+  ['Northern Cardinal', 'Cardinalis cardinalis', 'New York, NY, US', '2023/10/10'],
+  ['Common Grackle', 'Quiscalus quiscula', 'New York, NY, US', '2023/10/10'],
+  ['Great Blue Heron', 'Ardea herodias', 'New York, NY, US', '2023/10/12'],
+  ['American Coot', 'Fulica americana', 'New York, NY, US', '2023/10/12'],
+  ['Red-bellied Woodpecker', 'Melanerpes carolinus', 'New York, NY, US', '2023/10/13'],
+  ['Eastern Towhee', 'Pipilo erythrophthalmus', 'New York, NY, US', '2023/10/13'],
+  ['Common Yellowthroat', 'Geothlypis trichas', 'New York, NY, US', '2023/10/15'],
+  ['Ruby-crowned Kinglet', 'Corthylio calendula', 'New York, NY, US', '2023/10/15'],
+  ['Golden-crowned Kinglet', 'Regulus satrapa', 'New York, NY, US', '2023/10/15'],
+  ['Downy Woodpecker', 'Dryobates pubescens', 'New York, NY, US', '2023/10/18'],
+  ['Mourning Dove', 'Zenaida macroura', 'New York, NY, US', '2023/10/18'],
+  ['Hermit Thrush', 'Catharus guttatus', 'New York, NY, US', '2023/10/18'],
+  ['Winter Wren', 'Troglodytes hiemalis', 'New York, NY, US', '2023/10/18'],
   ['American Kestrel', 'Falco sparverius', 'New York, NY, US', '2023/10/19'],
   ['Red-tailed Hawk', 'Buteo jamaicensis', 'Daly City, CA, US', '2023/10/21'],
   ['White-crowned Sparrow', 'Zonotrichia leucophrys', 'Daly City, CA, US', '2023/10/21'],
-  ['Brown Shrike', 'Lanius cristatus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['White-breasted Woodswallow', 'Artamus leucorynchus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Spotted Dove', 'Spilopelia chinensis', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['White-browed Crake', 'Poliolimnas cinereus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Eurasian Moorhen', 'Gallinula chloropus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Coppersmith Barbet', 'Psilopogon haemacephalus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Eastern Cattle Egret', 'Bubulcus coromandus', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Gray Heron', 'Ardea cinerea', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Purple Heron', 'Ardea purpurea', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Whiskered Tern', 'Chlidonias hybrida', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Red-keeled Flowerpecker', 'Dicaeum australe', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Scaly-breasted Munia', 'Lonchura punctulata', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
-  ['Gray-rumped Swiftlet', 'Collocalia marginata', 'Taytay, Rizal, PH', '2023/10/23-29', '/birding-ph-2023#1023-1029'],
+  ['Brown Shrike', 'Lanius cristatus', 'Taytay, Rizal, PH', '2023/10/24', '/birding-ph-2023#1023-1029'],
+  ['Whiskered Tern', 'Chlidonias hybrida', 'Taytay, Rizal, PH', '2023/10/24', '/birding-ph-2023#1023-1029'],
+  ['Coppersmith Barbet', 'Psilopogon haemacephalus', 'Taytay, Rizal, PH', '2023/10/24', '/birding-ph-2023#1023-1029'],
+  ['White-breasted Woodswallow', 'Artamus leucorynchus', 'Taytay, Rizal, PH', '2023/10/24', '/birding-ph-2023#1023-1029'],
+  ['Red-keeled Flowerpecker', 'Dicaeum australe', 'Taytay, Rizal, PH', '2023/10/25', '/birding-ph-2023#1023-1029'],
+  ['Spotted Dove', 'Spilopelia chinensis', 'Taytay, Rizal, PH', '2023/10/25', '/birding-ph-2023#1023-1029'],
+  ['Purple Heron', 'Ardea purpurea', 'Taytay, Rizal, PH', '2023/10/26', '/birding-ph-2023#1023-1029'],
+  ['Eastern Cattle Egret', 'Bubulcus coromandus', 'Taytay, Rizal, PH', '2023/10/26', '/birding-ph-2023#1023-1029'],
+  ['White-browed Crake', 'Poliolimnas cinereus', 'Taytay, Rizal, PH', '2023/10/26', '/birding-ph-2023#1023-1029'],
+  ['Eurasian Moorhen', 'Gallinula chloropus', 'Taytay, Rizal, PH', '2023/10/26', '/birding-ph-2023#1023-1029'],
+  ['Gray Heron', 'Ardea cinerea', 'Taytay, Rizal, PH', '2023/10/27', '/birding-ph-2023#1023-1029'],
+  ['Scaly-breasted Munia', 'Lonchura punctulata', 'Taytay, Rizal, PH', '2023/10/29', '/birding-ph-2023#1023-1029'],
+  ['Gray-rumped Swiftlet', 'Collocalia marginata', 'Taytay, Rizal, PH', '2023/10/29', '/birding-ph-2023#1023-1029'],
   ['Philippine Pygmy Woodpecker', 'Yungipicus maculatus', 'Taytay, Rizal, PH', '2023/10/30', '/birding-ph-2023#1030-1105'],
   ['Little Egret', 'Egretta garzetta', 'Taytay, Rizal, PH', '2023/10/30', '/birding-ph-2023#1030-1105'],
   ['Black-winged Stilt', 'Himantopus himantopus', 'Taytay, Rizal, PH', '2023/10/31', '/birding-ph-2023#1030-1105'],

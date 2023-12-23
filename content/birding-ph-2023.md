@@ -1,5 +1,5 @@
 ---
-title: "Birding the Philippines, 2023"
+title: "Birding the Philippines in 2023"
 _date: "2023-11-05"
 pinned: false
 draft: false
@@ -10,7 +10,26 @@ reverse_sections: true
 
 Arrived back at MNL late at night on the 23rd after a month in America. Early next morning, I was roused by the harsh, grating call outside my window of what I would later identify as the brown shrike, a winter visitor to these parts. Sleek and handsome, but apparently a "butcher bird." Immediately went out and began the week's birding.
 
-My neighborhood east of the capital region is home to dozens of species due to considerable undeveloped wetland. Between the time I started birding in July and 10/23 I identified 12 species with certainty: Eurasian tree sparrow, yellow-vented bulbul, olive-backed sunbird, zebra dove, Philippine pied fantail, black-naped oriole, rock pigeon, golden-bellied gerygone, Java sparrow, large-billed crow, white-breasted waterhen, and crested myna (see also: [my running life list](/birding-life-list)). Most of these are common urban birds likely to be encountered as soon as one ventures out the door; some are not that common but can be expected to be seen with regularity. The golden-bellied gerygone is a particularly interesting case because its song is ubiquitous, but the bird itself is not such a common sight due to its small size.
+My neighborhood east of the capital region is home to dozens of species due to considerable undeveloped wetland. Between the time I started birding in July and 10/23 I identified 12 species with certainty: Eurasian tree sparrow, yellow-vented bulbul, garden sunbird, zebra dove, Philippine pied fantail, black-naped oriole, rock pigeon, golden-bellied gerygone, Java sparrow, large-billed crow, white-breasted waterhen, and crested myna (see also: [my running life list](/birding-life-list)). Most of these are common urban birds likely to be encountered as soon as one ventures out the door; some are not that common but can be expected to be seen with regularity. The golden-bellied gerygone is a particularly interesting case because its song is ubiquitous, but the bird itself is not such a common sight due to its small size.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F_BWdrgbQAAI31m?format=jpg&name=large">
+    <figcaption>Brown Shrike</figcaption>
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F995IyDbsAAUtSS?format=jpg&name=large">
+    <figcaption>Garden Sunbird</figcaption>
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F-IM7npaEAALfR1?format=jpg&name=large">
+    <figcaption>Zebra Dove</figcaption>
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F-c-VRGa8AAzmGA?format=jpg&name=large">
+    <figcaption>Black-naped Oriole</figcaption>
+  </div>
+</div>
 
 It seems the experience I gained from all the birding I did in America paid off. Between 10/24 and today, 10/29, I ascertained 13 more species: brown shrike, white-breasted woodswallow, spotted dove, white-browed crake, common moorhen, coppersmith barbet, cattle egret, gray heron, purple heron, whiskered tern, red-keeled flowerpecker, scaly-breasted munia, and gray-rumped (or glossy) swiftlet. To these I might add a few more species that I believe I'm reasonably correct about, but do not claim certainty: barred rail, Arctic warbler, house swallow, barn swallow. In time I hope to be certain about them. And there are even more species I've sighted that I have not yet come close to identifying.
 
@@ -40,6 +59,15 @@ The next few days I expected not much, but as I was on my walk one afternoon a s
 
 Friday morning, 11/10, I spent the better part of an hour following an egret around as it waded slowly across the pond and taking many (poor) pictures through my binocular; after consulting my field guides (here my North American field guides proved useful outside their jurisdiction; I have the National Geographic 7th ed. and _Sibley Birds East_) as well as other resources online, I became confident that it was a great egret. And finally, Sunday morning, 11/12, I saw for the first time a common kingfisher, which I was just able to make out in the distance.
 
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F-iPg5MaQAAoezX?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F-iPg5MbsAAhJyq?format=jpg&name=large">
+  </div>
+</div>
+
 # 11/13–11/14
 
 Perhaps it is better to do these entries daily, or almost daily, rather than weekly so that I don't forget details. I don't anticipate identifying new species at the same rate as I did in the preceding weeks; but birds do not become less interesting just because I've seen them before. For example, yesterday morning, 11/13, I spotted a Philippine pygmy woodpecker in a different tree from the one in which I usually see them. While they are not abundant, they might be more common in this area than I thought.
@@ -48,10 +76,12 @@ This morning, 11/14, I received a spectacular lesson from the egrets in telling 
 
 <div class="row my-4">
   <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/GAimJ_KbsAAe1MV?format=jpg&name=large">
+    <img src="https://pbs.twimg.com/media/F_A1tqDaIAA7Ci-?format=jpg&name=large">
+    <figcaption>The pond</figcaption>
   </div>
-  <div class="col-md-6">
+    <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GAJpqFeaEAANZft?format=jpg&name=large">
+    <figcaption>Purple Heron, Gray Heron, Black-winged Stilts</figcaption>
   </div>
 </div>
 
@@ -79,14 +109,16 @@ Last few weeks have been quiet, though I continue to spend nearly every morning 
 
 # 12/17–12/22
 
-Early Sunday morning, went to Las Piñas-Parañaque Wetland Park. along Manila Bay for a guided bird tour with the Wild Bird Club. It was the most fun I've had birding in the Philippines so far, especially because I got to put my new spotting scope to the test in a real wetland environment. I arrived at the visitors' center just a little after 6, when the sun had not fully come out yet. Immediately, out in the open in a small mudflat exposed by the low tide, the early comers and I were greeted by about a dozen little egrets punctuated by common and collared kingfishers, whiskered terns, a black-crowned night-heron, and – a first-time sighting for me – a striated heron. The tour started here, where we observed the birds for a while, before making our way to the beach on the other side of the park where there was a much larger mudflat.
+Early Sunday morning, went to Las Piñas-Parañaque Wetland Park along Manila Bay for a guided bird tour with the Wild Bird Club. It was the most fun I've had birding in the Philippines so far, especially because I got to put my new spotting scope to the test in a real wetland environment. I arrived at the visitors' center just a little after 6, when the sun had not fully come out yet. Immediately, out in the open in a small mudflat exposed by the low tide, the early comers and I were greeted by about a dozen little egrets punctuated by common and collared kingfishers, whiskered terns, a black-crowned night-heron, and – a first-time sighting for me – a striated heron. The tour started here, where we observed the birds for a while, before making our way to the beach on the other side of the park where there was a much larger mudflat.
 
 <div class="row my-4">
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBiW2T9bwAARk2y?format=jpg&name=large">
+    <figcaption>Collared Kingfisher</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBgVwMca8AAhhBA?format=jpg&name=large">
+    <figcaption>Little Egret</figcaption>
   </div>
 </div>
 

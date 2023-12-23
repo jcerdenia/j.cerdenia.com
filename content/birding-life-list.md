@@ -8,18 +8,16 @@ evaluate_js: true
 ---
 
 ```js
-function render(data) {
-  const spans = [4, 3, 3, 2];
-  const breakpoint = "sm";
+const tables = [
+  // Main Table
+  { title: "", filter: ([name]) => !name.endsWith("?") },
+  // Provisional IDs
+  { title: "Provisional", filter: ([name]) => name.endsWith("?") },
+];
+
+function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
   const headers = data[0];
   data.shift()
-
-  const tables = [
-    // Main Table
-    { title: "", filter: ([name]) => !name.endsWith("?") },
-    // Provisional IDs
-    { title: "Provisional", filter: ([name]) => name.endsWith("?") },
-  ];
 
   const countries = [...new Set(data.map((i) => (
     i[headers.indexOf("Location")].split(",").reverse()[0].trim()
@@ -178,6 +176,8 @@ const data = [
   ['Kentish Plover', 'Anarhynchus alexandrinus', 'Las Piñas/Parañaque, PH', '2023/12/17', 'birding-ph-2023#1217-1222'],
   ['Rufous Night-heron', 'Nycticorax caledonicus', 'Las Piñas/Parañaque, PH', '2023/12/17', 'birding-ph-2023#1217-1222'],
   ['Buff-banded Rail', 'Hypotaenidia philippensis', 'Taytay, Rizal, PH', '2023/12/21', 'birding-ph-2023#1217-1222'],
+  ['Brown-breasted Kingfisher', 'Halcyon gularis', 'Taytay, Rizal, PH', '2023/12/23'],
+  ['Asian Glossy Starling', 'Aplonis panayensis', 'Taytay, Rizal, PH', '2023/12/23'],
 ]
 
 render(data);

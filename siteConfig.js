@@ -17,8 +17,8 @@ const siteConfig = {
     copyright: `&#169; ${new Date().getFullYear()} ${AUTHOR}`,
     description: "A Website",
     email: EMAIL,
-    icon: "/images/icarus.jpeg",
-    image: "/images/icarus.jpeg",
+    icon: "/images/pp_lake.jpeg",
+    image: "/images/pp_lake.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

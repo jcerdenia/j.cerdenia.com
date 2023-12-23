@@ -176,8 +176,8 @@ const data = [
   ['Kentish Plover', 'Anarhynchus alexandrinus', 'Las Piñas/Parañaque, PH', '2023/12/17', 'birding-ph-2023#1217-1222'],
   ['Rufous Night-heron', 'Nycticorax caledonicus', 'Las Piñas/Parañaque, PH', '2023/12/17', 'birding-ph-2023#1217-1222'],
   ['Buff-banded Rail', 'Hypotaenidia philippensis', 'Taytay, Rizal, PH', '2023/12/21', 'birding-ph-2023#1217-1222'],
-  ['Brown-breasted Kingfisher', 'Halcyon gularis', 'Taytay, Rizal, PH', '2023/12/23'],
-  ['Asian Glossy Starling', 'Aplonis panayensis', 'Taytay, Rizal, PH', '2023/12/23'],
+  ['Brown-breasted Kingfisher', 'Halcyon gularis', 'Taytay, Rizal, PH', '2023/12/23', 'birding-ph-2023#1223'],
+  ['Asian Glossy Starling', 'Aplonis panayensis', 'Taytay, Rizal, PH', '2023/12/23', 'birding-ph-2023#1223'],
 ]
 
 render(data);

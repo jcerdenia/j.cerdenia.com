@@ -22,9 +22,9 @@ The whole week I birded only my neighborhood wetland, except for this afternoon,
 
 The first morning of the week saw the newest addition to my running list of local species: a lone Philippine pygmy woodpecker, which I spotted in the same tree that I saw the barbets last week. I greatly enjoyed seeing different American woodpeckers last month see my – as of now quite modest – [life list](/birding-life-list)); so I'm glad that my own neck of the woods has its own species of woodpecker. Another addition early in the week was the little egret, distinguished from the cattle egret by its more slender build and dark-colored bill. 
 
-Last Sunday morning, 10/29, a fellow birder found me and told me about some black-winged stilts that are wintering in the area. Wednesday morning, 10/31, I saw a small flock of them in flight over the neighborhood lake before landing and disappearing quickly into the surrounding vegetation. It was very fleeting, but they were very distinctive: long dark bills, orange legs trailing behind in flight. That same afternoon, 10/31, I returned to Heritage Memorial Park and sighted a couple of (what I reasonably thought were) cinnamon bitterns around the lake. Apart from that, the suite of birds is basically the same as in my neighborhood. 
+Last Sunday morning, 10/29, a fellow birder found me and told me about some black-winged stilts that are wintering in the area. Wednesday morning, 10/31, I saw a small flock of them in flight over the neighborhood pond before landing and disappearing quickly into the surrounding vegetation. It was very fleeting, but they were very distinctive: long dark bills, orange legs trailing behind in flight. That same afternoon, 10/31, I returned to Heritage Memorial Park and sighted a couple of (what I reasonably thought were) cinnamon bitterns around the lake. Apart from that, the suite of birds is basically the same as in my neighborhood. 
 
-Next day, the black-winged stilts were still there; I entered a construction site jutting out into the lake to get a better view. Other familiar sights were moorhens, gray and purple herons, egrets, terns, and swiftlets and/or swallows (any of which I have yet to identify with certainty). Also saw the coppersmith barbets again (8 of them) in their favorite tree; they seem to perch there only a little while, possibly only once every morning, before flying off together into the trees off the road.
+Next day, the black-winged stilts were still there; I entered a construction site jutting out into the pond to get a better view. Other familiar sights were moorhens, gray and purple herons, egrets, terns, and swiftlets and/or swallows (any of which I have yet to identify with certainty). Also saw the coppersmith barbets again (8 of them) in their favorite tree; they seem to perch there only a little while, possibly only once every morning, before flying off together into the trees off the road.
 
 Saturday morning, 11/04, I went on a guided bird walk with the Wild Bird Club around the University of the Philippines, a popular and accessible birding spot in Metro Manila. Crested mynas and black-naped orioles were abundant. Also saw three new species: long-tailed shrike (a local resident, even more handsome than the migrant brown shrike), pied triller, and, with some reservation because it was small and hard to see, pygmy flowerpecker. Happy to say I am now a member of the Wild Bird Club, which should lead to some interesting birding trips in the future.
 
@@ -38,13 +38,22 @@ Later that same day, while I was working at home, an unfamiliar bird perched on 
 
 The next few days I expected not much, but as I was on my walk one afternoon a swallow glided overhead, from which I was able to clearly make out its deeply forked tail, indicating a barn swallow. Later, I was able to tell it apart from the Pacific swallow , another locally common swallow species. A point of confusion: my field guide, _Birds of the Philippines_ from Lynx and BirdLife International indicates House Swallow (_Hirundo javanica_) instead of Pacific Swallow (_Hirundo tahitica_). According to the taxonomic note on this species: "Previously treated as conspecific with extralimital Tahiti Swallow _H. tahitica_ ... under name Pacific Swallow." Tentatively, I stick to the (seemingly) more locally common designation of Pacific Swallow, but they are the same bird.
 
-Friday morning, 11/10, I spent the better part of an hour following an egret around as it waded slowly across the lake and taking many (poor) pictures through my binocular; after consulting my field guides (here my North American field guides proved useful outside their jurisdiction; I have the National Geographic 7th ed. and _Sibley Birds East_) as well as other resources online, I became confident that it was a great egret. And finally, Sunday morning, 11/12, I saw for the first time a common kingfisher, which I was just able to make out in the distance.
+Friday morning, 11/10, I spent the better part of an hour following an egret around as it waded slowly across the pond and taking many (poor) pictures through my binocular; after consulting my field guides (here my North American field guides proved useful outside their jurisdiction; I have the National Geographic 7th ed. and _Sibley Birds East_) as well as other resources online, I became confident that it was a great egret. And finally, Sunday morning, 11/12, I saw for the first time a common kingfisher, which I was just able to make out in the distance.
 
 # 11/13–11/14
 
 Perhaps it is better to do these entries daily, or almost daily, rather than weekly so that I don't forget details. I don't anticipate identifying new species at the same rate as I did in the preceding weeks; but birds do not become less interesting just because I've seen them before. For example, yesterday morning, 11/13, I spotted a Philippine pygmy woodpecker in a different tree from the one in which I usually see them. While they are not abundant, they might be more common in this area than I thought.
 
-This morning, 11/14, I received a spectacular lesson from the egrets in telling different species apart; it is really much easier when you are able to see and compare all of them at once. There was a great egret, in typical great egret fashion as I've come to know, wading slowly across the water; its very long and slender neck occasionally stretched out. Meanwhile, I spent a good amount of time observing two intermediate egrets – which I identified by their more rounded heads (more rounded than the great egret's), slightly stocky frames, and conspicuously black-tipped bills – chasing (?) each other and flitting around the lake; they are spectacular fliers, and one could never tire of watching them. From time to time, and for good measure, a little egret would show up, easily distinguished by its small size and black bill. Also present were gray herons, purple herons, whiskered terns, common moorhens, and black-winged stilts. All in all they make for a dazzling sight that makes me wonder what pathetic stupor I'd been in all this time not to notice that this place is absolutely teeming with life.
+This morning, 11/14, I received a spectacular lesson from the egrets in telling different species apart; it is really much easier when you are able to see and compare all of them at once. There was a great egret, in typical great egret fashion as I've come to know, wading slowly across the water; its very long and slender neck occasionally stretched out. Meanwhile, I spent a good amount of time observing two intermediate egrets – which I identified by their more rounded heads (more rounded than the great egret's), slightly stocky frames, and conspicuously black-tipped bills – chasing (?) each other and flitting around the pond; they are spectacular fliers, and one could never tire of watching them. From time to time, and for good measure, a little egret would show up, easily distinguished by its small size and black bill. Also present were gray herons, purple herons, whiskered terns, common moorhens, and black-winged stilts. All in all they make for a dazzling sight that makes me wonder what pathetic stupor I'd been in all this time not to notice that this place is absolutely teeming with life.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GAimJ_KbsAAe1MV?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GAJpqFeaEAANZft?format=jpg&name=large">
+  </div>
+</div>
 
 On my way back home, I heard an unfamiliar call in a tree, and saw what I'm all but sure was an an Arctic warbler (I had seen the same bird before), before it flew off and disappeared into a thicket; but I hold off on claiming total confidence in this ID, as apparently it is all but impossible to distinguish between two other locally occurring kinds of warbler: the Japanese and Kamchatka leaf warblers. I will be sure to be on the lookout for this bird next time.
 
@@ -72,10 +81,56 @@ Last few weeks have been quiet, though I continue to spend nearly every morning 
 
 Early Sunday morning, went to Las Piñas-Parañaque Wetland Park. along Manila Bay for a guided bird tour with the Wild Bird Club. It was the most fun I've had birding in the Philippines so far, especially because I got to put my new spotting scope to the test in a real wetland environment. I arrived at the visitors' center just a little after 6, when the sun had not fully come out yet. Immediately, out in the open in a small mudflat exposed by the low tide, the early comers and I were greeted by about a dozen little egrets punctuated by common and collared kingfishers, whiskered terns, a black-crowned night-heron, and – a first-time sighting for me – a striated heron. The tour started here, where we observed the birds for a while, before making our way to the beach on the other side of the park where there was a much larger mudflat.
 
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GBiW2T9bwAARk2y?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GBgVwMca8AAhhBA?format=jpg&name=large">
+  </div>
+</div>
+
 With the naked eye, it was hard to make out anything in the distance except for egrets, but with magnification, the mudflat was teeming gloriously with waders of all sorts. Here my little Celestron Hummingbird performed admirably despite being massively outclassed by our guide's Swarovski, and helped me make a few more first-time sightings: Pacific golden plover, common redshank, common greenshank, and Kentish plover. Our guide explained some of the differences between the different waders present. Ostensibly there were little-ringed plovers as well, but I was not able to see them with certainty.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GBiW2T1bIAAZ9qF?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GBiW2T6a4AATYKe?format=jpg&name=large">
+  </div>
+</div>
 
 Afterwards we moved on to a pond in the island's forested interior where we saw many of the water birds I typically see near my home: white-browed crakes, white-breasted waterhens, common moorhens, and various herons. There were a few juvenile night herons (likely black-crowned) out in the open, as well as yellow bitterns and striated herons. One highlight was a spectacular purple heron that perched on top of a tall tree and posed for a good several minutes before flying away. Finally, I saw for the first time a rufous (or nankeen) night-heron, which was strikingly beautiful.
 
 The last part of the trip was the boardwalk through the island's mangrove forest. We did not see many birds, except, notably, for some little egrets, and a couple of black-winged stilts. One thing I found hard not to notice was just how much garbage – either from Manila Bay or from people who had been working there – had found its way into the area. It was very disappointing, and an all-too-stark reminder of modern Philippine culture's nonexistent reverence for natural beauty. The very end of the boardwalk was unfinished and overlooked another mudflat off the mainland; in the distance, I made out several gray herons and egrets, but it was also full of garbage.
 
 The following days were a blur as I was particularly busy at work, preventing religious daily outings. Yesterday morning I did get to go out just in my neighborhood and saw for the first time a very visually striking buff-banded rail. I also saw a couple of other birds that I didn't recognize and failed to ID; one looked like an Arctic warbler, or even a reed warbler of some sort, but I still wasn't sure. The other was more distant and hard to make out, but it was about the size of a grassbird, had a long tail, a black band over the eye (or so I thought), and some black on its back. Perhaps I'll see it again next time.
+
+# 12/23
+
+I had planned to join some other birders this morning all the way in Baras, Rizal but holiday errands got in the way. Instead, I kept myself to my neighborhood and found time to bird for an hour or so. The pond was a bit of a letdown; lately I noticed that there were fewer and fewer black-winged stilts, and today they were totally gone. Instead, there were a dozen or so cattle (or intermediate?) egrets in the distance. I still saw my usual great egret and purple heron, but overall it was rather quiet and I didn't stay very long.
+
+On my way back, I saw a rather large, plump bird perched out in the open with a very striking coloration. I had seen a bird weeks earlier in the same spot zip in and out very quickly between some trees, making out only its bright blue and black wings. It was an uncommon sight and I was very surprised by it, but today confirmed that I wasn't just seeing things: it was a stunning brown-breasted kingfisher (or white-throated kingfisher, _Halcyon gularis_, according to the Allen field guide), a Philippine endemic only fairly recently reclassified as a separate species from _H. smyrnensis_, also (confusingly) known as the white-throated, or white-breasted, kingfisher. At any rate, it was an amazing sight, and will go down as a memorable 100th "lifer" since I started birding this year.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GB_eeGfakAAQtpp?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GB_eeGdbMAAfWC_?format=jpg&name=large">
+  </div>
+</div>
+
+Almost immediately after, I saw for the first time an unfamiliar blackish bird with a decurved bill perched high on a telephone wire. In the past I had seen crested mynas and white-breasted woodswallows in that same spot. But when I got a closer look and saw its red eyes, I knew I was looking at an Asian glossy starling.
+
+Finally, in a tall tree on the way home, I caught sight of a beautiful pair of blue-tailed bee-eaters. I had seen one before, but only once and very fleetingly. Of course, I walked around the block to get closer to the tree and get a better look, and observed them hawking for a while. One would burst off and snatch an insect mid-flight, return to the same perch, and hit the insect repeatedly against the tree. It was a spectacular sight. A little later, they were joined in the same tree by some yellow-vented bulbuls, Java sparrows, scaly-breasted munias, and a red-keeled flowerpecker.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GCBpJaTawAA6350?format=jpg&name=large">
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GCBpJaPbsAA-5Dc?format=jpg&name=large">
+  </div>
+</div>

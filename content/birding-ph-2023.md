@@ -6,7 +6,7 @@ draft: false
 reverse_sections: true
 ---
 
-# 10/23–10/29
+# October 23–29
 
 Arrived back at MNL late at night on the 23rd after a month in America. Early next morning, I was roused by the harsh, grating call outside my window of what I would later identify as the brown shrike, a winter visitor to these parts. Sleek and handsome, but apparently a "butcher bird." Immediately went out and began the week's birding.
 
@@ -37,7 +37,7 @@ Of the 25 species listed above, my favorites are the yellow-vented bulbul, Phili
 
 The whole week I birded only my neighborhood wetland, except for this afternoon, which I spent at Heritage Memorial Park in Taguig. There, I met the president and some members of the Wild Bird Club of the Philippines in a chance encounter. I saw the usual urban birds (tree sparrows, pied fantails, swiftlets) and a few waterbirds (waterhens, moorhens, egrets) but no new species.
 
-# 10/30–11/05
+# October 30–November 5
 
 The first morning of the week saw the newest addition to my running list of local species: a lone Philippine pygmy woodpecker, which I spotted in the same tree that I saw the barbets last week. I greatly enjoyed seeing different American woodpeckers last month see my – as of now quite modest – [life list](/birding-life-list)); so I'm glad that my own neck of the woods has its own species of woodpecker. Another addition early in the week was the little egret, distinguished from the cattle egret by its more slender build and dark-colored bill. 
 
@@ -49,7 +49,7 @@ Saturday morning, 11/04, I went on a guided bird walk with the Wild Bird Club ar
 
 Finally, this morning, 11/05, I spotted what I thought were common sandpipers in the nearby marshes. Also saw a medium-sized brownish bird flitting around some tall grass; my first guess was some kind of grassbird, but I could not come to a confident answer; hope I see it again. In addition, it bears mentioning another highlight throughout the week, which was seeing more of the red-keeled flowerpecker around my neighborhood; a tiny but visually stunning species.
 
-# 11/06–11/12
+# November 6–12
 
 I continue to be surprised by the diversity of wild birds around my neighborhood wetland; though the rate of my identifying new species has slowed down since the last two weeks, I still never know what I might run into. Early in the week, on 11/06, I saw a small heron whose red-brownish head was poking out of some tall grass. Its head and neck was somewhat streaked, and it had a distinctive black-tipped bill. Several seconds after I spotted it, it flew out of its position and disappeared; in flight, its wings were all-white. I identified as a Javan pond-heron, a fairly common resident species according to my field guide.
 
@@ -71,7 +71,7 @@ Friday morning, 11/10, I spent the better part of an hour following an egret aro
   <figcaption>Following a great egret around</figcaption>
 </div>
 
-# 11/13–11/14
+# November 13–14
 
 Perhaps it is better to do these entries daily, or almost daily, rather than weekly so that I don't forget details. I don't anticipate identifying new species at the same rate as I did in the preceding weeks; but birds do not become less interesting just because I've seen them before. For example, yesterday morning, 11/13, I spotted a Philippine pygmy woodpecker in a different tree from the one in which I usually see them. While they are not abundant, they might be more common in this area than I thought.
 
@@ -90,7 +90,7 @@ This morning, 11/14, I received a spectacular lesson from the egrets in telling 
 
 On my way back home, I heard an unfamiliar call in a tree, and saw what I'm all but sure was an an Arctic warbler (I had seen the same bird before), before it flew off and disappeared into a thicket; but I hold off on claiming total confidence in this ID, as apparently it is all but impossible to distinguish between two other locally occurring kinds of warbler: the Japanese and Kamchatka leaf warblers. I will be sure to be on the lookout for this bird next time.
 
-# 11/15–11/19
+# November 15–19
 
 It has been four weeks since my all-too-short a trip to America. I miss New York terribly, especially Central Park, where I went nearly everyday and got to know many birds. Since coming back I've religiously maintained the habit of going out early every morning for one or two hours to bird. Though nothing in my immediate surroundings can remotely compare to a New York City park, I remain pleasantly surprised by the wealth of bird species within a half-mile of my house and continue never to know what I might run into. Since my last entry, I have ascertained five more species: striated grassbird, chestnut munia, collared kingfisher, cinnamon bittern, and yellow bittern.
 
@@ -98,7 +98,7 @@ All five are very interesting birds: the chestnut munia and collared kingfisher 
 
 The last couple of days, I spent some time studying the differences between two pairs of similar birds: 1) striated and tawny grassbirds, and 2) cinnamon and yellow bitterns. To the best of my knowledge, I have yet to see a tawny grassbird around these parts, but I've become more certain of my ability to distinguish yellow from cinnamon bitterns. Yesterday, as I was following a striated grassbird around, I saw a cinnamon bittern fly into a tree; the more-or-less even coloration was pretty distinct. Whereas today, I saw a pair of small bitterns briefly in flight, where the black in their wings gave it away that they were yellow bitterns. To top it all off, I got a good look at a beautiful Javan pond-heron staying still for several minutes.
 
-# 11/20–11/26
+# November 20-26
 
 Things have slowed down a bit, but new first-time sightings continue to be had. Monday morning as I was walking toward my usual site, at a very precise moment, I saw a somewhat large, light grayish bird overhead flying towards the field on the other side of the road. I had never seen it before. As I looked through my binocular I thought at first that it was some kind of gull (which would have been very unusual), but when it got closer and I saw its black cap, I knew I was looking at a black-crowned night-heron (it helped that I had been reading my field guides a lot and studying the different herons that occur locally) just before it disappeared into the vegetation. Later that same morning, I saw a barred rail under a thick cover of grass; I had been wanting to find one for a while. It disappeared very quickly but it was easy to identify.
 
@@ -106,11 +106,11 @@ Later in the week, I got a closer look at one of the sandpiper-like birds I had 
 
 Because I bird so much in wide open spaces I had been wishing a lot that I had a spotting scope, so I went ahead and got a little one (a Celestron Hummingbird) just in time for the holiday sales. Though small and not that powerful, it has been a game changer in seeing distant water birds in more detail than my 8x42 binocular can manage. My last certain first-time ID for the week was, as it turned out, a common sandpiper – clearly a different species from the other sandpiper I saw the other day.
 
-# 11/27–12/16
+# November 27–December 16
 
 Last few weeks have been quiet, though I continue to spend nearly every morning at my local wetland observing the herons and stilts. No new first-time sightings until Thursday, 12/14, where I met up first thing in the morning at Victoria Valley in Antipolo with a few fellow birders from the Wild Bird Club. We hoped in particular to see a Philippine hawk-eagle; and although we could hear birds in abundance, few came out in the open. Some new species for me: elegant tit, lowland white-eye, Philippine cuckoo-dove, Philippine bulbul. Other birds sighted: black-naped oriole, collared kingfisher, red-keeled flowerpecker, among others. My more experienced companions could hear more birds I hadn't seen, such as the tawny grassbird, and there were a few other potential sightings as well that I missed. A site worth visiting again in the near future.
 
-# 12/17–12/22
+# December 17–22
 
 Early Sunday morning, went to Las Piñas-Parañaque Wetland Park along Manila Bay for a guided bird tour with the Wild Bird Club. It was the most fun I've had birding in the Philippines so far, especially because I got to put my new spotting scope to the test in a real wetland environment. I arrived at the visitors' center just a little after 6, when the sun had not fully come out yet. Immediately, out in the open in a small mudflat exposed by the low tide, the early comers and I were greeted by about a dozen little egrets punctuated by common and collared kingfishers, whiskered terns, a black-crowned night-heron, and – a first-time sighting for me – a striated heron. The tour started here, where we observed the birds for a while, before making our way to the beach on the other side of the park where there was a much larger mudflat.
 
@@ -144,7 +144,7 @@ The last part of the trip was the boardwalk through the island's mangrove forest
 
 The following days were a blur as I was particularly busy at work, preventing religious daily outings. Yesterday morning I did get to go out just in my neighborhood and saw for the first time a very visually striking buff-banded rail. I also saw a couple of other birds that I didn't recognize and failed to ID; one looked like an Arctic warbler, or even a reed warbler of some sort, but I still wasn't sure. The other was more distant and hard to make out, but it was about the size of a grassbird, had a long tail, a black band over the eye (or so I thought), and some black on its back. Perhaps I'll see it again next time.
 
-# 12/23
+# December 23
 
 I had planned to join some other birders this morning all the way in Baras, Rizal but holiday errands got in the way. Instead, I kept myself to my neighborhood and found time to bird for an hour or so. The pond was a bit of a letdown; lately I noticed that there were fewer and fewer black-winged stilts, and today they were totally gone. Instead, there were a dozen or so cattle (or intermediate?) egrets in the distance. I still saw my usual great egret and purple heron, but overall it was rather quiet and I didn't stay very long.
 
@@ -178,7 +178,7 @@ Finally, in a tall tree on the way home, I caught sight of a beautiful pair of b
   <figcaption>Blue-tailed bee-eaters</figcaption>
 </div>
 
-# 12/24
+# December 24
 
 Early morning, still quiet at the pond. I noticed a handful of black-winged stilts, about three or four. The gray heron was also there; it's nice to see it still around. The egrets, still about a dozen of them, were all the way at the very far end. Didn't stay very long.
 

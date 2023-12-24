@@ -15,19 +15,19 @@ My neighborhood east of the capital region is home to dozens of species due to c
 <div class="row my-4">
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/F_BWdrgbQAAI31m?format=jpg&name=large">
-    <figcaption>Brown Shrike</figcaption>
+    <figcaption>Brown shrike</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/F995IyDbsAAUtSS?format=jpg&name=large">
-    <figcaption>Garden Sunbird</figcaption>
+    <figcaption>Garden sunbird</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/F-IM7npaEAALfR1?format=jpg&name=large">
-    <figcaption>Zebra Dove</figcaption>
+    <figcaption>Zebra dove</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/F-c-VRGa8AAzmGA?format=jpg&name=large">
-    <figcaption>Black-naped Oriole</figcaption>
+    <figcaption>Black-naped oriole</figcaption>
   </div>
 </div>
 
@@ -59,13 +59,16 @@ The next few days I expected not much, but as I was on my walk one afternoon a s
 
 Friday morning, 11/10, I spent the better part of an hour following an egret around as it waded slowly across the pond and taking many (poor) pictures through my binocular; after consulting my field guides (here my North American field guides proved useful outside their jurisdiction; I have the National Geographic 7th ed. and _Sibley Birds East_) as well as other resources online, I became confident that it was a great egret. And finally, Sunday morning, 11/12, I saw for the first time a common kingfisher, which I was just able to make out in the distance.
 
-<div class="row my-4">
-  <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/F-iPg5MaQAAoezX?format=jpg&name=large">
+<div class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/F-iPg5MaQAAoezX?format=jpg&name=large">
+    </div>
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/F-iPg5MbsAAhJyq?format=jpg&name=large">
+    </div>
   </div>
-  <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/F-iPg5MbsAAhJyq?format=jpg&name=large">
-  </div>
+  <figcaption>Following a great egret around</figcaption>
 </div>
 
 # 11/13–11/14
@@ -79,9 +82,9 @@ This morning, 11/14, I received a spectacular lesson from the egrets in telling 
     <img src="https://pbs.twimg.com/media/F_A1tqDaIAA7Ci-?format=jpg&name=large">
     <figcaption>The pond</figcaption>
   </div>
-    <div class="col-md-6">
+  <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GAJpqFeaEAANZft?format=jpg&name=large">
-    <figcaption>Purple Heron, Gray Heron, Black-winged Stilts</figcaption>
+    <figcaption>Purple heron, gray heron, black-winged stilts</figcaption>
   </div>
 </div>
 
@@ -114,11 +117,11 @@ Early Sunday morning, went to Las Piñas-Parañaque Wetland Park along Manila Ba
 <div class="row my-4">
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBiW2T9bwAARk2y?format=jpg&name=large">
-    <figcaption>Collared Kingfisher</figcaption>
+    <figcaption>Collared kingfisher</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBgVwMca8AAhhBA?format=jpg&name=large">
-    <figcaption>Little Egret</figcaption>
+    <figcaption>Little egret</figcaption>
   </div>
 </div>
 
@@ -127,9 +130,11 @@ With the naked eye, it was hard to make out anything in the distance except for 
 <div class="row my-4">
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBiW2T1bIAAZ9qF?format=jpg&name=large">
+    <figcaption>Scoping the mudflat</figcaption>
   </div>
   <div class="col-md-6">
     <img src="https://pbs.twimg.com/media/GBiW2T6a4AATYKe?format=jpg&name=large">
+    <figcaption>Waders!</figcaption>
   </div>
 </div>
 
@@ -145,24 +150,58 @@ I had planned to join some other birders this morning all the way in Baras, Riza
 
 On my way back, I saw a rather large, plump bird perched out in the open with a very striking coloration. I had seen a bird weeks earlier in the same spot zip in and out very quickly between some trees, making out only its bright blue and black wings. It was an uncommon sight and I was very surprised by it, but today confirmed that I wasn't just seeing things: it was a stunning brown-breasted kingfisher (or white-throated kingfisher, _Halcyon gularis_, according to the Allen field guide), a Philippine endemic only fairly recently reclassified as a separate species from _H. smyrnensis_, also (confusingly) known as the white-throated, or white-breasted, kingfisher. At any rate, it was an amazing sight, and will go down as a memorable 100th "lifer" since I started birding this year.
 
-<div class="row my-4">
-  <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/GB_eeGfakAAQtpp?format=jpg&name=large">
+<div class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/GB_eeGfakAAQtpp?format=jpg&name=large">
+    </div>
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/GB_eeGdbMAAfWC_?format=jpg&name=large">
+    </div>
   </div>
-  <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/GB_eeGdbMAAfWC_?format=jpg&name=large">
-  </div>
+  <figcaption>Brown-breasted kingfisher</figcaption>
 </div>
 
 Almost immediately after, I saw for the first time an unfamiliar blackish bird with a decurved bill perched high on a telephone wire. In the past I had seen crested mynas and white-breasted woodswallows in that same spot. But when I got a closer look and saw its red eyes, I knew I was looking at an Asian glossy starling.
 
 Finally, in a tall tree on the way home, I caught sight of a beautiful pair of blue-tailed bee-eaters. I had seen one before, but only once and very fleetingly. Of course, I walked around the block to get closer to the tree and get a better look, and observed them hawking for a while. One would burst off and snatch an insect mid-flight, return to the same perch, and hit the insect repeatedly against the tree. It was a spectacular sight. A little later, they were joined in the same tree by some yellow-vented bulbuls, Java sparrows, scaly-breasted munias, and a red-keeled flowerpecker.
 
+<div class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/GCBpJaTawAA6350?format=jpg&name=large">
+    </div>
+    <div class="col-md-6">
+      <img src="https://pbs.twimg.com/media/GCBpJaPbsAA-5Dc?format=jpg&name=large">
+    </div>
+  </div>
+  <figcaption>Blue-tailed bee-eaters</figcaption>
+</div>
+
+# 12/24
+
+Early morning, still quiet at the pond. I noticed a handful of black-winged stilts, about three or four. The gray heron was also there; it's nice to see it still around. The egrets, still about a dozen of them, were all the way at the very far end. Didn't stay very long.
+
 <div class="row my-4">
   <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/GCBpJaTawAA6350?format=jpg&name=large">
+    <img src="https://pbs.twimg.com/media/GAimJ_JaoAA4Spc?format=jpg&name=large">
+    <figcaption>Gray heron</figcaption>
   </div>
   <div class="col-md-6">
-    <img src="https://pbs.twimg.com/media/GCBpJaPbsAA-5Dc?format=jpg&name=large">
+    <img src="https://pbs.twimg.com/media/F_5tyblbYAA6pAE?format=jpg&name=large">
+    <figcaption>Black-winged stilt</figcaption>
+  </div>
+</div>
+
+Instead, I stayed mostly in the relatively wooded areas around the canal that runs through the village. Saw the buff-banded rail again, hidden in some grass, which was beautiful. I thought it could be easily mistaken for a white-browed crake if one wasn't looking carefully. I really wanted to see the brown-breasted kingfisher again so I lingered around the same area I saw it yesterday, and after a short while... there it was! But it flew behind a house and disappeared. Also saw a Philippine pygmy woodpecker and noticed for the first time just how loud its pecking can be for such a tiny bird. Finally, passed by the same tree yesterday where I saw the blue-tailed bee-eaters, and again they were there hawking for insects. Sharing the tree were a few yellow-vented bulbuls and Java sparrows. After some time of getting familiar with the local avian wildlife, one gets the sense that they _can_ often be predictable; and it's nice to know they can reliably be expected to turn up in the same places.
+
+<div class="row my-4">
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/GB642lZboAA-2Nm?format=jpg&name=small">
+    <figcaption>The "small and sneaky" (source: Merlin) buff-banded rail</figcaption>
+  </div>
+  <div class="col-md-6">
+    <img src="https://pbs.twimg.com/media/F9uEEXtbIAAzUBT?format=jpg&name=large">
+    <figcaption>The tiny Philippine pygmy woodpecker</figcaption>
   </div>
 </div>

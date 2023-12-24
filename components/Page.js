@@ -39,7 +39,8 @@ const Page = (slug) => {
     const { data, content } = unpackFile(`${slug}.md`);
 
     if (data.draft) {
-      throw Error();
+      console.log(`Skipped draft: ${slug}`);
+      return ErrorPage();
     }
 
     const template = getTemplate("page");

@@ -67,7 +67,9 @@ const Page = (slug) => {
         .map((file) => unpackFile(file).data)
         .filter(
           (item) => !item.draft && item.parent && item.slug.includes(data.slug)
-        );
+        )
+        .sort(compareBy("date"))
+        .reverse();
 
       homeButton = NavButton("Home", "/", "mt-5", "left");
     }

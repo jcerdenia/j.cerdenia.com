@@ -6,6 +6,7 @@ import Page from "./components/Page.js";
 import RSSFeed from "./components/RSSFeed.js";
 import getFiles, { getTemplate } from "./lib/files.js";
 import render from "./lib/render.js";
+import { slugify } from "./lib/utils.js";
 import { redirects } from "./siteConfig.js";
 
 const OUT_PATH = "./public";
@@ -22,10 +23,10 @@ const build = () => {
   fs.writeFileSync(pathify("index.html"), HomePage());
 
   // Write content pages
-  const contentFiles = getFiles();
-  contentFiles.forEach((name) => {
-    const slug = name.replace(".md", "");
-    fs.writeFileSync(pathify(`${slug}.html`), Page(slug));
+  getFiles().forEach((name) => {
+    const slug = slugify(name);
+    const path = pathify(`${slug}.html`);
+    fs.writeFileSync(path, Page(slug));
   });
 
   // Write RSS feed
@@ -35,11 +36,12 @@ const build = () => {
   fs.writeFileSync(pathify("404.html"), ErrorPage());
 
   // Create redirects
-  const template = getTemplate("redirect");
   Object.keys(redirects).forEach((key) => {
     fs.writeFileSync(
       pathify(`${key}.html`),
-      render(template, { url: redirects[key] })
+      render(getTemplate("redirect"), {
+        url: redirects[key],
+      })
     );
   });
 

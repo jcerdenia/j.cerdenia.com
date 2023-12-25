@@ -2,32 +2,12 @@ import getFiles, { getTemplate, unpackFile } from "../lib/files.js";
 import HtmlBuilder from "../lib/HtmlBuilder.js";
 import toHtml from "../lib/markdown.js";
 import render from "../lib/render.js";
-import { compareBy, excerpt } from "../lib/utils.js";
+import { excerpt } from "../lib/utils.js";
 import { metadata } from "../siteConfig.js";
-import Date from "./Date.js";
-import Link from "./Link.js";
-import List from "./List.js";
+import Pages from "./Pages.js";
+import PinnedPages from "./PinnedPages.js";
 
 const HOME_PAGE_FILE = "index.md";
-
-const PinnedPages = (items) =>
-  List(
-    items.filter(({ data }) => data.pinned).sort(compareBy("title")),
-    ({ data }) =>
-      HtmlBuilder("span")
-        .child("Pinned: ")
-        .child(Link(data.title, data.slug))
-        .child(Date(data.date))
-  );
-
-const Pages = (items) =>
-  List(
-    items
-      .filter(({ data }) => !data.pinned)
-      .sort(compareBy("date"))
-      .reverse(),
-    ({ data }) => [Link(data.title, data.slug), Date(data.date)].join("")
-  );
 
 const HomePage = () => {
   const template = getTemplate("page");
@@ -36,7 +16,7 @@ const HomePage = () => {
   // Create list of site pages
   const pages = getFiles()
     .map(unpackFile)
-    .filter(({ data: item }) => !item.draft);
+    .filter(({ data: item }) => !item.draft && !item.parent);
 
   const htmlContent = toHtml(content);
 

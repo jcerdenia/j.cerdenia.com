@@ -1,64 +1,108 @@
-import getFiles, { getTemplate, unpackFile } from "../lib/files.js";
-import HtmlBuilder from "../lib/HtmlBuilder.js";
+import getFiles, {
+  getSubfolders,
+  getTemplate,
+  unpackFile,
+} from "../lib/files.js";
 import toHtml from "../lib/markdown.js";
 import render from "../lib/render.js";
 import { compareBy, excerpt, formatDate } from "../lib/utils.js";
 import { metadata } from "../siteConfig.js";
-import Date from "./Date.js";
+import Backlinks from "./Backlinks.js";
 import ErrorPage from "./ErrorPage.js";
-import HomeButton from "./HomeButton.js";
-import Link from "./Link.js";
-import List from "./List.js";
-
-const Backlinks = (slug) => {
-  const backlinks = getFiles()
-    .map(unpackFile)
-    .filter(
-      ({ data, content }) =>
-        !data.draft &&
-        (content.includes(`](/${slug})`) ||
-          content.includes(`](/${slug}#`) ||
-          content.includes(`href="/${slug}`))
-    )
-    .sort(compareBy("title"));
-
-  return backlinks.length
-    ? HtmlBuilder("div")
-        .child(HtmlBuilder("hr").class("my-4").void())
-        .child(HtmlBuilder("h5").child("Pages That Link Here"))
-        .child(
-          List(backlinks, ({ data }) =>
-            [Link(data.title, data.slug), Date(data.date)].join("")
-          )
-        )
-    : "";
-};
+import NavButton from "./NavButton.js";
+import Pages from "./Pages.js";
+import PinnedPages from "./PinnedPages.js";
 
 const Page = (slug) => {
   try {
-    const { data, content } = unpackFile(`${slug}.md`);
+    let path = `${slug}.md`;
+    const subfolders = getSubfolders();
+
+    subfolders.forEach((subfolder) => {
+      if (`${slug}-`.includes(`${subfolder}-`)) {
+        const _identifier = slug.slice(subfolder.length);
+        const identifier = _identifier.startsWith("-")
+          ? _identifier.replace("-", "/")
+          : "/index";
+
+        path = `${subfolder + identifier}.md`;
+      }
+    });
+
+    const { data, content } = unpackFile(path);
+
+    let pages = [];
+    let nextButton = "";
+    let prevButton = "";
+    let homeButton = "";
 
     if (data.draft) {
       console.log(`Skipped draft: ${slug}`);
       return ErrorPage();
     }
 
+    if (data.parent) {
+      const { parent } = data;
+      const siblings = getFiles()
+        .map(unpackFile)
+        .map(({ data: _data }) => _data)
+        .filter((item) => item.parent && item.slug.includes(parent.slug))
+        .sort(compareBy("date"));
+
+      const siblingSlugs = siblings.map((sibling) => sibling.slug);
+      const currentIndex = siblingSlugs.indexOf(data.slug);
+      const nextSlug = siblingSlugs[currentIndex + 1];
+      const prevSlug = siblingSlugs[currentIndex - 1];
+
+      if (nextSlug) {
+        const next = siblings.find((sibling) => sibling.slug === nextSlug);
+        nextButton = NavButton(
+          `Next: ${next.title}`,
+          nextSlug,
+          "mt-5",
+          "right"
+        );
+      }
+
+      if (prevSlug) {
+        const prev = siblings.find((sibling) => sibling.slug === prevSlug);
+        prevButton = NavButton(
+          `Previous: ${prev.title}`,
+          prevSlug,
+          nextSlug ? "" : "mt-5",
+          "left"
+        );
+      }
+
+      homeButton = NavButton(parent.title, parent.slug, "", "left");
+    } else {
+      pages = getFiles()
+        .map(unpackFile)
+        .filter(
+          ({ data: item }) => item.parent && item.slug.includes(data.slug)
+        );
+
+      homeButton = NavButton("Home", "/", "mt-5", "left");
+    }
+
     const template = getTemplate("page");
     const htmlContent = toHtml(content.trim());
 
     return render(template, {
-      content: htmlContent,
-      contentEnd: [Backlinks(slug), HomeButton()].join(""),
+      content: [htmlContent, PinnedPages(pages), Pages(pages)].join(""),
+      contentEnd: [Backlinks(slug), nextButton, prevButton, homeButton].join(
+        ""
+      ),
       date: formatDate(data.date),
       description: data.description || excerpt(htmlContent),
-      headTitle: `${data.title} - ${metadata.brand}`,
+      headTitle: `${data.fullTitle()} - ${metadata.brand}`,
       image: metadata.siteUrl + (data.image || metadata.image),
       metaType: "article",
       slug,
-      title: data.title,
+      title: data.fullTitle(),
     });
   } catch (err) {
-    console.error(err);
+    console.error("\x1b[91m%s\x1b[0m", err.message);
     return ErrorPage();
   }
 };

@@ -12,7 +12,7 @@ import { getState, setState } from "./state/accessors.js";
 
 const app = express();
 const liveReloadServer = livereload.createServer();
-const port = 3300;
+const port = 3000;
 
 app.use(connectLivereload());
 

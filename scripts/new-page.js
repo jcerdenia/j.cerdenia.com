@@ -28,7 +28,7 @@ const createNewPage = (_slug, multi) => {
     } else {
       throw Error(`A folder named "${slug}" already exists.`);
     }
-  } else {
+  } else if (multi) {
     fs.mkdirSync(path);
     slug += "/index";
   }

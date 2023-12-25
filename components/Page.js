@@ -32,8 +32,7 @@ const Page = (slug) => {
     if (data.parent) {
       const { parent } = data;
       const siblings = getFiles()
-        .map(unpackFile)
-        .map(({ data: _data }) => _data)
+        .map((file) => unpackFile(file).data)
         .filter((item) => item.parent && item.slug.includes(parent.slug))
         .sort(compareBy("date"));
 
@@ -65,10 +64,9 @@ const Page = (slug) => {
       homeButton = NavButton(parent.title, `/${parent.slug}`, "", "left");
     } else {
       pages = getFiles()
-        .map(unpackFile)
+        .map((file) => unpackFile(file).data)
         .filter(
-          ({ data: item }) =>
-            !item.draft && item.parent && item.slug.includes(data.slug)
+          (item) => !item.draft && item.parent && item.slug.includes(data.slug)
         );
 
       homeButton = NavButton("Home", "/", "mt-5", "left");

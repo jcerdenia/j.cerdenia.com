@@ -15,8 +15,8 @@ const HomePage = () => {
 
   // Create list of site pages
   const pages = getFiles()
-    .map(unpackFile)
-    .filter(({ data: item }) => !item.draft && !item.parent);
+    .map((file) => unpackFile(file).data)
+    .filter((item) => !item.draft && !item.parent);
 
   const htmlContent = toHtml(content);
 

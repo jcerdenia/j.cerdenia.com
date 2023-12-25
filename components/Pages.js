@@ -6,7 +6,6 @@ import List from "./List.js";
 const Pages = (items, showDate = false) =>
   List(
     items
-      .map(({ data }) => data)
       .filter((data) => !data.pinned)
       .sort(compareBy("date"))
       .reverse(),

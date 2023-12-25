@@ -46,7 +46,7 @@ const Page = (slug) => {
         nextButton = NavButton(
           `Next: ${next.title}`,
           `/${nextSlug}`,
-          "mt-5",
+          "mt-5 mb-1",
           "right"
         );
       }
@@ -56,12 +56,12 @@ const Page = (slug) => {
         prevButton = NavButton(
           `Previous: ${prev.title}`,
           `/${prevSlug}`,
-          nextSlug ? "" : "mt-5",
+          nextSlug ? "my-1" : "mt-5 mb-1",
           "left"
         );
       }
 
-      homeButton = NavButton(parent.title, `/${parent.slug}`, "", "left");
+      homeButton = NavButton(parent.title, `/${parent.slug}`, "my-1", "left");
     } else {
       pages = getFiles()
         .map((file) => unpackFile(file).data)

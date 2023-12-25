@@ -67,7 +67,8 @@ const Page = (slug) => {
       pages = getFiles()
         .map(unpackFile)
         .filter(
-          ({ data: item }) => item.parent && item.slug.includes(data.slug)
+          ({ data: item }) =>
+            !item.draft && item.parent && item.slug.includes(data.slug)
         );
 
       homeButton = NavButton("Home", "/", "mt-5", "left");

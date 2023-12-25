@@ -36,7 +36,8 @@
     "livereload": "^0.9.3",
     "markdown-it": "^12.3.2",
     "nodemon": "^2.0.16",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "rimraf": "^5.0.5"
   },
   "nodemonConfig": {
     "ext": "*",

@@ -20,25 +20,29 @@ app.get("/", (_req, res) => {
   res.send(HomePage());
 });
 
-app.get("/rss.xml", (_req, res) => {
-  res.header("Content-Type", "application/xml");
-  res.send(RSSFeed());
-});
+app.get("/:path", (req, res) => {
+  if (req.params.path === "rss.xml") {
+    res.header("Content-Type", "application/xml");
+    res.send(RSSFeed());
+  }
 
-app.get("/:page/", (req, res) => {
   Object.keys(redirects).forEach((key) => {
-    if (key === req.params.page) {
+    if (key === req.params.path) {
       res.redirect(redirects[key]);
     }
   });
 
-  res.send(Page(req.params.page));
+  res.send(Page(req.params.path));
 });
 
-app.get("/:dir/:file", (req, res) => {
-  res.sendFile(req.params.file, {
-    root: join("public", req.params.dir),
-  });
+app.get("/:parent/:child", (req, res) => {
+  const { parent, child } = req.params;
+
+  if (child.includes(".")) {
+    res.sendFile(child, { root: join("public", parent) });
+  } else {
+    res.send(Page(`${parent}/${child}`));
+  }
 });
 
 app.listen(port, () => {

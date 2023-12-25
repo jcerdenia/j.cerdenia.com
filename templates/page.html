@@ -30,15 +30,20 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
     />
 
-    <!-- Internal -->
+    <!-- Internal CSS -->
     <link href="./styles/index.css" type="text/css" rel="stylesheet" />
-    <link href="./styles/prism.css" type="text/css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/jpg" href="{{ icon }}" />
+    <link href="./../styles/index.css" type="text/css" rel="stylesheet" />
+    
+    <!-- Disable for now; not really being used -->
+    <!-- <link href="./styles/prism.css" type="text/css" rel="stylesheet" /> -->
 
+    <link rel="shortcut icon" type="image/jpg" href="{{ icon }}" />
     <title>{{ headTitle }}</title>
   </head>
   <body>
+    <!-- Inital theme -->
     <script src="./scripts/initialTheme.js"></script>
+    <script src="./../scripts/initialTheme.js"></script>
 
     <div class="container">
       <div class="main">
@@ -70,7 +75,10 @@
       </div>
     </div>
 
+    <!-- Theme toggle -->
     <script src="./scripts/themeToggle.js"></script>
+    <script src="./../scripts/themeToggle.js"></script>
+
     <!-- Disable for now; not really being used -->
     <!-- <script src="./scripts/prism.js"></script> -->
   </body>

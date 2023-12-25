@@ -1,4 +1,5 @@
 import fs from "fs";
+import { rimraf } from "rimraf";
 
 import ErrorPage from "./components/ErrorPage.js";
 import HomePage from "./components/HomePage.js";
@@ -10,14 +11,22 @@ import { slugify } from "./lib/utils.js";
 import { redirects } from "./siteConfig.js";
 
 const OUT_PATH = "./public";
+const STATIC_FOLDERS = ["images", "scripts", "styles"];
 
 const pathify = (name) => `${OUT_PATH}/${name}`;
 
 const build = () => {
   // Clear existing HTML files
   fs.readdirSync(OUT_PATH)
-    .filter((name) => name.endsWith(".html"))
-    .forEach((name) => fs.unlinkSync(pathify(name)));
+    .filter((name) => !STATIC_FOLDERS.includes(name))
+    .forEach((name) => {
+      const path = pathify(name);
+      if (name.endsWith(".md")) {
+        fs.unlinkSync(path);
+      } else {
+        rimraf.sync(path);
+      }
+    });
 
   // Write home page
   fs.writeFileSync(pathify("index.html"), HomePage());
@@ -26,6 +35,14 @@ const build = () => {
   getFiles().forEach((name) => {
     const slug = slugify(name);
     const path = pathify(`${slug}.html`);
+
+    if (name.includes("/")) {
+      const folder = pathify(name.split("/")[0]);
+      if (!fs.existsSync(folder)) {
+        fs.mkdirSync(folder);
+      }
+    }
+
     fs.writeFileSync(path, Page(slug));
   });
 

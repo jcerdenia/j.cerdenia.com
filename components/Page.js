@@ -15,20 +15,8 @@ import PinnedPages from "./PinnedPages.js";
 
 const Page = (slug) => {
   try {
-    let path = `${slug}.md`;
     const subfolders = getSubfolders();
-
-    subfolders.forEach((subfolder) => {
-      if (`${slug}-`.includes(`${subfolder}-`)) {
-        const _identifier = slug.slice(subfolder.length);
-        const identifier = _identifier.startsWith("-")
-          ? _identifier.replace("-", "/")
-          : "/index";
-
-        path = `${subfolder + identifier}.md`;
-      }
-    });
-
+    const path = subfolders.includes(slug) ? `${slug}/index.md` : `${slug}.md`;
     const { data, content } = unpackFile(path);
 
     let pages = [];
@@ -58,7 +46,7 @@ const Page = (slug) => {
         const next = siblings.find((sibling) => sibling.slug === nextSlug);
         nextButton = NavButton(
           `Next: ${next.title}`,
-          nextSlug,
+          `/${nextSlug}`,
           "mt-5",
           "right"
         );
@@ -68,13 +56,13 @@ const Page = (slug) => {
         const prev = siblings.find((sibling) => sibling.slug === prevSlug);
         prevButton = NavButton(
           `Previous: ${prev.title}`,
-          prevSlug,
+          `/${prevSlug}`,
           nextSlug ? "" : "mt-5",
           "left"
         );
       }
 
-      homeButton = NavButton(parent.title, parent.slug, "", "left");
+      homeButton = NavButton(parent.title, `/${parent.slug}`, "", "left");
     } else {
       pages = getFiles()
         .map(unpackFile)

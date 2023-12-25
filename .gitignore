@@ -1,7 +1,9 @@
 node_modules
 archive
 server-dev/state/*.json
-public/*.html
-public/*.xml
+public/*
+!public/images
+!public/scripts
+!public/styles
 .vscode
 .DS_Store

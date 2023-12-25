@@ -12,7 +12,10 @@ const Pages = (items, showDate = false) =>
       .reverse(),
     (data) => {
       const title = data.parent ? data.title : data.fullTitle();
-      return [Link(title, data.slug), showDate ? Date(data.date) : ""].join("");
+      return [
+        Link(title, `/${data.slug}`),
+        showDate ? Date(data.date) : "",
+      ].join("");
     }
   );
 

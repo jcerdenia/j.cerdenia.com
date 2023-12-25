@@ -24,7 +24,7 @@ const Backlinks = (slug, showDate = false) => {
         .child(
           List(backlinks, ({ data }) =>
             [
-              Link(data.fullTitle(), data.slug),
+              Link(data.fullTitle(), `/${data.slug}`),
               showDate ? Date(data.date) : "",
             ].join("")
           )

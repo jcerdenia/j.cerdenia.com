@@ -15,7 +15,7 @@ const PinnedPages = (items, showDate = false) =>
 
       return HtmlBuilder("span")
         .child("Pinned: ")
-        .child(Link(title, data.slug))
+        .child(Link(title, `/${data.slug}`))
         .child(Date(data.date), showDate);
     }
   );

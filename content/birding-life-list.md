@@ -1,7 +1,7 @@
 ---
 title: "Birding Life List"
 _date: "2023-11-04"
-pinned: false
+pinned: true
 draft: false
 reverse_sections: false
 evaluate_js: true

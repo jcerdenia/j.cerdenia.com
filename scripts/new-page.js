@@ -36,11 +36,11 @@ const createNewPage = (_slug, multi) => {
   const templatePath = `${CONTENT_PATH}/_template.md`;
   let markdown = fs.readFileSync(templatePath, ENCODING);
   const { data } = matter(markdown);
-  const date = formatDate(new Date(), { locale: "sv-SE" });
+  const date = new Date().toISOString().slice(0, 10);
   markdown = markdown.replace(`date: "${data.date}"`, `date: "${date}"`);
 
   fs.writeFileSync(`${CONTENT_PATH}/${slug}.md`, markdown);
-  console.log("\x1b[32m%s\x1b[0m", `Created new file: ${slug}.md`);
+  console.log("\x1b[32m%s\x1b[0m", `Created file: ${slug}.md`);
 };
 
 const { argv } = process;

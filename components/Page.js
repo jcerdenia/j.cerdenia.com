@@ -33,7 +33,10 @@ const Page = (slug) => {
       const { parent } = data;
       const siblings = getFiles()
         .map((file) => unpackFile(file).data)
-        .filter((item) => item.parent && item.slug.includes(parent.slug))
+        .filter(
+          (item) =>
+            !item.draft && item.parent && item.parent.slug === parent.slug
+        )
         .sort(compareBy("date"));
 
       const siblingSlugs = siblings.map((sibling) => sibling.slug);
@@ -66,7 +69,7 @@ const Page = (slug) => {
       pages = getFiles()
         .map((file) => unpackFile(file).data)
         .filter(
-          (item) => !item.draft && item.parent && item.slug.includes(data.slug)
+          (item) => !item.draft && item.parent && item.parent.slug === data.slug
         )
         .sort(compareBy("date"))
         .reverse();

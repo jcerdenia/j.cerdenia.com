@@ -92,6 +92,9 @@ const Page = (slug) => {
       image: metadata.siteUrl + (data.image || metadata.image),
       metaType: "article",
       slug,
+      syntaxHighlighting:
+        htmlContent.includes("<pre><code") &&
+        htmlContent.includes("</code></pre>"),
       title: data.fullTitle(),
     });
   } catch (err) {

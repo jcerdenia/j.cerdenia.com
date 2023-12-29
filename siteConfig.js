@@ -1,18 +1,8 @@
-/* eslint-disable prettier/prettier */
-const AUTHOR = "Joshua Cerdenia";
-const EMAIL = "joshua@cerdenia.com";
-
 const siteConfig = {
   assets: {
-    postscripts: [
-      "theme-toggle.js",
-      // "prism.js"
-  ],
+    postscripts: ["theme-toggle.js"],
     prescripts: ["theme-init.js"],
-    stylesheets: [
-      "index.css",
-      // "prism.css"
-    ],
+    stylesheets: ["index.css"],
   },
   linkMode: "icon",
   links: [
@@ -23,11 +13,11 @@ const siteConfig = {
     ["RSS", "/rss.xml", "bi bi-rss-fill"],
   ],
   metadata: {
-    author: AUTHOR,
+    author: "Joshua Cerdenia",
     brand: "J. C.",
-    copyright: `&#169; ${new Date().getFullYear()} ${AUTHOR}`,
+    // copyright: `&#169; ${new Date().getFullYear()} Joshua Cerdenia`,
     description: "A Website",
-    email: EMAIL,
+    email: "joshua@cerdenia.com",
     icon: "/images/pp_lake.jpeg",
     image: "/images/pp_lake.jpeg",
     siteUrl: "https://j.cerdenia.com",
@@ -38,10 +28,4 @@ const siteConfig = {
   },
 };
 
-export const {
-  assets,
-  links,
-  linkMode,
-  metadata,
-  redirects
-} = siteConfig;
+export const { assets, links, linkMode, metadata, redirects } = siteConfig;

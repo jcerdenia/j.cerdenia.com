@@ -17,7 +17,6 @@
     <meta name="twitter:image" content="{{ image }}" />
 
     <!-- Bootstrap CSS -->
-
     <link 
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
       rel="stylesheet"
@@ -25,11 +24,11 @@
       crossorigin="anonymous"
     >
 
-    <!-- Bootstrap Icons-->
+    <!-- Bootstrap Icons -->
     <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
-    />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+      rel="stylesheet" 
+    >
 
     {{ stylesheets }}
 
@@ -58,8 +57,7 @@
 
       <footer id="footer">
         <div class="row">
-          <!-- Feel like this is not really necessary -->
-          <!-- <div class="col-12 col-sm-auto">{{ copyright }}</div> -->
+          <div class="col-12 col-sm-auto small row-item">{{ copyright }}</div>
           <div class="col-12 col-sm-auto">{{ links }}</div>
         </div>
       </footer>

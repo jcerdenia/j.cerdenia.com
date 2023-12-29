@@ -3,6 +3,17 @@ const AUTHOR = "Joshua Cerdenia";
 const EMAIL = "joshua@cerdenia.com";
 
 const siteConfig = {
+  assets: {
+    postscripts: [
+      "theme-toggle.js",
+      // "prism.js"
+  ],
+    prescripts: ["theme-init.js"],
+    stylesheets: [
+      "index.css",
+      // "prism.css"
+    ],
+  },
   linkMode: "icon",
   links: [
     ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
@@ -27,4 +38,10 @@ const siteConfig = {
   },
 };
 
-export const { links, linkMode, metadata, redirects } = siteConfig;
+export const {
+  assets,
+  links,
+  linkMode,
+  metadata,
+  redirects
+} = siteConfig;

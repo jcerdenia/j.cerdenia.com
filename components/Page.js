@@ -81,6 +81,7 @@ const Page = (slug) => {
     const htmlContent = toHtml(content.trim());
 
     return render(template, {
+      child: !!data.parent,
       content: [htmlContent, PinnedPages(pages), Pages(pages)].join(""),
       contentEnd: [Backlinks(slug), nextButton, prevButton, homeButton].join(
         ""

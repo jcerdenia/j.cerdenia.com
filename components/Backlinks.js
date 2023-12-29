@@ -5,7 +5,7 @@ import Date from "./Date.js";
 import Link from "./Link.js";
 import List from "./List.js";
 
-const Backlinks = (slug, showDate = false) => {
+const Backlinks = (slug, showDates = false) => {
   const backlinks = getFiles()
     .map(unpackFile)
     .filter(
@@ -25,7 +25,7 @@ const Backlinks = (slug, showDate = false) => {
           List(backlinks, ({ data }) =>
             [
               Link(data.fullTitle(), `/${data.slug}`),
-              showDate ? Date(data.date) : "",
+              showDates ? Date(data.date) : "",
             ].join("")
           )
         )

@@ -3,7 +3,7 @@ import Date from "./Date.js";
 import Link from "./Link.js";
 import List from "./List.js";
 
-const PinnedPages = (items, showDate = false) =>
+const PinnedPages = (items, showDates = false) =>
   List(
     items.filter((data) => data.pinned),
     (data) => {
@@ -12,7 +12,7 @@ const PinnedPages = (items, showDate = false) =>
       return HtmlBuilder("span")
         .child("Pinned: ")
         .child(Link(title, `/${data.slug}`))
-        .child(Date(data.date), showDate);
+        .child(Date(data.date), showDates);
     }
   );
 

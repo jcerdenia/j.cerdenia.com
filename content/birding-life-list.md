@@ -79,7 +79,7 @@ const data = [
   ['Common Name', 'Scientific Name', 'Location', 'Date', 'Ref'],
   ['Eurasian Tree Sparrow', 'Passer montanus', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
   ['Yellow-vented Bulbul', 'Pycnonotus goiavier', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
-  ['Rock Pigeon', 'Columba livia', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
+  ['Rock Dove', 'Columba livia', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
   ['Zebra Dove', 'Geopelia striata', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
   ['Philippine Pied Fantail', 'Rhipidura nigritorquis', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],
   ['Garden Sunbird', 'Cinnyris jugularis', 'Taytay, Rizal, PH', '2023/07-09', '/birding-ph-2023/1'],

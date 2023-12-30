@@ -123,6 +123,10 @@ audio {
   align-items: center;
 }
 
+.semibold {
+  font-weight: var(--weight-medium);
+}
+
 .small {
   font-size: var(--font-small);
 }

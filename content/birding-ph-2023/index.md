@@ -5,6 +5,4 @@ pinned: false
 draft: false
 ---
 
-Various entries between October 23 through the end of the year.
-
 See also: my [running life list](/birding-life-list).

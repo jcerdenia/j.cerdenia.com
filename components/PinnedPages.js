@@ -12,6 +12,11 @@ const PinnedPages = (items, showDates = false) =>
       return HtmlBuilder("span")
         .child("Pinned: ")
         .child(Link(title, `/${data.slug}`))
+        .child(
+          HtmlBuilder("span")
+            .class("ms-2 small")
+            .child(data.subtitle, data.subtitle)
+        )
         .child(Date(data.date), showDates);
     }
   );

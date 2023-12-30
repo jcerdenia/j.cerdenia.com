@@ -87,11 +87,12 @@ const Page = (slug) => {
         ""
       ),
       date: formatDate(data.date),
-      description: data.description || excerpt(htmlContent),
+      description: data.subtitle || excerpt(htmlContent),
       headTitle: `${data.fullTitle()} - ${metadata.brand}`,
       image: metadata.siteUrl + (data.image || metadata.image),
       metaType: "article",
       slug,
+      subtitle: data.subtitle,
       syntaxHighlighting:
         htmlContent.includes("<pre><code") &&
         htmlContent.includes("</code></pre>"),

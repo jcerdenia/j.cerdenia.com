@@ -1,14 +1,14 @@
 import fs from "fs";
 import { rimraf } from "rimraf";
 
-import ErrorPage from "./components/ErrorPage.js";
-import HomePage from "./components/HomePage.js";
-import Page from "./components/Page.js";
-import RSSFeed from "./components/RSSFeed.js";
-import getFiles, { getTemplate } from "./lib/files.js";
-import render from "./lib/render.js";
-import { slugify } from "./lib/utils.js";
-import { redirects } from "./siteConfig.js";
+import ErrorPage from "../components/ErrorPage.js";
+import HomePage from "../components/HomePage.js";
+import Page from "../components/Page.js";
+import RSSFeed from "../components/RSSFeed.js";
+import getFiles, { getTemplate } from "../lib/files.js";
+import render from "../lib/render.js";
+import { slugify } from "../lib/utils.js";
+import { redirects } from "../siteConfig.js";
 
 const OUT_PATH = "./public";
 const STATIC_FOLDERS = ["images", "scripts", "styles"];

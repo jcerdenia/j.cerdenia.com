@@ -2,7 +2,6 @@ import fs from "fs";
 import matter from "gray-matter";
 
 import { CONTENT_PATH, ENCODING } from "../lib/files.js";
-import { formatDate } from "../lib/utils.js";
 
 const createNewPage = (_slug, multi) => {
   let slug = _slug;

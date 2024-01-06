@@ -155,7 +155,7 @@ const data = [
   ["Great Egret", "Ardea alba", "Taytay, Rizal, PH", "2023/11/10", "/birding-ph-2023/3"],
   ["Common Kingfisher", "Alcedo atthis", "Taytay, Rizal, PH", "2023/11/11", "/birding-ph-2023/3"],
   ["Intermediate Egret", "Ardea intermedia", "Taytay, Rizal, PH", "2023/11/14", "/birding-ph-2023/4"],
-  ["Arctic Warbler?", "Phylloscopus borealis", "Taytay, Rizal, PH", "2023/11/14", "/birding-ph-2023/4"],
+  // ["Arctic Warbler?", "Phylloscopus borealis", "Taytay, Rizal, PH", "2023/11/14", "/birding-ph-2023/4"],
   ["Striated Grassbird", "Megalurus palustris", "Taytay, Rizal, PH", "2023/11/16", "/birding-ph-2023/5"],
   ["Chestnut Munia", "Lonchura atricapilla", "Taytay, Rizal, PH", "2023/11/17", "/birding-ph-2023/5"],
   ["Collared Kingfisher", "Todiramphus chloris", "Taytay, Rizal, PH", "2023/11/18", "/birding-ph-2023/5"],
@@ -178,7 +178,14 @@ const data = [
   ["Buff-banded Rail", "Hypotaenidia philippensis", "Taytay, Rizal, PH", "2023/12/21", "/birding-ph-2023/8"],
   ["Brown-breasted Kingfisher", "Halcyon gularis", "Taytay, Rizal, PH", "2023/12/23", "/birding-ph-2023/9"],
   ["Asian Glossy Starling", "Aplonis panayensis", "Taytay, Rizal, PH", "2023/12/23", "/birding-ph-2023/9"],
-  ["Swinhoe's Snipe?", "Gallinago megala", "Taytay, Rizal, PH", "2023/12/31", "/birding-ph-2023/13"],
+  // ["Swinhoe's Snipe?", "Gallinago megala", "Taytay, Rizal, PH", "2023/12/31", "/birding-ph-2023/13"],
+  ["Tawny Grassbird", "Cincloramphus timoriensis", "Taytay, Rizal, PH", "2024/01/01"],
+  ["Arctic Warbler", "Phylloscopus borealis", "Taytay, Rizal, PH", "2024/01/04"],
+  ["Common Snipe", "Gallinago gallinago", "Taytay, Rizal, PH", "2024/01/06"],
+  ["Greater Painted-Snipe", "Rostratula benghalensis", "Taytay, Rizal, PH", "2024/01/06"],
+  ["Philippine Coucal?", "Centropus viridis", "Taytay, Rizal, PH", "2024/01/06"],
+  ["Watercock", "Gallicrex cinerea", "Taytay, Rizal, PH", "2024/01/06"],
+  ["White-bellied Munia", "Lonchura leucogastra", "Taytay, Rizal, PH", "2024/01/06"],
 ]
 
 render(data);

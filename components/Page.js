@@ -88,7 +88,7 @@ const Page = (slug) => {
       ),
       date: formatDate(data.date),
       description: data.subtitle || excerpt(htmlContent),
-      headTitle: `${data.fullTitle()} - ${metadata.brand}`,
+      headTitle: `${data.fullTitle} - ${metadata.brand}`,
       image: metadata.siteUrl + (data.image || metadata.image),
       metaType: "article",
       slug,
@@ -96,7 +96,7 @@ const Page = (slug) => {
       syntaxHighlighting:
         htmlContent.includes("<pre><code") &&
         htmlContent.includes("</code></pre>"),
-      title: data.fullTitle(),
+      title: data.fullTitle,
     });
   } catch (err) {
     console.error("\x1b[91m%s\x1b[0m", err.message);

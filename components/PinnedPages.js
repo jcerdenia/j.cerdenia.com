@@ -7,7 +7,7 @@ const PinnedPages = (items, showDates = false) =>
   List(
     items.filter((data) => data.pinned),
     (data) => {
-      const title = data.parent ? data.title : data.fullTitle();
+      const title = data.parent ? data.title : data.fullTitle;
 
       return HtmlBuilder("span")
         .child("Pinned: ")

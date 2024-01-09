@@ -15,35 +15,33 @@ function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
 
   const lists = [
     // Main Table
-    { title: "", filter: ([name]) => !name.endsWith("?") },
+    { title: "", filter: ([name]) => !name.endsWith("?"), start: "default" },
     // Provisional IDs
-    { title: "Almost Sure", filter: ([name]) => name.endsWith("?") },
+    { title: "Not Sure", filter: ([name]) => name.endsWith("?"), start: -1 },
   ];
 
   const summaries = [
     { // Counts by country
       title: (ctr) => `Count of ${ctr} species`,
-      filter: (i, ctr) => i[headers.indexOf("Location")].endsWith(ctr),
+      filter: (i, ctr) => (
+        i[headers.indexOf("Location")].endsWith(ctr)
+        && !i[headers.indexOf("Common Name")].endsWith("?")
+      ),
       items: [...new Set(data.map((i) => (
         i[headers.indexOf("Location")].split(",").reverse()[0].trim()
       )))].filter((ctr) => ctr),
     },
     { // Counts by year
       title: (yr) => `${yr} count`,
-      filter: (i, yr) => i[headers.indexOf("Date")].startsWith(yr),
+      filter: (i, yr) => (
+        i[headers.indexOf("Date")].startsWith(yr)
+        && !i[headers.indexOf("Common Name")].endsWith("?")
+      ),
       items: [...new Set(data.map((i) => (
         i[headers.indexOf("Date")].split("/")[0].trim()
       )))].filter((yr) => yr),
     },
   ];
-
-  const countries = [...new Set(data.map((i) => (
-    i[headers.indexOf("Location")].split(",").reverse()[0].trim()
-  )))].filter((ctr) => ctr);
-
-  const years = [...new Set(data.map((i) => (
-    i[headers.indexOf("Date")].split("/")[0].trim()
-  )))].filter((yr) => yr);
 
   return (
     `<div class="row">
@@ -52,13 +50,13 @@ function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
       ).trim()).join("\n")}
     </div>
     <div>
-      <ol reversed>
-        ${lists
-          .filter(({ filter }) => data.filter(filter).length)
-          .map(({ title, filter, start }) => (
-            `${title 
-              ? `<div class="mt-4 mb-2 bold">${title}</div>`
-              : `<span></span>`}
+      ${lists
+        .filter(({ filter }) => data.filter(filter).length)
+        .map(({ title, filter, start }) => (
+          `${title 
+            ? `<div class="mt-4 mb-2 bold">${title}</div>`
+            : `<span></span>`}
+          <ol reversed start="${start}"">
             <div>
               ${[...data].reverse().filter(filter).map((items) => (
                 `<li>
@@ -81,9 +79,9 @@ function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
                   </div>
                 </li>`
               ).trim()).join("\n")}
-            </div>`
-          )).join("\n")}
-      </ol reversed>
+            </div>
+          </ol>`
+        )).join("\n")}
     </div>
     <div>
       ${summaries.map(({ title, filter, items }) => (
@@ -138,7 +136,7 @@ const data = [
   ["White-throated Sparrow", "Zonotrichia albicollis", "New York, NY, US", "2023/10/05"],
   ["Yellow-bellied Sapsucker", "Sphyrapicus varius", "New York, NY, US", "2023/10/05"],
   ["Blue Jay", "Cyanocitta cristata", "New York, NY, US", "2023/10/08"],
-  ["Cooper's Hawk", "Accipiter cooperii", "New York, NY, US", "2023/10/08"],
+  ["Cooper's/Sharp-shinned Hawk?", "Accipiter cooperii/striatus", "New York, NY, US", "2023/10/08"],
   ["American Robin", "Turdus migratorius", "New York, NY, US", "2023/10/08"],
   ["Ring-billed Gull", "Larus delawarensis", "New York, NY, US", "2023/10/08"],
   ["Northern Cardinal", "Cardinalis cardinalis", "New York, NY, US", "2023/10/10"],
@@ -184,7 +182,6 @@ const data = [
   ["Great Egret", "Ardea alba", "Taytay, Rizal, PH", "2023/11/10", "/birding-ph-2023/3"],
   ["Common Kingfisher", "Alcedo atthis", "Taytay, Rizal, PH", "2023/11/11", "/birding-ph-2023/3"],
   ["Intermediate Egret", "Ardea intermedia", "Taytay, Rizal, PH", "2023/11/14", "/birding-ph-2023/4"],
-  // ["Arctic Warbler?", "Phylloscopus borealis", "Taytay, Rizal, PH", "2023/11/14", "/birding-ph-2023/4"],
   ["Striated Grassbird", "Megalurus palustris", "Taytay, Rizal, PH", "2023/11/16", "/birding-ph-2023/5"],
   ["Chestnut Munia", "Lonchura atricapilla", "Taytay, Rizal, PH", "2023/11/17", "/birding-ph-2023/5"],
   ["Collared Kingfisher", "Todiramphus chloris", "Taytay, Rizal, PH", "2023/11/18", "/birding-ph-2023/5"],
@@ -207,12 +204,11 @@ const data = [
   ["Buff-banded Rail", "Hypotaenidia philippensis", "Taytay, Rizal, PH", "2023/12/21", "/birding-ph-2023/8"],
   ["Brown-breasted Kingfisher", "Halcyon gularis", "Taytay, Rizal, PH", "2023/12/23", "/birding-ph-2023/9"],
   ["Asian Glossy Starling", "Aplonis panayensis", "Taytay, Rizal, PH", "2023/12/23", "/birding-ph-2023/9"],
-  // ["Swinhoe's Snipe?", "Gallinago megala", "Taytay, Rizal, PH", "2023/12/31", "/birding-ph-2023/13"],
   ["Tawny Grassbird", "Cincloramphus timoriensis", "Taytay, Rizal, PH", "2024/01/01"],
   ["Arctic Warbler", "Phylloscopus borealis", "Taytay, Rizal, PH", "2024/01/04"],
   ["Common Snipe", "Gallinago gallinago", "Taytay, Rizal, PH", "2024/01/06"],
   ["Greater Painted-Snipe", "Rostratula benghalensis", "Taytay, Rizal, PH", "2024/01/06"],
-  ["Philippine Coucal", "Centropus viridis", "Taytay, Rizal, PH", "2024/01/06"],
+  ["Philippine/Lesser Coucal?", "Centropus viridis/bengalensis", "Taytay, Rizal, PH", "2024/01/06"],
   ["Watercock", "Gallicrex cinerea", "Taytay, Rizal, PH", "2024/01/06"],
   ["White-bellied Munia", "Lonchura leucogastra", "Taytay, Rizal, PH", "2024/01/06"],
   ["Balicassiao", "Dicrurus balicassius", "Subic Bay, Bataan, PH", "2024/01/07"],

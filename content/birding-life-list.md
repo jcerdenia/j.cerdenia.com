@@ -44,11 +44,13 @@ function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
   ];
 
   return (
-    `<div class="row">
-      ${headers.filter((_, i) => spans[i]).map((hdr, i) => (
-        `<div class="col-${breakpoint}-${spans[i]} bold">${hdr}</div>`
-      ).trim()).join("\n")}
-    </div>
+    `<ol class="mb-2">
+      <div class="row">
+        ${headers.filter((_, i) => spans[i]).map((hdr, i) => (
+          `<div class="col-${breakpoint}-${spans[i]} bold">${hdr}</div>`
+        ).trim()).join("\n")}
+      </div>
+    </ol>
     <div>
       ${lists
         .filter(({ filter }) => data.filter(filter).length)
@@ -56,7 +58,7 @@ function render(data, spans = [4, 3, 3, 2], breakpoint = "sm") {
           `${title 
             ? `<div class="mt-4 mb-2 bold">${title}</div>`
             : `<span></span>`}
-          <ol reversed start="${start}"">
+          <ol reversed start="${start}">
             <div>
               ${[...data].reverse().filter(filter).map((items) => (
                 `<li>

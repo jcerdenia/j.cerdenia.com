@@ -228,6 +228,11 @@ const data = [
   ["Philippine Falconet", "Microhierax erythrogenys", "Subic Bay, Bataan, PH", "2024/01/07"],
   ["Luzon Hornbill", "Penelopides manillae", "Subic Bay, Bataan, PH", "2024/01/07"],
   ["White-eared Brown-Dove", "Phapitreron leucotis", "Subic Bay, Bataan, PH", "2024/01/07"],
+  ["Chestnut-cheeked Starling", "Agropsar philippensis", "Taytay, Rizal, PH", "2024/01/11"],
+  ["Black Kite", "Milvus migrans", "Hong Kong, HK", "2024/01/13"],
+  ["Red-whiskered Bulbul", "Pycnonotus jocosus", "Hong Kong, HK", "2024/01/13"],
+  ["Oriental Magpie-Robin", "Copsychus saularis", "Hong Kong, HK", "2024/01/13"],
+  ["Black-collared Starling", "Gracupica nigricollis", "Hong Kong, HK", "2024/01/13"],
 ]
 
 render(data);

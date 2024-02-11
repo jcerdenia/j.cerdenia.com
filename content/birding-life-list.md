@@ -3,7 +3,7 @@ title: "Birding Life List"
 subtitle: "Since July 2023"
 _date: "2023-11-04"
 pinned: true
-draft: false
+draft: true
 reverse_sections: false
 evaluate_js: true
 ---

@@ -1,6 +1,7 @@
 ---
 title: "What I'm Doing Now"
 pinned: true
+draft: true
 date: "2023/11/17"
 ---
 

@@ -2,6 +2,4 @@
 title: ""
 ---
 
-![](/images/pp_lake.jpeg)
-
-Fragments, drafts, etc.
+A personal website (coming back in 2025)

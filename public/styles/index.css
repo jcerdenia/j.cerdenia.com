@@ -165,11 +165,11 @@ footer {
   }
 }
 
-/* 1200 and above */
-@media screen and (min-width: 1200px) {
+/* 1024 and above */
+@media screen and (min-width: 1024px) {
   .container {
     /* Limit max container width in wide view */
-    max-width: 960px !important;
+    max-width: 800px !important;
   }
 
   #theme-toggle {

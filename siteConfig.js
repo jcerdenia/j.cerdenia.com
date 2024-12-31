@@ -16,7 +16,7 @@ const siteConfig = {
     author: "Joshua Cerdenia",
     brand: "J. C.",
     // copyright: `&#169; ${new Date().getFullYear()} Joshua Cerdenia`,
-    description: "A Website",
+    description: "a personal website",
     email: "joshua@cerdenia.com",
     icon: "/images/pp_lake.jpeg",
     image: "/images/pp_lake.jpeg",

@@ -169,7 +169,7 @@ footer {
 @media screen and (min-width: 1024px) {
   .container {
     /* Limit max container width in wide view */
-    max-width: 800px !important;
+    max-width: 720px !important;
   }
 
   #theme-toggle {

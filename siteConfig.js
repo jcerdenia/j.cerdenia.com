@@ -18,8 +18,8 @@ const siteConfig = {
     // copyright: `&#169; ${new Date().getFullYear()} Joshua Cerdenia`,
     description: "a personal website",
     email: "joshua@cerdenia.com",
-    icon: "/images/pp_lake.jpeg",
-    image: "/images/pp_lake.jpeg",
+    icon: "/images/egret.jpeg",
+    image: "/images/egret.jpeg",
     siteUrl: "https://j.cerdenia.com",
   },
   redirects: {

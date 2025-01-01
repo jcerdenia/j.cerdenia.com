@@ -2,4 +2,4 @@
 title: ""
 ---
 
-A personal website (coming back in 2025)
+Composer and software engineer, in no certain order

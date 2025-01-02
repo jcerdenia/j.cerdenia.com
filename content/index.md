@@ -2,4 +2,6 @@
 title: ""
 ---
 
-Composer and software engineer, in no certain order
+Composer and software engineer
+
+Drafts, experiments, etc.

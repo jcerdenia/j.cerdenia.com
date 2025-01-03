@@ -7,9 +7,9 @@ const siteConfig = {
   linkMode: "icon",
   links: [
     ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
-    ["Music", "https://cerdenia.com", "bi bi-music-note"],
+    // ["Music", "https://cerdenia.com", "bi bi-music-note"],
     // ["Twitter", "https://twitter.com/jc_erde", "bi bi-twitter"],
-    // ["Mailing List", `https://tinyletter.com/jcerdenia`, "bi bi-envelope-fill"],
+    ["Email", `mailto:joshua@cerdenia.com`, "bi bi-envelope-fill"],
     ["RSS", "/rss.xml", "bi bi-rss-fill"],
   ],
   metadata: {

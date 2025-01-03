@@ -157,14 +157,6 @@ footer {
   filter: drop-shadow(1px 2px 8px var(--color-shadow));
 }
 
-/* 576 and below */
-@media screen and (max-width: 576px) {
-  .main {
-    /* Also sheer trial and error */
-    min-height: calc(100vh - 109px);
-  }
-}
-
 /* 1024 and above */
 @media screen and (min-width: 1024px) {
   .container {

@@ -6,6 +6,3 @@ draft: false
 reverse_sections: false
 evaluate_js: false
 ---
-
-I asked ChatGPT to interview me.
-

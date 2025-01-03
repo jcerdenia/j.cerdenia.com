@@ -9,6 +9,6 @@ evaluate_js: false
 
 # PH Bird News
 
-Automated AI-powered news feed of birding reports from the Philippines, driven by user-submitted eBird data. 
+[`ph.birdnews.xyz`](https://ph.birdnews.xyz)
 
-[`ph.birdnews.xyz`](https://ph.birdnews.xyz).
+Fully automated AI-powered news feed of the latest birding reports from around the Philippines. Running daily from morning to midnight, articles are published hourly and driven by public data from [eBird](https://ebird.org).

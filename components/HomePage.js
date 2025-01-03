@@ -16,8 +16,7 @@ const HomePage = () => {
   // Create list of site pages
   const pages = getFiles()
     .map((file) => unpackFile(file).data)
-    .filter((item) => !item.draft && !item.parent)
-    .sort(compareBy("title"));
+    .filter((item) => !item.draft && !item.parent);
 
   const htmlContent = toHtml(content);
 
@@ -25,8 +24,8 @@ const HomePage = () => {
     className: "home",
     content: htmlContent,
     contentEnd: HtmlBuilder("div")
-      .child(PinnedPages(pages))
-      .child(Pages(pages)),
+      .child(PinnedPages(pages.sort(compareBy("title"))))
+      .child(Pages(pages.sort(compareBy("date")).reverse())),
     description: data.description || excerpt(htmlContent),
     headTitle: data.title || `${metadata.brand} - ${metadata.description}`,
     image: metadata.siteUrl + (data.image || metadata.image),

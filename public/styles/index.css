@@ -131,6 +131,10 @@ audio {
   font-size: var(--font-small);
 }
 
+.sub {
+  vertical-align: sub;
+}
+
 .text-muted {
   color: var(--color-muted) !important;
 }

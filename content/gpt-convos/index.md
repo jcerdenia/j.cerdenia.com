@@ -1,5 +1,5 @@
 ---
-title: "Conversations with ChatGPT"
+title: "Conversations with GPT"
 subtitle: ""
 pinned: false
 draft: false

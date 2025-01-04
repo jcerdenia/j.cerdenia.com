@@ -58,7 +58,7 @@ const build = () => {
       pathify(`${key}.html`),
       render(getTemplate("redirect"), {
         url: redirects[key],
-      })
+      }),
     );
   });
 

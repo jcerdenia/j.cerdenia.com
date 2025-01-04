@@ -9,7 +9,7 @@ const ErrorPage = () => {
 
   return render(template, {
     content: HtmlBuilder("p").child(
-      "Sorry! That page doesn't exist or may have moved."
+      "Sorry! That page doesn't exist or may have moved.",
     ),
     contentEnd: NavButton("Home", "/", "mt-5", "left"),
     headTitle: `Page Not Found - ${metadata.brand}`,

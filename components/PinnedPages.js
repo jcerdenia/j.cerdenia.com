@@ -15,10 +15,10 @@ const PinnedPages = (items, showDates = false) =>
         .child(
           HtmlBuilder("span")
             .class("ms-2 small")
-            .child(data.subtitle, data.subtitle)
+            .child(data.subtitle, data.subtitle),
         )
         .child(Date(data.date), showDates);
-    }
+    },
   );
 
 export default PinnedPages;

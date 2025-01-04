@@ -16,7 +16,7 @@ const Pages = (items, showDates = false) =>
           .child(data.subtitle, data.subtitle),
         showDates ? Date(data.date) : "",
       ].join("");
-    }
+    },
   );
 
 export default Pages;

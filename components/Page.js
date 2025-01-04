@@ -35,7 +35,7 @@ const Page = (slug) => {
         .map((file) => unpackFile(file).data)
         .filter(
           (item) =>
-            !item.draft && item.parent && item.parent.slug === parent.slug
+            !item.draft && item.parent && item.parent.slug === parent.slug,
         )
         .sort(compareBy("date"));
 
@@ -50,7 +50,7 @@ const Page = (slug) => {
           `Next: ${next.title}`,
           `/${nextSlug}`,
           "mt-5 mb-1",
-          "right"
+          "right",
         );
       }
 
@@ -60,7 +60,7 @@ const Page = (slug) => {
           `Previous: ${prev.title}`,
           `/${prevSlug}`,
           nextSlug ? "my-1" : "mt-5 mb-1",
-          "left"
+          "left",
         );
       }
 
@@ -69,7 +69,8 @@ const Page = (slug) => {
       pages = getFiles()
         .map((file) => unpackFile(file).data)
         .filter(
-          (item) => !item.draft && item.parent && item.parent.slug === data.slug
+          (item) =>
+            !item.draft && item.parent && item.parent.slug === data.slug,
         )
         .sort(compareBy("date"))
         .reverse();
@@ -84,7 +85,7 @@ const Page = (slug) => {
       child: !!data.parent,
       content: [htmlContent, PinnedPages(pages), Pages(pages)].join(""),
       contentEnd: [Backlinks(slug), nextButton, prevButton, homeButton].join(
-        ""
+        "",
       ),
       date: formatDate(data.date),
       description: data.subtitle || excerpt(htmlContent),

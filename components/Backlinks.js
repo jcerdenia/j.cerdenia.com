@@ -13,7 +13,7 @@ const Backlinks = (slug, showDates = false) => {
         !data.draft &&
         (content.includes(`](/${slug})`) ||
           content.includes(`](/${slug}#`) ||
-          content.includes(`href="/${slug}`))
+          content.includes(`href="/${slug}`)),
     )
     .sort(compareBy("title"));
 
@@ -26,8 +26,8 @@ const Backlinks = (slug, showDates = false) => {
             [
               Link(data.fullTitle, `/${data.slug}`),
               showDates ? Date(data.date) : "",
-            ].join("")
-          )
+            ].join(""),
+          ),
         )
     : "";
 };

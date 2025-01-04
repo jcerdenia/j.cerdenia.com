@@ -50,7 +50,7 @@ const RSSFeed = () => {
       author: [author],
       content: post.content.replace(
         /<p><img src="\//g,
-        `<p><img src="${baseUrl}/`
+        `<p><img src="${baseUrl}/`,
       ),
       contributor: [author],
       date: new Date(post.date || post._date),

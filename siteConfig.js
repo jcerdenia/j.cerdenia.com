@@ -4,14 +4,6 @@ const siteConfig = {
     prescripts: ["theme-init.js"],
     stylesheets: ["index.css"],
   },
-  linkMode: "icon",
-  links: [
-    ["Music", "https://cerdenia.com", "bi bi-music-note"],
-    ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
-    // ["Twitter", "https://twitter.com/jc_erde", "bi bi-twitter"],
-    ["Email", `mailto:joshua@cerdenia.com`, "bi bi-envelope-fill"],
-    ["RSS", "/rss.xml", "bi bi-rss-fill"],
-  ],
   metadata: {
     author: "Joshua Cerdenia",
     brand: "J. C.",
@@ -26,6 +18,13 @@ const siteConfig = {
     feed: "/rss.xml",
     music: "https://cerdenia.com",
   },
+  socialIcons: true,
+  socials: [
+    ["GitHub", "https://github.com/jcerdenia", "bi bi-github"],
+    // ["X", "https://x.com/jc_erde", "bi bi-twitter-x"],
+    ["Email", `mailto:joshua@cerdenia.com`, "bi bi-envelope-fill"],
+    ["RSS", "/rss.xml", "bi bi-rss-fill"],
+  ],
 };
 
-export const { assets, links, linkMode, metadata, redirects } = siteConfig;
+export const { assets, socials, socialIcons, metadata, redirects } = siteConfig;

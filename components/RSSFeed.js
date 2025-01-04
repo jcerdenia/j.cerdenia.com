@@ -14,12 +14,16 @@ const RSSFeed = () => {
         data.feed = true;
       }
 
+      if (data.parent) {
+        data.title = `[${data.parent.title}] ${data.title}`;
+      }
+
       return {
         content: toHtml(content),
         ...data,
       };
     })
-    .filter((post) => !post.draft && post.feed)
+    .filter((post) => !post.draft && post.feed && post.content)
     .sort(compareBy("date"))
     .reverse()
     .slice(0, 20);

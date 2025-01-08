@@ -9,7 +9,7 @@ I graduated from Juilliard in 2016 and began my working life as a musician in NY
 
 Musically I'm a student of the western classical tradition and am especially fond of the 20th-century American symphonists, which I think is obvious in [my work](https://cerdenia.com). Lately I've been primarily interested in musical theatre.
 
-As a programmer I have experience across various platforms: web, backend, and mobile. I'm still trying to find my "tech voice" and simply lean hard into whatever holds my interest. Right now I'm riding the AI train.
+As a programmer I have experience across various platforms: web, backend, and mobile. I'm still trying to find my "tech voice" and simply lean hard into whatever holds my interest. Right now I'm [riding the AI train](/ai-accelerator).
 
 Outside the workplace, I'm devoted to birding and esoteric pursuits.
 

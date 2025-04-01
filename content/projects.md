@@ -2,7 +2,7 @@
 title: "Projects"
 subtitle: ""
 pinned: true
-draft: false
+draft: true
 reverse_sections: false
 evaluate_js: false
 ---

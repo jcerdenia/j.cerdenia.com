@@ -1,6 +1,7 @@
 ---
 title: "About"
 pinned: true
+draft: true
 ---
 
 J. C. is Josh Cerdenia. I'm a [composer](https://www.youtube.com/watch?v=xnmJFpS1x34) and software engineer.

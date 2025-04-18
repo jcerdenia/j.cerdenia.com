@@ -46,5 +46,8 @@
       "public/*.html",
       "server-dev/state/*.json"
     ]
+  },
+  "engines": {
+    "node": "23.x"
   }
 }
